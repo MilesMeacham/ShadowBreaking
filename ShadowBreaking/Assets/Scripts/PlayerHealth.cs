@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
 	bool isDead;
 	bool damaged;
 
-	private UnityAction someListener; //this is to test player death
+	private UnityAction damageListener; //this is to test player death
 	private SpriteRenderer sprite_renderer;
 
 
@@ -24,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
 
 		currentHealth = startingHealth;
 
-		someListener = new UnityAction (DoDamage);
+		damageListener = new UnityAction (DoDamage);
 	}
 
 
@@ -37,12 +37,12 @@ public class PlayerHealth : MonoBehaviour
 
 	void OnEnable ()
 	{
-		EventManager.StartListening ("damage", someListener);
+		EventManager.StartListening ("damage", damageListener);
 	}
 
 	void OnDisable ()
 	{
-		EventManager.StopListening ("damage", someListener);
+		EventManager.StopListening ("damage", damageListener);
 	}
 
 
@@ -56,7 +56,6 @@ public class PlayerHealth : MonoBehaviour
 		if(currentHealth <= 0 && !isDead)
 		{
 			Death ();
-			Debug.Log ("Player has died");
 		}
 	}
 
@@ -65,10 +64,11 @@ public class PlayerHealth : MonoBehaviour
 	{
 		isDead = true;
 
-		EventManager.TriggerEvent ("PlayerDead");
-
 		playerMovement.enabled = false;
 		sprite_renderer.enabled = false;
+
+		Debug.Log ("Player has died");
+		EventManager.TriggerEvent ("PlayerDead");
 	}
 
 	void DoDamage()
