@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801bc6cca1c9cb04d951a9ac75e081fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 2040499752}
   m_speed: 0.1
 --- !u!1001 &1836796929
 Prefab:
@@ -228,7 +228,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013750686714, guid: cdb2d0aeb536c9d4f8123e8b128339c4, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4000013750686714, guid: cdb2d0aeb536c9d4f8123e8b128339c4, type: 2}
       propertyPath: m_LocalScale.x
@@ -241,6 +241,21 @@ Prefab:
     - target: {fileID: 4000013750686714, guid: cdb2d0aeb536c9d4f8123e8b128339c4, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 23000010475995798, guid: cdb2d0aeb536c9d4f8123e8b128339c4,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23000013823287390, guid: cdb2d0aeb536c9d4f8123e8b128339c4,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23000013124552186, guid: cdb2d0aeb536c9d4f8123e8b128339c4,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cdb2d0aeb536c9d4f8123e8b128339c4, type: 2}
@@ -296,6 +311,16 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212000014114886372, guid: 5fe899bc20936324d8768d6a2bf1a980,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5fe899bc20936324d8768d6a2bf1a980, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &2040499752 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000010334476724, guid: 5fe899bc20936324d8768d6a2bf1a980,
+    type: 2}
+  m_PrefabInternal: {fileID: 1846300657}
