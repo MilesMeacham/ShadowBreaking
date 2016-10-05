@@ -8,9 +8,15 @@ public class HeartManager : MonoBehaviour {
     int healthPerHeart = 2;
 
     // This will probably be handled by the health script. Need to get together with whoever is programming that and work this out.
-    int startingHealth = 6;
+    public int startingHealth = 6;
 
 	void Start ()
+	{
+		DisplayCorrectNumberOfHearts ();
+	}
+
+
+	void DisplayCorrectNumberOfHearts ()
     {
         int healthToAdd = startingHealth;
 
