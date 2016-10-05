@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
 	bool damaged;
 
 	private UnityAction damageListener; //this is to test player death
+	private UnityAction resurrectionListener;
 	private SpriteRenderer sprite_renderer;
 
 
@@ -25,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
 		currentHealth = startingHealth;
 
 		damageListener = new UnityAction (DoDamage);
+		resurrectionListener = new UnityAction (Resurrection);
 	}
 
 
@@ -38,11 +40,13 @@ public class PlayerHealth : MonoBehaviour
 	void OnEnable ()
 	{
 		EventManager.StartListening ("damage", damageListener);
+		EventManager.StartListening ("Resurrection", resurrectionListener);
 	}
 
 	void OnDisable ()
 	{
 		EventManager.StopListening ("damage", damageListener);
+		EventManager.StopListening ("Resurrection", resurrectionListener);
 	}
 
 
@@ -60,19 +64,37 @@ public class PlayerHealth : MonoBehaviour
 	}
 
 
-	void Death ()
-	{
-		isDead = true;
-
-		playerMovement.enabled = false;
-		sprite_renderer.enabled = false;
-
-		Debug.Log ("Player has died");
-		EventManager.TriggerEvent ("PlayerDead");
-	}
-
 	void DoDamage()
 	{
 		TakeDamage (damage);
+	}
+
+
+	void Death ()
+	{
+		if (isDead != true) {
+			
+			isDead = true;
+
+			playerMovement.enabled = false;
+			sprite_renderer.enabled = false;
+
+			Debug.Log ("Player has died");
+			EventManager.TriggerEvent ("PlayerDead");
+		}
+	}
+
+
+	void Resurrection ()
+	{
+		if (isDead != false) {
+			
+			isDead = false;
+
+			playerMovement.enabled = true;
+			sprite_renderer.enabled = true;
+
+			currentHealth = startingHealth;
+		}
 	}
 }

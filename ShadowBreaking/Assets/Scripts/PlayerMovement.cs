@@ -6,11 +6,16 @@ public class PlayerMovement : MonoBehaviour {
 
 	Rigidbody2D rbody;
 	Animator anim;
+	Vector2 initialPos;
+	Quaternion initialRotation;
+	Vector2 restedPos;
 
 
 	void Start () {
 		rbody = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
+		initialPos = transform.position;
+		initialRotation = transform.rotation;
 	}
 	
 
@@ -26,5 +31,14 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		rbody.MovePosition (rbody.position + (movement_vector) * Time.deltaTime);
+	}
+
+
+	void OnTriggerEnter (Collider other)
+	{
+		if (other.gameObject.CompareTag ("Bonfire")) 
+		{
+			restedPos = new Vector2 (transform.position.x,transform.position.y);
+		}
 	}
 }

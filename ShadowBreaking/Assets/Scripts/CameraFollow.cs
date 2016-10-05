@@ -4,7 +4,7 @@ using System.Collections;
 public class CameraFollow : MonoBehaviour {
 
 	public Transform target;
-	public float m_speed = 0.1f;
+	public float m_speed = 100.0f;
 	Camera myCam;
 
 	// Use this for initialization
