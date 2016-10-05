@@ -10,6 +10,7 @@ public class HeartManager : MonoBehaviour {
     // This will probably be handled by the health script. Need to get together with whoever is programming that and work this out.
     public int startingHealth = 6;
 
+
 	void Start ()
 	{
 		DisplayCorrectNumberOfHearts ();
