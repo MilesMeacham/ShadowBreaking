@@ -4,13 +4,15 @@ using System.Collections;
 
 public class PlayerDeathManager : MonoBehaviour {
 
+	public Transform movePlayer;
+
 	private UnityAction deathListener; //this is to test player death
 	private SpriteRenderer sprite_renderer;
 
 
 	void Awake ()
 	{
-		deathListener = new UnityAction (ResetPlayerLocation);
+		deathListener = new UnityAction (DeathFunctions);
 	}
 	
 	void OnEnable ()
@@ -21,6 +23,11 @@ public class PlayerDeathManager : MonoBehaviour {
 	void OnDisable ()
 	{
 		EventManager.StopListening ("PlayerDead", deathListener);
+	}
+
+	void DeathFunctions ()
+	{
+		ResetPlayerLocation ();
 	}
 
 

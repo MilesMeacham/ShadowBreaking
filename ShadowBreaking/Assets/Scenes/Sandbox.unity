@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee4568e56193234ab576c68f7c513e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePlayer: {fileID: 1611383963}
 --- !u!4 &1475484738
 Transform:
   m_ObjectHideFlags: 0
@@ -323,6 +324,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!4 &1611383963 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000011671596246, guid: cdb2d0aeb536c9d4f8123e8b128339c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1836796929}
 --- !u!1001 &1836796929
 Prefab:
   m_ObjectHideFlags: 0
