@@ -4,9 +4,11 @@ using System.Collections;
 
 public class PlayerDeathManager : MonoBehaviour {
 
-	private GameObject player;
+	//Needs to be added to Game Manager _GM
 
-	private UnityAction deathListener; //this is to test player death
+
+	private GameObject player;
+	private UnityAction deathListener; //this is the action that will be triggered if PlayerDead has been triggered
 	private SpriteRenderer sprite_renderer;
 
 	Camera mainCamera;
@@ -17,27 +19,27 @@ public class PlayerDeathManager : MonoBehaviour {
 
 	void Start ()
 	{
-		player = GameObject.FindGameObjectWithTag ("Player");
-		initialPos = player.transform.position;
+		player = GameObject.FindGameObjectWithTag ("Player"); //this will find the Player object
+		initialPos = player.transform.position; //sets the initial position of the player when the scene starts
 	}
 
 	void Awake ()
 	{
-		deathListener = new UnityAction (DeathFunctions);
+		deathListener = new UnityAction (DeathFunctions); //DeathFunctions function will be called when deathListener is triggered
 	}
 	
 	void OnEnable ()
 	{
-		EventManager.StartListening ("PlayerDead", deathListener);
+		EventManager.StartListening ("PlayerDead", deathListener); //start listening for PlayerDead
 
 	}
 
 	void OnDisable ()
 	{
-		EventManager.StopListening ("PlayerDead", deathListener);
+		EventManager.StopListening ("PlayerDead", deathListener); //stop listening for PlayerDead
 	}
 
-	void DeathFunctions ()
+	void DeathFunctions () // contains functions that will be called when the player dies
 	{
 		//ResetPlayerLevel ();
 		ResetPlayer ();
@@ -47,7 +49,7 @@ public class PlayerDeathManager : MonoBehaviour {
 	}
 
 
-	IEnumerator ResetPlayerLevel()
+	IEnumerator ResetPlayerLevel() // trying to get fading to work when player dies then "resurrects"
 	{
 		Debug.Log("PlayerDead has been triggered");
 
@@ -56,7 +58,7 @@ public class PlayerDeathManager : MonoBehaviour {
 		player.transform.position = new Vector2(initialPos.x,initialPos.y);
 	}
 
-	void ResetPlayer()
+	void ResetPlayer() // player dies and player position is set to its initial position.
 	{
 		Debug.Log("PlayerDead has been triggered");
 
