@@ -22,6 +22,8 @@ GameObject:
   - 212: {fileID: 212000011119045254}
   - 95: {fileID: 95000012618654150}
   - 61: {fileID: 61000010883062538}
+  - 114: {fileID: 114000010285206092}
+  - 114: {fileID: 114000010836365934}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
@@ -36,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013082265336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.800892, y: -2.9392126, z: 0}
+  m_LocalPosition: {x: 5.75, y: -5.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -73,6 +75,34 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000010285206092
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013082265336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16b8ae233f8825439c34d4ec32734f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0.5
+  chaseDistance: 3
+  attackDistance: 1
+--- !u!114 &114000010836365934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013082265336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd241e9f10be8cf4597ed034672c9685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDistance: 1
+  waitTime: 0.5
+  projectile: {fileID: 0}
 --- !u!212 &212000011119045254
 SpriteRenderer:
   m_ObjectHideFlags: 1

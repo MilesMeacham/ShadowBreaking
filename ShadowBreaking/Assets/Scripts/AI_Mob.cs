@@ -29,6 +29,8 @@ public class AI_Mob : MonoBehaviour {
             transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, MoveSpeed * Time.deltaTime);
         }
 
+
+
         //  If the distance between the mob and the player
         //  is less than or equal to the AttackDistance,
         //  the mob launches a projectile at the player.
