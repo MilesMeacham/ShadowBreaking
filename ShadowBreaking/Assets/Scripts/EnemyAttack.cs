@@ -30,7 +30,7 @@ public class EnemyAttack : MonoBehaviour {
 			waitTime -= Time.deltaTime;
 			if (waitTime <= 0 && projectile) {
 				Instantiate(projectile, transform.position, Quaternion.identity);
-				waitTime = 0.5f;
+				waitTime = 1.0f;
 			}
 		}
 	} // END UPDATE()
