@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour {
 	Rigidbody2D rbody;
 	Animator anim;
 	Vector2 initialPos;
-	Quaternion initialRotation;
+	//Quaternion initialRotation;
 	Vector2 restedPos;
 
 
@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour {
 		rbody = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 		initialPos = transform.position;
-		initialRotation = transform.rotation;
+		//initialRotation = transform.rotation;
 	}
 	
 
@@ -31,6 +31,11 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		rbody.MovePosition (rbody.position + (movement_vector) * Time.deltaTime);
+
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			anim.SetTrigger ("Attack");
+
+		}
 	}
 
 
