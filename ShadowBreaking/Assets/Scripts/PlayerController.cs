@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour {
 
     //Use this for initialization
     void Start () {
-	    
 	}
 	
 	// Update is called once per frame
@@ -66,5 +65,14 @@ public class PlayerController : MonoBehaviour {
         }
 
 
+    }
+	
+    void OnCollisionEnter2D(Collision2D col) {
+        if (col.gameObject.tag == "Enemy")
+		{
+			Debug.Log("Enemy collide");
+			EventManager.TriggerEvent("damage");
+			
+		}
     }
 }

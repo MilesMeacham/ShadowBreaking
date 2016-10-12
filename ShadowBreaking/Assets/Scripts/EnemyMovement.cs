@@ -13,11 +13,14 @@ public class EnemyMovement : MonoBehaviour {
 	private float distanceToPlayer;
 	private float xDiff;
 	private float yDiff;
+	private float xLoc;
+	private float yLoc;
 
 	private bool walking = false;
 
 	private Vector2 currentEnemyPos;
 	private Vector2 prevEnemyPos;
+
 
 	private GameObject player;
 
@@ -56,6 +59,10 @@ public class EnemyMovement : MonoBehaviour {
 			anim.SetFloat ("Input_Y", yDiff);
 		} else {
 			anim.SetBool ("IsWalking", false);
+			xLoc = player.transform.position.x - transform.position.x;
+			yLoc = player.transform.position.y - transform.position.y;
+			anim.SetFloat ("Input_X", xLoc);
+			anim.SetFloat ("Input_Y", yLoc);
 		}
 
 		prevEnemyPos = currentEnemyPos;

@@ -31,6 +31,10 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		rbody.MovePosition (rbody.position + (movement_vector) * Time.deltaTime);
+
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			anim.SetTrigger ("Attack");
+		}
 	}
 
 
