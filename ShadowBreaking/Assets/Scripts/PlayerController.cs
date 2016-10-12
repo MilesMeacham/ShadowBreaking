@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour {
         //Key for Testing Death
         if (Input.GetKeyDown(KeyCode.E))
         {
-            //currentChar.onHit(10);
+            currentChar.TakeDamage(110);
         }
 
 

@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using System.Collections;
 using System;
 
 public class Character : MonoBehaviour {
 
     
-    private Rigidbody2D rbody;
+    public Rigidbody2D rbody;
     private bool isRunning = false;
     Animator anim;
     Vector2 restedPos;
@@ -14,10 +15,9 @@ public class Character : MonoBehaviour {
     private bool isBlocking = false;
     private int currentHealth;
 
-
-    public int maxHealth = 10;    
-    public float walkspeed = 4;
-    public float runspeed = 8;
+    public int maxHealth = 100;    
+    public float walkspeed = 1;
+    public float runspeed = 3;
 
    
     
@@ -26,6 +26,8 @@ public class Character : MonoBehaviour {
         currentHealth = maxHealth;
         anim = GetComponent<Animator>();
     }
+
+
 
     /// <summary>
     /// Handles movement.
@@ -36,7 +38,7 @@ public class Character : MonoBehaviour {
 
 
 
-        if (movement_vector != Vector2.zero)
+        if (movement_vector != Vector2.zero && isActing != true)
         {
             anim.SetBool("IsWalking", true);
             anim.SetFloat("Input_X", movement_vector.x);
@@ -68,11 +70,14 @@ public class Character : MonoBehaviour {
     {
         isRunning = !isRunning;
     }
-    
+
     /// <summary>
     /// When the character is hit.
     /// </summary>
-    public bool onHit(int damage)
+    /// 
+
+  
+    public bool TakeDamage(int damage)
     {
         if (isBlocking)
         {
@@ -115,6 +120,8 @@ public class Character : MonoBehaviour {
         if(currentHealth <= 0)
         {
             isActing = true;
+            EventManager.TriggerEvent("PlayerDead");
+            
             return true;
         }
         else
@@ -123,6 +130,15 @@ public class Character : MonoBehaviour {
         }
 
     }
+
+    public void Resurrection()
+    {
+        currentHealth = maxHealth;
+        isActing = false;
+    }
+
+
+
 
     void OnTriggerEnter(Collider other)
     {
