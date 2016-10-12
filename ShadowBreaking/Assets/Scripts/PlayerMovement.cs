@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			anim.SetTrigger ("Attack");
+
 		}
 	}
 
