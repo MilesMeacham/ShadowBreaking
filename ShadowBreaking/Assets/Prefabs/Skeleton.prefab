@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDistance: 1
   waitTime: 0.5
-  projectile: {fileID: 0}
+  projectile: {fileID: 1000010969265602, guid: d03aed4de1963634691c01ebf39c8452, type: 2}
 --- !u!212 &212000011119045254
 SpriteRenderer:
   m_ObjectHideFlags: 1
