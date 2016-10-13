@@ -25,7 +25,6 @@ GameObject:
   - 58: {fileID: 58000013283582240}
   - 82: {fileID: 82000010256254758}
   - 114: {fileID: 114000011974344400}
-  - 114: {fileID: 114000011243582114}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -168,20 +167,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000011243582114
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012678996946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a003eab9dbf0c104e892ffac8bb3282c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 100
-  currentHealth: 0
-  damage: 10
 --- !u!114 &114000011974344400
 MonoBehaviour:
   m_ObjectHideFlags: 1

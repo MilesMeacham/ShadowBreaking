@@ -479,6 +479,7 @@ MonoBehaviour:
   - {fileID: 1376814751}
   - {fileID: 475914655}
   - {fileID: 1089098333}
+  maxSpawn: 7
 --- !u!4 &1211581302
 Transform:
   m_ObjectHideFlags: 0
@@ -859,7 +860,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000011243582114, guid: 5fe899bc20936324d8768d6a2bf1a980, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5fe899bc20936324d8768d6a2bf1a980, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &2036774892
@@ -900,6 +902,11 @@ Prefab:
     - target: {fileID: 4000014117645914, guid: ee0347b2358657649ae7eda3305df87d, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 23000011187608216, guid: ee0347b2358657649ae7eda3305df87d,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee0347b2358657649ae7eda3305df87d, type: 2}

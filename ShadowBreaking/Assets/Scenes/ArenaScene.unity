@@ -139,6 +139,11 @@ Prefab:
       propertyPath: mainHUD
       value: 
       objectReference: {fileID: 1445909219}
+    - target: {fileID: 114000010310330346, guid: 9c7e57411f8bccf43b48b940e1015771,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c7e57411f8bccf43b48b940e1015771, type: 2}
   m_IsPrefabParent: 0
@@ -444,6 +449,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 684358600}
   m_RootOrder: 4
+--- !u!50 &1158919036 stripped
+Rigidbody2D:
+  m_PrefabParentObject: {fileID: 50000012743571916, guid: 5fe899bc20936324d8768d6a2bf1a980,
+    type: 2}
+  m_PrefabInternal: {fileID: 1846300657}
 --- !u!1 &1211581300
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,6 +489,7 @@ MonoBehaviour:
   - {fileID: 1376814751}
   - {fileID: 475914655}
   - {fileID: 1089098333}
+  maxSpawn: 7
 --- !u!4 &1211581302
 Transform:
   m_ObjectHideFlags: 0
@@ -864,7 +875,28 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114000011243582114, guid: 5fe899bc20936324d8768d6a2bf1a980,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011974344400, guid: 5fe899bc20936324d8768d6a2bf1a980,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011974344400, guid: 5fe899bc20936324d8768d6a2bf1a980,
+        type: 2}
+      propertyPath: rbody
+      value: 
+      objectReference: {fileID: 1158919036}
+    - target: {fileID: 114000011974344400, guid: 5fe899bc20936324d8768d6a2bf1a980,
+        type: 2}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114000011243582114, guid: 5fe899bc20936324d8768d6a2bf1a980, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5fe899bc20936324d8768d6a2bf1a980, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &2036774892
@@ -905,6 +937,11 @@ Prefab:
     - target: {fileID: 4000014117645914, guid: ee0347b2358657649ae7eda3305df87d, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 23000011187608216, guid: ee0347b2358657649ae7eda3305df87d,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee0347b2358657649ae7eda3305df87d, type: 2}
