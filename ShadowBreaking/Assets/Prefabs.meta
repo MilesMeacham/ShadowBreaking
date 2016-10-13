@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD
+guid: f6821416e101eee41a746a74f86be527
+folderAsset: yes
+timeCreated: 1475452745
+=======
+guid: c6c2d8cd2d816a945a0c187b7957204d
+folderAsset: yes
+timeCreated: 1475460426
+>>>>>>> 98e030c... Title Scene
+=======
+guid: c6c2d8cd2d816a945a0c187b7957204d
+folderAsset: yes
+timeCreated: 1475460426
+>>>>>>> develop
+licenseType: Free
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
