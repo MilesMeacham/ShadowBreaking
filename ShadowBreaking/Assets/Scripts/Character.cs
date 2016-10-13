@@ -7,6 +7,7 @@ public class Character : MonoBehaviour {
 
     
     public Rigidbody2D rbody;
+    private bool isWalking = false;
     private bool isRunning = false;
     Animator anim;
     Vector2 restedPos;
@@ -19,12 +20,16 @@ public class Character : MonoBehaviour {
     public float walkspeed = 1;
     public float runspeed = 3;
 
+    public AudioClip[] footsteps;
+    AudioSource moveSound;
    
     
     void Start () {
         rbody = GetComponentInChildren<Rigidbody2D>();
         currentHealth = maxHealth;
         anim = GetComponent<Animator>();
+        moveSound = GetComponent<AudioSource> ();
+        moveSound.clip = footsteps[0];
     }
 
 
@@ -36,29 +41,29 @@ public class Character : MonoBehaviour {
     public void Move(Vector2 movement_vector)
     {
 
-
-
         if (movement_vector != Vector2.zero && isActing != true)
         {
             anim.SetBool("IsWalking", true);
             anim.SetFloat("Input_X", movement_vector.x);
             anim.SetFloat("Input_Y", movement_vector.y);
-        }
-        else {
-            anim.SetBool("IsWalking", false);
-        }
-
-        if (movement_vector != Vector2.zero && isActing != true)
-        {
             
             if (isRunning)
             {
+                
                 rbody.MovePosition(rbody.position + movement_vector * Time.deltaTime * runspeed);
             }
             else
             {
                 rbody.MovePosition(rbody.position + movement_vector * Time.deltaTime * walkspeed);
             }
+
+            if (!moveSound.isPlaying)
+                moveSound.Play();
+        }
+        else 
+        {
+            moveSound.Stop();
+            anim.SetBool("IsWalking", false);
         }
 
     }
@@ -69,6 +74,10 @@ public class Character : MonoBehaviour {
     public void ToggleSpeed()
     {
         isRunning = !isRunning;
+        if (isRunning)
+            moveSound.clip = footsteps[1];
+        else
+            moveSound.clip = footsteps[0];
     }
 
     /// <summary>

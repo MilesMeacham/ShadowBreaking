@@ -5,18 +5,31 @@ public class PlayerController : MonoBehaviour {
 
     public Character currentChar;
 
+    public Canvas mainHUD;
+    HUDUI hudController;
+
+    AudioSource walkSound;
+
     //Generic implementation of Health
     private int currentHealth;
     private int maxHealth;
     private int currentStamina;
     private int maxStamina;
 
+
     //Use this for initialization
     void Start () {
+        hudController = mainHUD.GetComponent<HUDUI>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            hudController.Pause();
+        if (hudController.gamePaused)
+            return;
+
         Vector2 movement_vector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
 
