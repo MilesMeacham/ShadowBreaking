@@ -32,6 +32,10 @@ public class Character : MonoBehaviour {
         moveSound.clip = footsteps[0];
     }
 
+	void Update ()
+	{
+
+	}
 
 
     /// <summary>
@@ -65,8 +69,9 @@ public class Character : MonoBehaviour {
             moveSound.Stop();
             anim.SetBool("IsWalking", false);
         }
-
     }
+
+
 
     /// <summary>
     /// Toggles whether or not the player is walking or running.
@@ -102,6 +107,8 @@ public class Character : MonoBehaviour {
     public bool ActionOne()
     {
         //Implement based on equiped item.
+		anim.SetTrigger ("Attack");
+
 
         return true;
     }
