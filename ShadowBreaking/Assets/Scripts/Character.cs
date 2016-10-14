@@ -15,6 +15,9 @@ public class Character : MonoBehaviour {
     private bool isActing = false;
     private bool isBlocking = false;
     private int currentHealth;
+	
+//MILES ADDED
+	private HeartManager heartManager;
 
     public int maxHealth = 100;    
     public float walkspeed = 1;
@@ -30,6 +33,9 @@ public class Character : MonoBehaviour {
         anim = GetComponent<Animator>();
         moveSound = GetComponent<AudioSource> ();
         moveSound.clip = footsteps[0];
+		
+		//MILES ADDED
+		heartManager = FindObjectOfType<HeartManager> ().GetComponent<HeartManager> ();
     }
 
 	void Update ()
@@ -99,6 +105,8 @@ public class Character : MonoBehaviour {
         }
         
         currentHealth -= damage;
+		//MILES ADDED
+		heartManager.DisplayCorrectNumberOfHearts(currentHealth);
         isDead();
         
         return true;
@@ -150,6 +158,8 @@ public class Character : MonoBehaviour {
     public void Resurrection()
     {
         currentHealth = maxHealth;
+		//MILES ADDED
+		heartManager.DisplayCorrectNumberOfHearts(currentHealth);
         isActing = false;
     }
 
