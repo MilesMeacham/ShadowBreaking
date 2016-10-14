@@ -221,7 +221,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 50
   currentHealth: 0
-  EnemyController: {fileID: 0}
 --- !u!212 &212000011119045254
 SpriteRenderer:
   m_ObjectHideFlags: 1
