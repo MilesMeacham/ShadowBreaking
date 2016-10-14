@@ -11,9 +11,13 @@ public class EnemyAttack : MonoBehaviour {
 	private GameObject player;
 	public GameObject projectile;
 
+    public AudioClip[] attackSounds;
+    AudioSource attackSound;
+
 	// START:
 	void Start() {
 		player = GameObject.FindGameObjectWithTag("Player");
+        attackSound = GetComponent<AudioSource>();
 	} // END START()
 
 	// UPDATE:
@@ -30,6 +34,8 @@ public class EnemyAttack : MonoBehaviour {
 			waitTime -= Time.deltaTime;
 			if (waitTime <= 0 && projectile) {
 				Instantiate(projectile, transform.position, Quaternion.identity);
+                attackSound.clip = attackSounds[Mathf.RoundToInt(Random.value * (attackSounds.Length - 1))];
+                attackSound.Play();
 				waitTime = 1.0f;
 			}
 		}

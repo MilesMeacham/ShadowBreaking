@@ -67,7 +67,8 @@ public class PlayerHealth : MonoBehaviour
 
 		if(currentHealth <= 0 && !isDead)
 		{
-			Death ();
+			EventManager.TriggerEvent("PlayerDead");
+			//Death ();
 		}
 	}
 

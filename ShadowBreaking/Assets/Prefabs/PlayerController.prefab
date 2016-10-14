@@ -52,3 +52,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentChar: {fileID: 0}
+  mainHUD: {fileID: 0}
