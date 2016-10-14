@@ -7,7 +7,6 @@ public class Character : MonoBehaviour {
 
     
     public Rigidbody2D rbody;
-    private bool isWalking = false;
     private bool isRunning = false;
     Animator anim;
     Vector2 restedPos;
@@ -36,7 +35,6 @@ public class Character : MonoBehaviour {
         moveSound = GetComponent<AudioSource> ();
         moveSound.clip = footsteps[0];
 		
-		//MILES ADDED
 		heartManager = FindObjectOfType<HeartManager> ().GetComponent<HeartManager> ();
     }
 
