@@ -18,6 +18,8 @@ public class Character : MonoBehaviour {
 	
 //MILES ADDED
 	private HeartManager heartManager;
+	public float invincibilityTime = 0.5f;
+	private bool invincible = false;
 
     public int maxHealth = 100;    
     public float walkspeed = 1;
@@ -99,7 +101,7 @@ public class Character : MonoBehaviour {
   
     public bool TakeDamage(int damage)
     {
-        if (isBlocking)
+        if (isBlocking || invincible)
         {
             return false;
         }
@@ -108,9 +110,18 @@ public class Character : MonoBehaviour {
 		//MILES ADDED
 		heartManager.DisplayCorrectNumberOfHearts(currentHealth);
         isDead();
+
+		StartCoroutine (Invincibility ());
         
         return true;
     }
+
+	IEnumerator Invincibility()
+	{
+		invincible = true;
+		yield return new WaitForSeconds (invincibilityTime);
+		invincible = false;
+	}
 
     public bool ActionOne()
     {
