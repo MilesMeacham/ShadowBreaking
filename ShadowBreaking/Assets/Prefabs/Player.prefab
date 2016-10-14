@@ -21,10 +21,10 @@ GameObject:
   - 4: {fileID: 4000010334476724}
   - 212: {fileID: 212000014114886372}
   - 95: {fileID: 95000010083989374}
-  - 114: {fileID: 114000013112902596}
   - 50: {fileID: 50000012743571916}
   - 58: {fileID: 58000013283582240}
-  - 114: {fileID: 114000012333483638}
+  - 82: {fileID: 82000010256254758}
+  - 114: {fileID: 114000011974344400}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -76,6 +76,80 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!82 &82000010256254758
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012678996946}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1a70d4925f52bdb4089d36322844c830, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95000010083989374
 Animator:
   serializedVersion: 3
@@ -93,7 +167,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000012333483638
+--- !u!114 &114000011974344400
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -101,23 +175,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012678996946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a003eab9dbf0c104e892ffac8bb3282c, type: 3}
+  m_Script: {fileID: 11500000, guid: fdc79a0f3c30c48469ed7eb30f29044a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
-  currentHealth: 0
-  damage: 10
---- !u!114 &114000013112902596
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012678996946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 078a016e8a5205543b76db9d7cacbc86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  rbody: {fileID: 0}
+  maxHealth: 10
+  walkspeed: 2
+  runspeed: 4
+  footsteps:
+  - {fileID: 8300000, guid: 6ce28344b785dd6458462eda515fe3d9, type: 3}
+  - {fileID: 8300000, guid: 4d932777dbe93ca4ca4964d9a5d84327, type: 3}
 --- !u!212 &212000014114886372
 SpriteRenderer:
   m_ObjectHideFlags: 1
