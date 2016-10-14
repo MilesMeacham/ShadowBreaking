@@ -25,6 +25,7 @@ GameObject:
   - 58: {fileID: 58000013283582240}
   - 82: {fileID: 82000010256254758}
   - 114: {fileID: 114000011974344400}
+  - 114: {fileID: 114000014036486470}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -85,7 +86,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1a70d4925f52bdb4089d36322844c830, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
@@ -178,13 +179,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc79a0f3c30c48469ed7eb30f29044a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rbody: {fileID: 0}
-  maxHealth: 10
+  rbody: {fileID: 50000012743571916}
+  invincibilityTime: 0.5
+  maxHealth: 100
   walkspeed: 2
   runspeed: 4
   footsteps:
   - {fileID: 8300000, guid: 6ce28344b785dd6458462eda515fe3d9, type: 3}
   - {fileID: 8300000, guid: 4d932777dbe93ca4ca4964d9a5d84327, type: 3}
+--- !u!114 &114000014036486470
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012678996946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33635c3aec4024496b509eb81b30c9e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bumpDamage: 10
 --- !u!212 &212000014114886372
 SpriteRenderer:
   m_ObjectHideFlags: 1
