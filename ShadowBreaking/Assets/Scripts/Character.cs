@@ -126,6 +126,7 @@ public class Character : MonoBehaviour {
         //Implement based on equiped item.
 		anim.SetTrigger ("Attack");
 
+        //
 
         return true;
     }
