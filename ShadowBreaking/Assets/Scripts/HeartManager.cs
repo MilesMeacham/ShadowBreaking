@@ -16,7 +16,7 @@ public class HeartManager : MonoBehaviour {
 	void Start ()
 	{
 		
-		health = GameObject.Find ("Player").GetComponent<Character> ();
+        health = GameObject.Find ("Player_New").GetComponent<Character> ();
 		startingHealth = health.maxHealth;
 		DisplayCorrectNumberOfHearts (startingHealth);
 	}

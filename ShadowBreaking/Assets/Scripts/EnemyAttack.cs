@@ -34,7 +34,7 @@ public class EnemyAttack : MonoBehaviour {
 			waitTime -= Time.deltaTime;
 			if (waitTime <= 0 && projectile) {
 				Instantiate(projectile, transform.position, Quaternion.identity);
-                attackSound.clip = attackSounds[Mathf.RoundToInt(Random.value * attackSounds.Length)];
+                attackSound.clip = attackSounds[Mathf.RoundToInt(Random.value * (attackSounds.Length - 1))];
                 attackSound.Play();
 				waitTime = 1.0f;
 			}
