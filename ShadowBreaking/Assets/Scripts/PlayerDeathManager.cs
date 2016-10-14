@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using UnityEngine.UI;
+
 
 public class PlayerDeathManager : MonoBehaviour {
 
@@ -8,6 +10,7 @@ public class PlayerDeathManager : MonoBehaviour {
 
 
 	public Character player;
+	public Text deathText;
 	private UnityAction deathListener; //this is the action that will be triggered if PlayerDead has been triggered
 	private SpriteRenderer sprite_renderer;
 
@@ -43,7 +46,9 @@ public class PlayerDeathManager : MonoBehaviour {
 	{
 		//ResetPlayerLevel ();
 		ResetPlayer ();
-
+		
+		//timing function
+		StartCoroutine(Timer());
 
 		EventManager.TriggerEvent ("Resurrection");
 	}
@@ -56,5 +61,12 @@ public class PlayerDeathManager : MonoBehaviour {
 		player.rbody.transform.position = new Vector2(initialPos.x,initialPos.y);
         player.Resurrection();
         
+	}
+	
+	IEnumerator Timer()
+	{
+		deathText.enabled = true;
+		yield return new WaitForSeconds(3);
+		deathText.enabled = false;
 	}
 }
