@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AI_Projectile : MonoBehaviour {
     public int MoveSpeed = 1;
-    private GameObject Player;
+    public GameObject Player;
 	private Vector2 playerPos;
 
     // START:
@@ -22,7 +22,8 @@ public class AI_Projectile : MonoBehaviour {
         if (col.gameObject.tag == "Player")
 		{
             Destroy(gameObject);
-			EventManager.TriggerEvent("damage");
+			Player.GetComponent<Character>().TakeDamage(10);
+			//EventManager.TriggerEvent("damage");
 		}
     }
 } // END CLASS AI_Projectile

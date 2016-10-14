@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using UnityEngine.UI;
+
 
 public class PlayerDeathManager : MonoBehaviour {
 
 	//Needs to be added to Game Manager _GM
 
 
-	private GameObject player;
+	public Character player;
+	public Text deathText;
 	private UnityAction deathListener; //this is the action that will be triggered if PlayerDead has been triggered
 	private SpriteRenderer sprite_renderer;
 
@@ -19,8 +22,8 @@ public class PlayerDeathManager : MonoBehaviour {
 
 	void Start ()
 	{
-		player = GameObject.FindGameObjectWithTag ("Player"); //this will find the Player object
-		initialPos = player.transform.position; //sets the initial position of the player when the scene starts
+		 //this will find the Player object
+		initialPos = player.rbody.transform.position; //sets the initial position of the player when the scene starts
 	}
 
 	void Awake ()
@@ -43,25 +46,27 @@ public class PlayerDeathManager : MonoBehaviour {
 	{
 		//ResetPlayerLevel ();
 		ResetPlayer ();
-
+		
+		//timing function
+		StartCoroutine(Timer());
 
 		EventManager.TriggerEvent ("Resurrection");
 	}
 
 
-	IEnumerator ResetPlayerLevel() // trying to get fading to work when player dies then "resurrects"
-	{
-		Debug.Log("PlayerDead has been triggered");
-
-		float fadeTime = GameObject.Find ("_GM").GetComponent<Fader> ().BeginFade (-1);
-		yield return new WaitForSeconds (fadeTime);
-		player.transform.position = new Vector2(initialPos.x,initialPos.y);
-	}
-
 	void ResetPlayer() // player dies and player position is set to its initial position.
 	{
 		Debug.Log("PlayerDead has been triggered");
 
-		player.transform.position = new Vector2(initialPos.x,initialPos.y);
+		player.rbody.transform.position = new Vector2(initialPos.x,initialPos.y);
+        player.Resurrection();
+        
+	}
+	
+	IEnumerator Timer()
+	{
+		deathText.enabled = true;
+		yield return new WaitForSeconds(3);
+		deathText.enabled = false;
 	}
 }
