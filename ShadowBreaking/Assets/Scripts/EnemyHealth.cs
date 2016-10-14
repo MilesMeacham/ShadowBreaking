@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
 	public int startingHealth = 50;
 	public int currentHealth;
+	public GameObject EnemyController;
 	private UnityAction damageListener;
 	
 	bool isDead = false;
@@ -15,7 +16,7 @@ public class EnemyHealth : MonoBehaviour
 		currentHealth = startingHealth;
 	}
 	
-	void OnEnable ()
+	/*void OnEnable ()
 	{
 		EventManager.StartListening ("damage", damageListener);
 	}
@@ -23,7 +24,7 @@ public class EnemyHealth : MonoBehaviour
 	void OnDisable ()
 	{
 		EventManager.StopListening ("damage", damageListener);
-	}
+	} */
 	
 	public void TakeDamage (int amount)
 	{
@@ -44,7 +45,9 @@ public class EnemyHealth : MonoBehaviour
 			
 			isDead = true;
 			Destroy(gameObject);
-
+			
+			EnemyController.GetComponent<EnemyManager>().UpdateDeath();
+			
 			Debug.Log ("Enemy has died");
 
 		}
