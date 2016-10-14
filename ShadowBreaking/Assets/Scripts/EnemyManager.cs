@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour
     public float spawnTime = 5f;            // How long between each spawn.
     public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
 	public int maxSpawn = 7;
+	public int remainingSpawn = maxSpawn;
 	public int deaths = 0;
 	public Text victory;
 
@@ -26,7 +27,7 @@ public class EnemyManager : MonoBehaviour
         {
             return;
         }*/
-		if(maxSpawn == 0)
+		if(remainingSpawn == 0)
 			return;
 
         // Find a random index between zero and one less than the number of spawn points.
@@ -34,7 +35,7 @@ public class EnemyManager : MonoBehaviour
 
         // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
         Instantiate (enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-		maxSpawn = maxSpawn - 1;
+		remainingSpawn = remainingSpawn - 1;
     }
 	
 	public void UpdateDeath()
