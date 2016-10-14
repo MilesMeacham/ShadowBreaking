@@ -59,6 +59,7 @@ GameObject:
   - 4: {fileID: 4000013829531414}
   - 212: {fileID: 212000013093929268}
   - 61: {fileID: 61000010983894310}
+  - 114: {fileID: 114000010748552820}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Sword
@@ -255,12 +256,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rbody: {fileID: 50000012167671982}
+  invincibilityTime: 0.5
   maxHealth: 100
   walkspeed: 2
   runspeed: 4
   footsteps:
   - {fileID: 8300000, guid: 6ce28344b785dd6458462eda515fe3d9, type: 3}
   - {fileID: 8300000, guid: 4d932777dbe93ca4ca4964d9a5d84327, type: 3}
+--- !u!114 &114000010748552820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014009959806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85848a794d700649922f7af4c3c060a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponDamage: 10
 --- !u!114 &114000014270787244
 MonoBehaviour:
   m_ObjectHideFlags: 1
