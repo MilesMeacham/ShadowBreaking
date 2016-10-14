@@ -10,14 +10,14 @@ public class HeartManager : MonoBehaviour {
     // This will probably be handled by the health script. Need to get together with whoever is programming that and work this out.
     public int startingHealth = 100;
 
-	private PlayerHealth health;
+	private Character health;
 
 
 	void Start ()
 	{
 		
-		health = GameObject.Find ("Player").GetComponent<PlayerHealth> ();
-		startingHealth = health.startingHealth;
+		health = GameObject.Find ("Player").GetComponent<Character> ();
+		startingHealth = health.maxHealth;
 		DisplayCorrectNumberOfHearts (startingHealth);
 	}
 
