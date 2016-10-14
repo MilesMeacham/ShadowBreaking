@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class EnemyManager : MonoBehaviour
     public float spawnTime = 5f;            // How long between each spawn.
     public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
 	public int maxSpawn = 7;
+	public int deaths = 0;
+	public Text victory;
 
 
     void Start ()
@@ -33,4 +36,11 @@ public class EnemyManager : MonoBehaviour
         Instantiate (enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 		maxSpawn = maxSpawn - 1;
     }
+	
+	public void UpdateDeath()
+	{
+		deaths += 1;
+		if(deaths == maxSpawn)
+			victory.enabled = true;
+	}
 }
