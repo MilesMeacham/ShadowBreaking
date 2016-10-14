@@ -7,7 +7,6 @@ public class Character : MonoBehaviour {
 
     
     public Rigidbody2D rbody;
-    private bool isWalking = false;
     private bool isRunning = false;
     Animator anim;
     Vector2 restedPos;
@@ -15,11 +14,6 @@ public class Character : MonoBehaviour {
     private bool isActing = false;
     private bool isBlocking = false;
     private int currentHealth;
-	
-//MILES ADDED
-	private HeartManager heartManager;
-	public float invincibilityTime = 0.5f;
-	private bool invincible = false;
 
     public int maxHealth = 100;    
     public float walkspeed = 1;
@@ -35,15 +29,8 @@ public class Character : MonoBehaviour {
         anim = GetComponent<Animator>();
         moveSound = GetComponent<AudioSource> ();
         moveSound.clip = footsteps[0];
-		
-		//MILES ADDED
-		heartManager = FindObjectOfType<HeartManager> ().GetComponent<HeartManager> ();
     }
 
-	void Update ()
-	{
-
-	}
 
 
     /// <summary>
@@ -52,7 +39,6 @@ public class Character : MonoBehaviour {
     /// <param name="movement_vector"></param>
     public void Move(Vector2 movement_vector)
     {
-
         if (movement_vector != Vector2.zero && isActing != true)
         {
             anim.SetBool("IsWalking", true);
@@ -77,9 +63,8 @@ public class Character : MonoBehaviour {
             moveSound.Stop();
             anim.SetBool("IsWalking", false);
         }
+
     }
-
-
 
     /// <summary>
     /// Toggles whether or not the player is walking or running.
@@ -101,33 +86,20 @@ public class Character : MonoBehaviour {
   
     public bool TakeDamage(int damage)
     {
-        if (isBlocking || invincible)
+        if (isBlocking)
         {
             return false;
         }
         
         currentHealth -= damage;
-		//MILES ADDED
-		heartManager.DisplayCorrectNumberOfHearts(currentHealth);
         isDead();
-
-		StartCoroutine (Invincibility ());
         
         return true;
     }
 
-	IEnumerator Invincibility()
-	{
-		invincible = true;
-		yield return new WaitForSeconds (invincibilityTime);
-		invincible = false;
-	}
-
     public bool ActionOne()
     {
         //Implement based on equiped item.
-		anim.SetTrigger ("Attack");
-
 
         return true;
     }
@@ -169,8 +141,6 @@ public class Character : MonoBehaviour {
     public void Resurrection()
     {
         currentHealth = maxHealth;
-		//MILES ADDED
-		heartManager.DisplayCorrectNumberOfHearts(currentHealth);
         isActing = false;
     }
 
