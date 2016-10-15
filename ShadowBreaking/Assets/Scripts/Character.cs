@@ -15,7 +15,6 @@ public class Character : MonoBehaviour {
     private bool isBlocking = false;
     private int currentHealth;
 	
-//MILES ADDED
 	private HeartManager heartManager;
 	public float invincibilityTime = 0.5f;
 	private bool invincible = false;
@@ -105,7 +104,6 @@ public class Character : MonoBehaviour {
         }
         
         currentHealth -= damage;
-		//MILES ADDED
 		heartManager.DisplayCorrectNumberOfHearts(currentHealth);
         isDead();
 
@@ -125,8 +123,6 @@ public class Character : MonoBehaviour {
     {
         //Implement based on equiped item.
 		anim.SetTrigger ("Attack");
-
-        //
 
         return true;
     }
@@ -168,8 +164,7 @@ public class Character : MonoBehaviour {
     public void Resurrection()
     {
         currentHealth = maxHealth;
-		//MILES ADDED
-		heartManager.DisplayCorrectNumberOfHearts(currentHealth);
+		heartManager.DisplayCorrectNumberOfHearts(currentHealth); //reset UI hearts to full
         isActing = false;
     }
 

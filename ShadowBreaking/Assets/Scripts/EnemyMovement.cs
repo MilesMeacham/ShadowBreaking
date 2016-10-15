@@ -21,7 +21,6 @@ public class EnemyMovement : MonoBehaviour {
 	private Vector2 currentEnemyPos;
 	private Vector2 prevEnemyPos;
 
-
 	private GameObject player;
 
 
