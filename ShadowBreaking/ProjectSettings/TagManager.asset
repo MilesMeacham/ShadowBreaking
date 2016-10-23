@@ -8,6 +8,8 @@ TagManager:
   - HUD
   - Sword
   - Weapon
+  - NPC
+  - QuestCollider
   layers:
   - Default
   - TransparentFX
