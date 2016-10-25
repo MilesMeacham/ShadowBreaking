@@ -12,7 +12,6 @@ public class HeartManager : MonoBehaviour {
 
 	private Character health;
 
-
 	void Start ()
 	{
 		
@@ -24,7 +23,6 @@ public class HeartManager : MonoBehaviour {
 
 	public void DisplayCorrectNumberOfHearts (int currentHealth)
     {
-
         // Turn on the correct number of hearts at the beggining of the game
 	    foreach (GameObject heart in hearts)
         {
@@ -41,9 +39,5 @@ public class HeartManager : MonoBehaviour {
 			else
 				heart.GetComponent<UIHearts> ().DisplayEmptyHeart ();
         }
-
-
 	}
-	
-	
 }

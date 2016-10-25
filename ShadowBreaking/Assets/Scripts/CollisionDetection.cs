@@ -17,9 +17,8 @@ public class CollisionDetection : MonoBehaviour {
 	{
 		if (collider.gameObject.tag == "Enemy") 
 		{
-			Debug.Log ("Enemey Detected");
+			Debug.Log ("Enemy Detected");
 			character.TakeDamage (bumpDamage);
-
 		}
 
 	}

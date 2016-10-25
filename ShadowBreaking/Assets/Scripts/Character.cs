@@ -109,7 +109,6 @@ public class Character : MonoBehaviour {
         }
         
         currentHealth -= damage;
-		
         // Access heartManager and display the correct number of hearts
 		heartManager.DisplayCorrectNumberOfHearts(currentHealth);
 
@@ -187,8 +186,7 @@ public class Character : MonoBehaviour {
     public void Resurrection()
     {
         currentHealth = maxHealth;
-		
-		heartManager.DisplayCorrectNumberOfHearts(currentHealth);
+		heartManager.DisplayCorrectNumberOfHearts(currentHealth); //reset UI hearts to full
         isActing = false;
     }
 
