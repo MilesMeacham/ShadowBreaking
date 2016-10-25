@@ -17,20 +17,8 @@ public class EnemyHealth : MonoBehaviour
         EnemyController = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
 	}
 	
-	/*void OnEnable ()
-	{
-		EventManager.StartListening ("damage", damageListener);
-	}
-	
-	void OnDisable ()
-	{
-		EventManager.StopListening ("damage", damageListener);
-	} */
-	
 	public void TakeDamage (int amount)
 	{
-		//damaged = true;
-
 		currentHealth -= amount;
 		Debug.Log ("Enemy has been damaged.");
 
@@ -50,8 +38,6 @@ public class EnemyHealth : MonoBehaviour
 			EnemyController.UpdateDeath();
 			
 			Debug.Log ("Enemy has died");
-
-
 		}
 	}
 }
