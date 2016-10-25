@@ -30,14 +30,7 @@ public class PlayerController : MonoBehaviour {
         if (hudController.gamePaused)
             return;
 
-        Vector2 movement_vector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-
-        //Movement Section
         
-        
-            //Set Walking bool true
-        currentChar.Move(movement_vector);
         
 
         //Running
@@ -50,6 +43,7 @@ public class PlayerController : MonoBehaviour {
         {
             currentChar.ToggleSpeed();
         }
+
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -77,6 +71,20 @@ public class PlayerController : MonoBehaviour {
             currentChar.TakeDamage(110);
         }
 
+
+    }
+
+    // Use this for any key input that is constantly held down. This will make it so it doesn't change speed
+    // with different framerates.
+    void FixedUpdate()
+    {
+        Vector2 movement_vector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        // This prevents double speed when moving diagonal
+        movement_vector.Normalize();
+
+        //Set Walking bool true
+        currentChar.Move(movement_vector);
 
     }
 	

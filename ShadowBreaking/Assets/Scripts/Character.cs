@@ -13,20 +13,24 @@ public class Character : MonoBehaviour {
     //Lock controller during acting (any state other than the player having direct control is acting.)
     private bool isActing = false;
     private bool isBlocking = false;
+    private bool isDodging = false;
     private int currentHealth;
 	
-//MILES ADDED
 	private HeartManager heartManager;
 	public float invincibilityTime = 0.5f;
 	private bool invincible = false;
 
     public int maxHealth = 100;    
-    public float walkspeed = 1;
-    public float runspeed = 3;
+    public float walkspeed = 1.5f;
+    public float runspeed = 2;
+    public float dodgeSpeed = 2.5f;
 
     public AudioClip[] footsteps;
     AudioSource moveSound;
-   
+
+    private Vector2 lastDirection;
+    public float dodgeTime = 0.4f;
+    
     
     void Start () {
         rbody = GetComponentInChildren<Rigidbody2D>();
@@ -38,11 +42,6 @@ public class Character : MonoBehaviour {
 		heartManager = FindObjectOfType<HeartManager> ().GetComponent<HeartManager> ();
     }
 
-	void Update ()
-	{
-
-	}
-
 
     /// <summary>
     /// Handles movement.
@@ -50,16 +49,17 @@ public class Character : MonoBehaviour {
     /// <param name="movement_vector"></param>
     public void Move(Vector2 movement_vector)
     {
-
         if (movement_vector != Vector2.zero && isActing != true)
         {
             anim.SetBool("IsWalking", true);
             anim.SetFloat("Input_X", movement_vector.x);
             anim.SetFloat("Input_Y", movement_vector.y);
-            
+
+            // This is used for the dodge. He will dodge in the last direction he was moving.
+            lastDirection = movement_vector;
+
             if (isRunning)
             {
-                
                 rbody.MovePosition(rbody.position + movement_vector * Time.deltaTime * runspeed);
             }
             else
@@ -69,6 +69,11 @@ public class Character : MonoBehaviour {
 
             if (!moveSound.isPlaying)
                 moveSound.Play();
+        }
+        else if(isDodging == true)
+        {
+            Debug.Log("isDodging");
+            rbody.MovePosition(rbody.position + lastDirection * Time.deltaTime * dodgeSpeed);
         }
         else 
         {
@@ -95,18 +100,19 @@ public class Character : MonoBehaviour {
     /// When the character is hit.
     /// </summary>
     /// 
-
-  
     public bool TakeDamage(int damage)
     {
+        // Don't take damage if player is block or invincible
         if (isBlocking || invincible)
         {
             return false;
         }
         
         currentHealth -= damage;
-		//MILES ADDED
+		
+        // Access heartManager and display the correct number of hearts
 		heartManager.DisplayCorrectNumberOfHearts(currentHealth);
+
         isDead();
 
 		StartCoroutine (Invincibility ());
@@ -126,8 +132,6 @@ public class Character : MonoBehaviour {
         //Implement based on equiped item.
 		anim.SetTrigger ("Attack");
 
-        //
-
         return true;
     }
 
@@ -141,6 +145,21 @@ public class Character : MonoBehaviour {
     public void Dodge()
     {
         //Implement based on current movement direction, and somehow make it over time.
+        StartCoroutine(DodgeCO());
+
+    }
+
+    IEnumerator DodgeCO()
+    {
+        isActing = true;
+        invincible = true;
+        isDodging = true;
+        
+        yield return new WaitForSeconds(dodgeTime);
+
+        isActing = false;
+        invincible = false;
+        isDodging = false;
     }
 
 
@@ -168,7 +187,7 @@ public class Character : MonoBehaviour {
     public void Resurrection()
     {
         currentHealth = maxHealth;
-		//MILES ADDED
+		
 		heartManager.DisplayCorrectNumberOfHearts(currentHealth);
         isActing = false;
     }

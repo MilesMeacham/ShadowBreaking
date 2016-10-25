@@ -60,7 +60,6 @@ public class PlayerHealth : MonoBehaviour
 		damaged = true;
 
 		currentHealth -= amount;
-		Debug.Log ("Player has been damaged.");
 
 		//MILES ADDED
 		heartManager.DisplayCorrectNumberOfHearts(currentHealth);
