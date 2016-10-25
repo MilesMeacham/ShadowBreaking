@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour {
     //Generic implementation of Health
     private int currentHealth;
     private int maxHealth;
-    private int currentStamina;
-    private int maxStamina;
+    //private int currentStamina;
+    //private int maxStamina;
 
 
     //Use this for initialization
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour {
         //Movement Section
         
         
-            //Set Walking bool true
+        //Set Walking bool true
         currentChar.Move(movement_vector);
         
 
