@@ -8,7 +8,6 @@ public class PlayerDeathManager : MonoBehaviour {
 
 	//Needs to be added to Game Manager _GM
 
-
 	public Character player;
 	public Text deathText;
 	private UnityAction deathListener; //this is the action that will be triggered if PlayerDead has been triggered

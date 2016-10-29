@@ -18,7 +18,6 @@ public class PlayerHealth : MonoBehaviour
 	private UnityAction resurrectionListener;
 	private SpriteRenderer sprite_renderer;
 
-	//MILES ADDED
 	private HeartManager heartManager;
 
 	void Awake ()
@@ -30,7 +29,6 @@ public class PlayerHealth : MonoBehaviour
 		damageListener = new UnityAction (DoDamage);
 		resurrectionListener = new UnityAction (Resurrection);
 
-		//MILES ADDED
 		heartManager = FindObjectOfType<HeartManager> ().GetComponent<HeartManager> ();
 	}
 
@@ -60,9 +58,7 @@ public class PlayerHealth : MonoBehaviour
 		damaged = true;
 
 		currentHealth -= amount;
-		Debug.Log ("Player has been damaged.");
 
-		//MILES ADDED
 		heartManager.DisplayCorrectNumberOfHearts(currentHealth);
 
 		if(currentHealth <= 0 && !isDead)

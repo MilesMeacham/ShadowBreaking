@@ -258,11 +258,13 @@ MonoBehaviour:
   rbody: {fileID: 50000012167671982}
   invincibilityTime: 0.5
   maxHealth: 100
-  walkspeed: 2
-  runspeed: 4
+  walkspeed: 1.5
+  runspeed: 2
+  dodgeSpeed: 3.5
   footsteps:
   - {fileID: 8300000, guid: 6ce28344b785dd6458462eda515fe3d9, type: 3}
   - {fileID: 8300000, guid: 4d932777dbe93ca4ca4964d9a5d84327, type: 3}
+  dodgeTime: 0.2
 --- !u!114 &114000010748552820
 MonoBehaviour:
   m_ObjectHideFlags: 1
