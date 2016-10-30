@@ -4,6 +4,7 @@ using System.Collections;
 public class generateMaze : MonoBehaviour {
 	public int mazeWidth_Y = 50;
 	public int mazeLength_X = 50;
+    public int LastTileInList = 34;
 	public float spacing = 0.96f;
 
 	public GameObject tile_001;
@@ -25,6 +26,22 @@ public class generateMaze : MonoBehaviour {
     public GameObject tile_017;
     public GameObject tile_018;
     public GameObject tile_019;
+    public GameObject tile_020;
+    public GameObject tile_021;
+    public GameObject tile_022;
+    public GameObject tile_023;
+    public GameObject tile_024;
+    public GameObject tile_025;
+    public GameObject tile_026;
+    public GameObject tile_027;
+    public GameObject tile_028;
+    public GameObject tile_029;
+    public GameObject tile_030;
+    public GameObject tile_031;
+    public GameObject tile_032;
+    public GameObject tile_033;
+    public GameObject tile_034;
+    public GameObject tile_035;
 
     void Start () {
 		GameObject maze = new GameObject("Maze");
@@ -44,9 +61,8 @@ public class generateMaze : MonoBehaviour {
 
 		for (int y = 0; y < mazeWidth_Y; y++) {
 			for (int x = 0; x < mazeLength_X; x++) {
-				int rand = Random.Range (0, 18);
+				int rand = Random.Range (0, LastTileInList);
 				GameObject tile = tile_001;
-				//int z_rotation = 0;
 
 				if (rand == 0) { tile = tile_001; }
 				else if (rand == 1) { tile = tile_002; }
@@ -67,7 +83,24 @@ public class generateMaze : MonoBehaviour {
                 else if (rand == 16) { tile = tile_017; }
                 else if (rand == 17) { tile = tile_018; }
                 else if (rand == 18) { tile = tile_019; }
+                else if (rand == 19) { tile = tile_020; }
+                else if (rand == 20) { tile = tile_021; }
+                else if (rand == 21) { tile = tile_022; }
+                else if (rand == 22) { tile = tile_023; }
+                else if (rand == 23) { tile = tile_024; }
+                else if (rand == 24) { tile = tile_025; }
+                else if (rand == 25) { tile = tile_026; }
+                else if (rand == 26) { tile = tile_027; }
+                else if (rand == 27) { tile = tile_028; }
+                else if (rand == 28) { tile = tile_029; }
+                else if (rand == 29) { tile = tile_030; }
+                else if (rand == 30) { tile = tile_031; }
+                else if (rand == 31) { tile = tile_032; }
+                else if (rand == 32) { tile = tile_033; }
+                else if (rand == 33) { tile = tile_034; }
+                else if (rand == 34) { tile = tile_035; }
 
+                //int z_rotation = 0;
                 /*rand = Random.Range (0, 3);
 				if (rand == 0){ z_rotation = 0; }
 				if (rand == 1){ z_rotation = 90; }
