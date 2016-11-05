@@ -54,3 +54,4 @@ MonoBehaviour:
   objectsToPool:
   - {fileID: 1000010969265602, guid: d03aed4de1963634691c01ebf39c8452, type: 2}
   - {fileID: 1000013082265336, guid: 807e9d808d3d5f24d94215c8fb699f49, type: 2}
+  objectPoolers: []
