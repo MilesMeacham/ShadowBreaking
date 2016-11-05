@@ -5,7 +5,7 @@ public class EnemyAttack : MonoBehaviour {
 	// AI VARIABLES:
 
 	public float attackDistance = 1.0f;
-	public float waitTime = 0.5f;
+	public float waitTime = 1.5f;
 	private float distanceToPlayer;
 
 	private GameObject player;
