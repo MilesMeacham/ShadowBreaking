@@ -10,6 +10,7 @@ TagManager:
   - Weapon
   - NPC
   - QuestCollider
+  - Pooler
   layers:
   - Default
   - TransparentFX

@@ -33,8 +33,10 @@ public class EnemyHealth : MonoBehaviour
 		if (isDead != true) {
 			
 			isDead = true;
-            Destroy(gameObject);
-			
+            //Destroy(gameObject);
+
+            this.gameObject.SetActive(false);
+
 			//EnemyController.UpdateDeath();
 			
 			Debug.Log ("Enemy has died");

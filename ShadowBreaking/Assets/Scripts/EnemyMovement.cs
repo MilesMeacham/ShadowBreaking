@@ -18,6 +18,7 @@ public class EnemyMovement : MonoBehaviour {
 
 	private bool walking = false;
 
+    private Vector2 spawnedLocation;
 	private Vector2 currentEnemyPos;
 	private Vector2 prevEnemyPos;
 
@@ -31,6 +32,12 @@ public class EnemyMovement : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 	} // END START()
 
+    // This is called any time the enemy spawns (becomes active)
+    void OnEnable()
+    {
+        spawnedLocation = transform.position;
+    }
+
 	// UPDATE:
 	void Update() {
 		distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
@@ -40,9 +47,9 @@ public class EnemyMovement : MonoBehaviour {
 		//  and greater than the AttackDistance,
 		//  the mob moves towards the player.
 		if (distanceToPlayer <= chaseDistance && distanceToPlayer > attackDistance) {
-			transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
 
-			currentEnemyPos = transform.position;
+            currentEnemyPos = transform.position;
 
 			walking = true;
 		}
