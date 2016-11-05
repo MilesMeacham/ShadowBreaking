@@ -181,8 +181,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
+  knockbackSpeed: 5
   chaseDistance: 3
   attackDistance: 1
+  knockback: 0
+  stunned: 0
 --- !u!114 &114000010836365934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -195,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDistance: 1
-  waitTime: 0.5
+  waitTime: 1.5
   projectile: {fileID: 1000010969265602, guid: d03aed4de1963634691c01ebf39c8452, type: 2}
   attackSounds:
   - {fileID: 8300000, guid: b13fac703b7417e41b353aad76e81c6e, type: 3}
@@ -221,6 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 50
   currentHealth: 0
+  knockbackTime: 0.1
 --- !u!212 &212000011119045254
 SpriteRenderer:
   m_ObjectHideFlags: 1
