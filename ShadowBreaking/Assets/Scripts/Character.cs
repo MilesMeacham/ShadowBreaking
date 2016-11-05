@@ -14,6 +14,7 @@ public class Character : MonoBehaviour {
     private bool isActing = false;
     private bool isBlocking = false;
     private bool isDodging = false;
+    private bool knockback = false;
     private int currentHealth;
 	
 	private HeartManager heartManager;
@@ -24,12 +25,14 @@ public class Character : MonoBehaviour {
     public float walkspeed = 1.5f;
     public float runspeed = 2;
     public float dodgeSpeed = 2.5f;
+    public float knockbackSpeed = 2;
 
     public AudioClip[] footsteps;
     AudioSource moveSound;
 
     private Vector2 lastDirection;
     public float dodgeTime = 0.4f;
+    public float knockbackTime = 0.2f;
     
     
     void Start () {
@@ -70,7 +73,12 @@ public class Character : MonoBehaviour {
             if (!moveSound.isPlaying)
                 moveSound.Play();
         }
-        else if(isDodging == true)
+        else if(knockback == true)
+        {
+            Debug.Log("knockback");
+            rbody.MovePosition(rbody.position + -lastDirection * Time.deltaTime * knockbackSpeed);
+        }
+        else if(isDodging == true && knockback == false)
         {
             Debug.Log("isDodging");
             rbody.MovePosition(rbody.position + lastDirection * Time.deltaTime * dodgeSpeed);
@@ -111,11 +119,11 @@ public class Character : MonoBehaviour {
         currentHealth -= damage;
         // Access heartManager and display the correct number of hearts
 		heartManager.DisplayCorrectNumberOfHearts(currentHealth);
-
+        
         isDead();
 
 		StartCoroutine (Invincibility ());
-        
+        StartCoroutine(KnockbackCO());
         return true;
     }
 
@@ -144,7 +152,8 @@ public class Character : MonoBehaviour {
     public void Dodge()
     {
         //Implement based on current movement direction, and somehow make it over time.
-        StartCoroutine(DodgeCO());
+        if (!knockback && !isDodging) 
+            StartCoroutine(DodgeCO());
 
     }
 
@@ -159,6 +168,17 @@ public class Character : MonoBehaviour {
         isActing = false;
         invincible = false;
         isDodging = false;
+    }
+
+    IEnumerator KnockbackCO()
+    {
+        isActing = true;
+        knockback = true;
+
+        yield return new WaitForSeconds(knockbackTime);
+
+        isActing = false;
+        knockback = false;
     }
 
 
