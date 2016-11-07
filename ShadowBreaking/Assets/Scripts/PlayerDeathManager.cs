@@ -57,7 +57,13 @@ public class PlayerDeathManager : MonoBehaviour {
 	{
 		Debug.Log("PlayerDead has been triggered");
 
-		player.rbody.transform.position = new Vector2(initialPos.x,initialPos.y);
+		if(player.restedPos.x != 0 && player.restedPos.y != 0)
+		{
+			player.rbody.transform.position = new Vector2(player.restedPos.x, player.restedPos.y);
+		}
+		else{
+			player.rbody.transform.position = new Vector2(initialPos.x,initialPos.y);
+		}
         player.Resurrection();
         
 	}

@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+
 
 public class EnemyCreator : MonoBehaviour
 {
@@ -49,4 +51,26 @@ public class EnemyCreator : MonoBehaviour
             //Instantiate (enemy, spawnPoints[i].position, spawnPoints[i].rotation);
         }
 	}
+	
+	/*public void ResetEnemies()
+	{
+		skeletonObjPooler = objectPoolerCreator.objectPoolers[skeleton].GetComponent<ObjectPooler>();
+		for (int i = 0; i < spawnPoints.Length; i++)
+		{
+            // Gets the skeleton and assigns to _skeleton
+            _skeleton = skeletonObjPooler.GetPooledObject();
+
+            Debug.Log(skeletonObjPooler.name);
+
+            // Set position and rotation of _skeleton
+            _skeleton.transform.position = spawnPoints[i].position;
+            _skeleton.transform.rotation = spawnPoints[i].rotation;
+
+            // Need to set to true because it returns and inactive gameObject
+            _skeleton.SetActive(true);
+
+            Debug.Log("Found " + _skeleton.name);
+            //Instantiate (enemy, spawnPoints[i].position, spawnPoints[i].rotation);
+        }
+	} */
 }

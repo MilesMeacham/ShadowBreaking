@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using System.Collections;
 using System;
 
@@ -9,7 +10,7 @@ public class Character : MonoBehaviour {
     public Rigidbody2D rbody;
     private bool isRunning = false;
     Animator anim;
-    Vector2 restedPos;
+    public Vector2 restedPos;
     //Lock controller during acting (any state other than the player having direct control is acting.)
     private bool isActing = false;
     private bool isBlocking = false;
@@ -18,6 +19,7 @@ public class Character : MonoBehaviour {
     private int currentHealth;
 	
 	private HeartManager heartManager;
+	//public EnemyManager enemyCreator;
 	public float invincibilityTime = 0.5f;
 	private bool invincible = false;
 
@@ -33,6 +35,8 @@ public class Character : MonoBehaviour {
     private Vector2 lastDirection;
     public float dodgeTime = 0.4f;
     public float knockbackTime = 0.2f;
+	
+	public Text restedText; 
     
     
     void Start () {
@@ -43,6 +47,7 @@ public class Character : MonoBehaviour {
         moveSound.clip = footsteps[0];
 		
 		heartManager = FindObjectOfType<HeartManager> ().GetComponent<HeartManager> ();
+		//enemyCreator = FindObjectOfType<EnemyManager> ().GetComponent<EnemyCreator> ();
     }
 
 
@@ -211,15 +216,23 @@ public class Character : MonoBehaviour {
     }
 
 
-
-
-    void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Bonfire"))
+		if (other.gameObject.CompareTag("Bonfire"))
         {
+			Debug.Log("Touched bonfire collider");
             restedPos = new Vector2(transform.position.x, transform.position.y);
+			currentHealth = maxHealth;
+			heartManager.DisplayCorrectNumberOfHearts(currentHealth); //reset UI hearts to full
+			StartCoroutine(Timer());
         }
     }
-
+	
+	IEnumerator Timer()
+	{
+		restedText.enabled = true;
+		yield return new WaitForSeconds(3);
+		restedText.enabled = false;
+	}
 
 }
