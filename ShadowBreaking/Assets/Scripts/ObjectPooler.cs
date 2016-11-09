@@ -66,4 +66,20 @@ public class ObjectPooler : MonoBehaviour {
 		return obj;
 	}
 
+    /// <summary>
+    /// Call this function to deactivate all the active enemies
+    /// </summary>
+    public void DeactivateAllEnemies()
+    {
+        // Look through the existing Objects
+        for (int i = 0; i < pooledObjects.Count; i++)
+        {
+            // If one of the desired objects is inactive, use that one
+            if (pooledObjects[i].activeInHierarchy)
+            {
+                pooledObjects[i].SetActive(false);
+            }
+        }
+    }
+
 }
