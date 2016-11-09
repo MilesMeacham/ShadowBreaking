@@ -8,6 +8,7 @@ public class Character : MonoBehaviour {
 
     
     public Rigidbody2D rbody;
+	private EnemyCreator enemyCreator; //new
     private bool isRunning = false;
     Animator anim;
     public Vector2 restedPos;
@@ -47,6 +48,7 @@ public class Character : MonoBehaviour {
         moveSound.clip = footsteps[0];
 		
 		heartManager = FindObjectOfType<HeartManager> ().GetComponent<HeartManager> ();
+		enemyCreator = GameObject.Find("EnemyManager").GetComponent<EnemyCreator>(); //new
 		//enemyCreator = FindObjectOfType<EnemyManager> ().GetComponent<EnemyCreator> ();
     }
 
@@ -225,6 +227,7 @@ public class Character : MonoBehaviour {
             restedPos = new Vector2(transform.position.x, transform.position.y);
 			currentHealth = maxHealth;
 			heartManager.DisplayCorrectNumberOfHearts(currentHealth); //reset UI hearts to full
+			enemyCreator.ResetAllEnemies(); //new
 			StartCoroutine(Timer());
         }
     }
