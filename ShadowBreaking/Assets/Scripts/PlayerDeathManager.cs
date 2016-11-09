@@ -12,6 +12,7 @@ public class PlayerDeathManager : MonoBehaviour {
 	public Text deathText;
 	private UnityAction deathListener; //this is the action that will be triggered if PlayerDead has been triggered
 	private SpriteRenderer sprite_renderer;
+    private EnemyCreator enemyCreator;
 
 	Camera mainCamera;
 
@@ -23,6 +24,8 @@ public class PlayerDeathManager : MonoBehaviour {
 	{
 		 //this will find the Player object
 		initialPos = player.rbody.transform.position; //sets the initial position of the player when the scene starts
+
+        enemyCreator = GameObject.Find("EnemyManager").GetComponent<EnemyCreator>();
 	}
 
 	void Awake ()
@@ -57,7 +60,9 @@ public class PlayerDeathManager : MonoBehaviour {
 	{
 		Debug.Log("PlayerDead has been triggered");
 
-		if(player.restedPos.x != 0 && player.restedPos.y != 0)
+        enemyCreator.ResetAllEnemies();
+
+        if (player.restedPos.x != 0 && player.restedPos.y != 0)
 		{
 			player.rbody.transform.position = new Vector2(player.restedPos.x, player.restedPos.y);
 		}

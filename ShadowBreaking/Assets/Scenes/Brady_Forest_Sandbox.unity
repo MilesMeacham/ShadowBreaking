@@ -1015,6 +1015,7 @@ MonoBehaviour:
   - {fileID: 1218926527}
   objectPoolerCreator: {fileID: 226829204}
   skeleton: 1
+  skeletonObjPooler: {fileID: 0}
 --- !u!1001 &731389501
 Prefab:
   m_ObjectHideFlags: 0
@@ -1942,6 +1943,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114000010712719006, guid: 49883530786d53f4dacb203762326d93, type: 2}
+    - {fileID: 114000013396315190, guid: 49883530786d53f4dacb203762326d93, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 49883530786d53f4dacb203762326d93, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &2113045314
