@@ -72,6 +72,11 @@ public class PlayerController : MonoBehaviour {
         {
             currentChar.TakeDamage(110);
         }
+		
+		if(Input.GetKeyDown(KeyCode.I))
+		{
+			currentChar.ToggleInvuln();
+		}
 
 
     }

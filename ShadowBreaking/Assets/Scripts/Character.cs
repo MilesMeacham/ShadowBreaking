@@ -17,6 +17,7 @@ public class Character : MonoBehaviour {
     private bool isBlocking = false;
     private bool isDodging = false;
     private bool knockback = false;
+	private bool isInvuln = false;
     private int currentHealth;
 	
 	private HeartManager heartManager;
@@ -110,6 +111,10 @@ public class Character : MonoBehaviour {
         else
             moveSound.clip = footsteps[0];
     }
+	public void ToggleInvuln()
+	{
+		isInvuln = !isInvuln;
+	}
 
     /// <summary>
     /// When the character is hit.
@@ -118,7 +123,7 @@ public class Character : MonoBehaviour {
     public bool TakeDamage(int damage)
     {
         // Don't take damage if player is block or invincible
-        if (isBlocking || invincible)
+        if (isBlocking || invincible || isInvuln)
         {
             return false;
         }
