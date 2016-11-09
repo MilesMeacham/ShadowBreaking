@@ -20,9 +20,10 @@ public class Character : MonoBehaviour {
     private int currentHealth;
 	
 	private HeartManager heartManager;
-	//public EnemyManager enemyCreator;
 	public float invincibilityTime = 0.5f;
 	private bool invincible = false;
+	private float dodgeCooldownTime = 0.5f;
+	private bool dodgeOnCooldown = false;
 
     public int maxHealth = 100;    
     public float walkspeed = 1.5f;
@@ -49,7 +50,6 @@ public class Character : MonoBehaviour {
 		
 		heartManager = FindObjectOfType<HeartManager> ().GetComponent<HeartManager> ();
 		enemyCreator = GameObject.Find("EnemyManager").GetComponent<EnemyCreator>(); //new
-		//enemyCreator = FindObjectOfType<EnemyManager> ().GetComponent<EnemyCreator> ();
     }
 
 
@@ -160,7 +160,13 @@ public class Character : MonoBehaviour {
     {
         //Implement based on current movement direction, and somehow make it over time.
         if (!knockback && !isDodging) 
-            StartCoroutine(DodgeCO());
+		{
+			if(dodgeOnCooldown == false)
+			{
+				StartCoroutine(DodgeCO());
+				StartCoroutine(DodgeCooldown());
+			}
+		}
 
     }
 
@@ -188,6 +194,15 @@ public class Character : MonoBehaviour {
         knockback = false;
     }
 
+	IEnumerator DodgeCooldown()
+	{
+		dodgeOnCooldown = true;
+		Debug.Log("Dodge on cooldown");
+		yield return new WaitForSeconds(dodgeCooldownTime);
+		
+		dodgeOnCooldown = false;
+		Debug.Log("Dodge off cooldown.");
+	}
 
 
     /// <summary>

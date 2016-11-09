@@ -1075,6 +1075,16 @@ Prefab:
       propertyPath: restedText
       value: 
       objectReference: {fileID: 180957492}
+    - target: {fileID: 114000010687567856, guid: c5bbaabb72d68434e8985de8919dee90,
+        type: 2}
+      propertyPath: dodgeCooldownTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010687567856, guid: c5bbaabb72d68434e8985de8919dee90,
+        type: 2}
+      propertyPath: dodgeOnCooldown
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114000014270787244, guid: c5bbaabb72d68434e8985de8919dee90, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c5bbaabb72d68434e8985de8919dee90, type: 2}
