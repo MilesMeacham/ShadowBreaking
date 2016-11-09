@@ -198,6 +198,7 @@ public class Character : MonoBehaviour {
         {
             isActing = true;
             EventManager.TriggerEvent("PlayerDead");
+
             
             return true;
         }

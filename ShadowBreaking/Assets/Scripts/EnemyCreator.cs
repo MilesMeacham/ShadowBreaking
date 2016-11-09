@@ -10,7 +10,7 @@ public class EnemyCreator : MonoBehaviour
 
     public ObjectPoolerCreator objectPoolerCreator;  // Assign the ObjectPoolerCreator in the scene to this instead of having to do Gameobject.Find
     public int skeleton = 1;                // This number is associated with the ObjectsToPool found in the ObjPoolCreator. 1 = Skeleton
-    private ObjectPooler skeletonObjPooler;
+    public ObjectPooler skeletonObjPooler;
 
     void Start()
     {
@@ -27,18 +27,20 @@ public class EnemyCreator : MonoBehaviour
         // This gets the correct object pooler.
         skeletonObjPooler = objectPoolerCreator.objectPoolers[skeleton].GetComponent<ObjectPooler>();
 
-        
+        SpawnEnemies();
+ 
+	}
 
+    public void SpawnEnemies()
+    {
         // local Gameobject variable to be used to place enemies
         GameObject _skeleton;
 
         // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
         for (int i = 0; i < spawnPoints.Length; i++)
-		{
+        {
             // Gets the skeleton and assigns to _skeleton
             _skeleton = skeletonObjPooler.GetPooledObject();
-
-            Debug.Log(skeletonObjPooler.name);
 
             // Set position and rotation of _skeleton
             _skeleton.transform.position = spawnPoints[i].position;
@@ -46,11 +48,19 @@ public class EnemyCreator : MonoBehaviour
 
             // Need to set to true because it returns and inactive gameObject
             _skeleton.SetActive(true);
-
-            Debug.Log("Found " + _skeleton.name);
-            //Instantiate (enemy, spawnPoints[i].position, spawnPoints[i].rotation);
         }
-	}
+    }
+
+    /// <summary>
+    /// Calls the deactivateAllEnemies from the object pooler and the spawns the enemies again.
+    /// </summary>
+    public void ResetAllEnemies()
+    {
+
+        skeletonObjPooler.DeactivateAllEnemies();
+
+        SpawnEnemies();
+    }
 	
 	/*public void ResetEnemies()
 	{

@@ -21,6 +21,14 @@ public class EnemyHealth : MonoBehaviour
 		currentHealth = startingHealth;
         EnemyController = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
 	}
+
+    /// <summary>
+    /// Resets the health when the enemy is enabled (spawned)
+    /// </summary>
+    void OnEnable()
+    {
+        currentHealth = startingHealth;
+    }
 	
 	public void TakeDamage (int amount)
 	{
