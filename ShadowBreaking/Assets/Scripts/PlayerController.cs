@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -76,6 +77,11 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.I))
 		{
 			currentChar.ToggleInvuln();
+		}
+		
+		if(Input.GetKeyDown(KeyCode.R))
+		{
+			SceneManager.LoadScene ("Brady_Forest_Sandbox");
 		}
 
 

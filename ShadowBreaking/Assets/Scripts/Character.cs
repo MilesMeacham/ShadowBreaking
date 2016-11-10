@@ -255,7 +255,7 @@ public class Character : MonoBehaviour {
 	IEnumerator Timer()
 	{
 		restedText.enabled = true;
-		yield return new WaitForSeconds(3);
+		yield return new WaitForSeconds(2);
 		restedText.enabled = false;
 	}
 
