@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -16,6 +18,7 @@ public class PlayerController : MonoBehaviour {
     //private int currentStamina;
     //private int maxStamina;
 
+	//public Text restedText; 
 
     //Use this for initialization
     void Start () {
@@ -70,6 +73,16 @@ public class PlayerController : MonoBehaviour {
         {
             currentChar.TakeDamage(110);
         }
+		
+		if(Input.GetKeyDown(KeyCode.I))
+		{
+			currentChar.ToggleInvuln();
+		}
+		
+		if(Input.GetKeyDown(KeyCode.R))
+		{
+			SceneManager.LoadScene ("Brady_Forest_Sandbox");
+		}
 
 
     }
@@ -88,12 +101,25 @@ public class PlayerController : MonoBehaviour {
 
     }
 	
-    void OnCollisionEnter2D(Collision2D col) {
+    /*void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.tag == "Enemy")
 		{
 			Debug.Log("Enemy collide");
 			EventManager.TriggerEvent("damage");
 			
 		}
-    }
+		 else if (col.gameObject.CompareTag("Bonfire"))
+        {
+            //restedPos = new Vector2(transform.position.x, transform.position.y);
+			StartCoroutine(Timer());
+        }
+    } */
+	
+	
+	/*IEnumerator Timer()
+	{
+		restedText.enabled = true;
+		yield return new WaitForSeconds(3);
+		restedText.enabled = false;
+	} */
 }

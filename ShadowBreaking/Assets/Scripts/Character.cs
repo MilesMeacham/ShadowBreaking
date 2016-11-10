@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using System.Collections;
 using System;
 
@@ -7,19 +8,23 @@ public class Character : MonoBehaviour {
 
     
     public Rigidbody2D rbody;
+	private EnemyCreator enemyCreator; //new
     private bool isRunning = false;
     Animator anim;
-    Vector2 restedPos;
+    public Vector2 restedPos;
     //Lock controller during acting (any state other than the player having direct control is acting.)
     private bool isActing = false;
     private bool isBlocking = false;
     private bool isDodging = false;
     private bool knockback = false;
+	private bool isInvuln = false;
     private int currentHealth;
 	
 	private HeartManager heartManager;
 	public float invincibilityTime = 0.5f;
 	private bool invincible = false;
+	private float dodgeCooldownTime = 0.5f;
+	private bool dodgeOnCooldown = false;
 
     public int maxHealth = 100;    
     public float walkspeed = 1.5f;
@@ -33,6 +38,8 @@ public class Character : MonoBehaviour {
     private Vector2 lastDirection;
     public float dodgeTime = 0.4f;
     public float knockbackTime = 0.2f;
+	
+	public Text restedText; 
     
     
     void Start () {
@@ -43,6 +50,7 @@ public class Character : MonoBehaviour {
         moveSound.clip = footsteps[0];
 		
 		heartManager = FindObjectOfType<HeartManager> ().GetComponent<HeartManager> ();
+		enemyCreator = GameObject.Find("EnemyManager").GetComponent<EnemyCreator>(); //new
     }
 
 
@@ -103,6 +111,10 @@ public class Character : MonoBehaviour {
         else
             moveSound.clip = footsteps[0];
     }
+	public void ToggleInvuln()
+	{
+		isInvuln = !isInvuln;
+	}
 
     /// <summary>
     /// When the character is hit.
@@ -111,7 +123,7 @@ public class Character : MonoBehaviour {
     public bool TakeDamage(int damage)
     {
         // Don't take damage if player is block or invincible
-        if (isBlocking || invincible)
+        if (isBlocking || invincible || isInvuln)
         {
             return false;
         }
@@ -153,7 +165,13 @@ public class Character : MonoBehaviour {
     {
         //Implement based on current movement direction, and somehow make it over time.
         if (!knockback && !isDodging) 
-            StartCoroutine(DodgeCO());
+		{
+			if(dodgeOnCooldown == false)
+			{
+				StartCoroutine(DodgeCO());
+				StartCoroutine(DodgeCooldown());
+			}
+		}
 
     }
 
@@ -181,6 +199,15 @@ public class Character : MonoBehaviour {
         knockback = false;
     }
 
+	IEnumerator DodgeCooldown()
+	{
+		dodgeOnCooldown = true;
+		Debug.Log("Dodge on cooldown");
+		yield return new WaitForSeconds(dodgeCooldownTime);
+		
+		dodgeOnCooldown = false;
+		Debug.Log("Dodge off cooldown.");
+	}
 
 
     /// <summary>
@@ -193,6 +220,7 @@ public class Character : MonoBehaviour {
         {
             isActing = true;
             EventManager.TriggerEvent("PlayerDead");
+
             
             return true;
         }
@@ -211,15 +239,24 @@ public class Character : MonoBehaviour {
     }
 
 
-
-
-    void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Bonfire"))
+		if (other.gameObject.CompareTag("Bonfire"))
         {
+			Debug.Log("Touched bonfire collider");
             restedPos = new Vector2(transform.position.x, transform.position.y);
+			currentHealth = maxHealth;
+			heartManager.DisplayCorrectNumberOfHearts(currentHealth); //reset UI hearts to full
+			enemyCreator.ResetAllEnemies(); //new
+			StartCoroutine(Timer());
         }
     }
-
+	
+	IEnumerator Timer()
+	{
+		restedText.enabled = true;
+		yield return new WaitForSeconds(2);
+		restedText.enabled = false;
+	}
 
 }

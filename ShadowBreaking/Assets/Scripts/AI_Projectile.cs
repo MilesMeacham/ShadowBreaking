@@ -6,7 +6,7 @@ public class AI_Projectile : MonoBehaviour {
     public int MoveSpeed = 1;
     public GameObject Player;
 	private Vector2 playerPos;
-    public float projectileLifeSpan = 3f;
+    private float projectileLifeSpan = 2f;
 
     void OnEnable()
     {
