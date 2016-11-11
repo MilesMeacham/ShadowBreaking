@@ -12,6 +12,7 @@ TagManager:
   - QuestCollider
   - Pooler
   - Bonfire
+  - Water
   layers:
   - Default
   - TransparentFX

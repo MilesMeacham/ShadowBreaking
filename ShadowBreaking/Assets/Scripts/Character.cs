@@ -31,7 +31,11 @@ public class Character : MonoBehaviour {
 
     public int maxHealth = 100;    
     public float walkspeed = 1.5f;
+	private float slowWalkSpeed;
+	private float maxWalkSpeed;
     public float runspeed = 2;
+	private float slowRunSpeed;
+	private float maxRunSpeed;
     public float dodgeSpeed = 2.5f;
     public float knockbackSpeed = 2;
 
@@ -52,6 +56,10 @@ public class Character : MonoBehaviour {
         rbody = GetComponentInChildren<Rigidbody2D>();
         currentHealth = maxHealth;
 		currentStamina = maxStamina;
+		maxWalkSpeed = walkspeed;
+		maxRunSpeed = runspeed;
+		slowWalkSpeed = walkspeed * 0.6f;
+		slowRunSpeed = runspeed * 0.6f;
         anim = GetComponent<Animator>();
         moveSound = GetComponent<AudioSource> ();
         moveSound.clip = footsteps[0];
@@ -268,7 +276,32 @@ public class Character : MonoBehaviour {
 			enemyCreator.ResetAllEnemies(); //new
 			StartCoroutine(Timer());
         }
+		else if(other.gameObject.CompareTag("Water"))
+		{
+			Debug.Log("In water.");
+			walkspeed = slowWalkSpeed;
+			runspeed = slowRunSpeed;
+		}
     }
+	
+	/*public void OnTriggerStay(Collider2D other)
+	{
+		if(other.gameObject.CompareTag("Water")){
+			Debug.Log("In water.");
+			walkspeed = walkspeed*0.5f;
+			runspeed = runspeed * 0.5f;
+		}
+	} */
+	
+	public void OnTriggerExit2D(Collider2D other)
+	{
+		if(other.gameObject.CompareTag("Water"))
+		{
+			Debug.Log("In water.");
+			walkspeed = maxWalkSpeed;
+			runspeed = maxRunSpeed;
+		}
+	}
 	
 	IEnumerator Timer()
 	{
