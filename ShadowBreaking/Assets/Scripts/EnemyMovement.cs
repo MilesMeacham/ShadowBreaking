@@ -24,6 +24,7 @@ public class EnemyMovement : MonoBehaviour {
     private Vector2 spawnedLocation;
 	private Vector2 currentEnemyPos;
 	private Vector2 prevEnemyPos;
+    private Vector2 velocity;
 
 	private GameObject player;
 
@@ -44,7 +45,7 @@ public class EnemyMovement : MonoBehaviour {
     }
 
 	// UPDATE:
-	void Update()
+	void FixedUpdate()
     {
         if(!knockback && !stunned)
             MoveTowardsPlayer();
@@ -65,11 +66,17 @@ public class EnemyMovement : MonoBehaviour {
         //  the mob moves towards the player.
         if (distanceToPlayer <= chaseDistance && distanceToPlayer > attackDistance)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+            velocity = new Vector2((transform.position.x - player.transform.position.x) * moveSpeed, 
+                (transform.position.y - player.transform.position.y) * moveSpeed);
 
-            currentEnemyPos = transform.position;
+            rbody.velocity = -velocity;
 
             walking = true;
+        }
+        else
+        {
+            // Have to stop enemy or he keeps moving forever.
+            rbody.velocity = new Vector2(0, 0);
         }
 
 
