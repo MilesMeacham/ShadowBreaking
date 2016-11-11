@@ -46,7 +46,6 @@ public class PlayerDeathManager : MonoBehaviour {
 
 	void DeathFunctions () // contains functions that will be called when the player dies
 	{
-		//ResetPlayerLevel ();
 		ResetPlayer ();
 		
 		//timing function
