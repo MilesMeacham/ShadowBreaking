@@ -38,6 +38,8 @@ public class EnemyMovement : MonoBehaviour {
     // This is called any time the enemy spawns (becomes active)
     void OnEnable()
     {
+        knockback = false;
+        stunned = false;
         spawnedLocation = transform.position;
     }
 
