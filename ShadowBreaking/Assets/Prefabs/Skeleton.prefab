@@ -95,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013082265336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.2008605, y: -2.0443053, z: 0}
+  m_LocalPosition: {x: 7.7731543, y: -2.3844585, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -364,7 +364,7 @@ Animator:
   m_GameObject: {fileID: 1000013082265336}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a81899f58c619064fa1eaa10e78fe13d, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -496,6 +496,9 @@ MonoBehaviour:
   startingHealth: 50
   currentHealth: 0
   knockbackTime: 0.1
+  movement: {fileID: 114000010285206092}
+  whiteMovement: {fileID: 0}
+  sorcerer: {fileID: 0}
   healthBar: {fileID: 114000012463107734}
   hurtSounds:
   - {fileID: 8300000, guid: ed303d81bf4fd214b83a73f33e71561c, type: 3}
