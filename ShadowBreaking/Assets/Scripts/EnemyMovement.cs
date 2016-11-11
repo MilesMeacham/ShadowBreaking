@@ -82,6 +82,8 @@ public class EnemyMovement : MonoBehaviour {
             anim.SetBool("IsWalking", true);
             anim.SetFloat("Input_X", xDiff);
             anim.SetFloat("Input_Y", yDiff);
+
+
         }
         else
         {

@@ -40,7 +40,9 @@ public class Character : MonoBehaviour {
     public float knockbackSpeed = 2;
 
     public AudioClip[] footsteps;
-    AudioSource moveSound;
+    public AudioClip spinAttack;
+    public AudioClip playerHurt;
+    AudioSource[] playerSounds;
 
     private Vector2 lastDirection;
     public float dodgeTime = 0.4f;
@@ -61,8 +63,10 @@ public class Character : MonoBehaviour {
 		slowWalkSpeed = walkspeed * 0.6f;
 		slowRunSpeed = runspeed * 0.6f;
         anim = GetComponent<Animator>();
-        moveSound = GetComponent<AudioSource> ();
-        moveSound.clip = footsteps[0];
+        playerSounds = GetComponents<AudioSource> ();
+        playerSounds[0].clip = footsteps[0];
+        playerSounds[1].clip = spinAttack;
+        playerSounds[2].clip = playerHurt;
 		staminaBar = new Rect(Screen.width/50, Screen.height/8, Screen.width*2, Screen.height/30);
 		staminaTexture = new Texture2D(1,1);
 		staminaTexture.SetPixel(0,0,Color.green);
@@ -97,8 +101,8 @@ public class Character : MonoBehaviour {
                 rbody.MovePosition(rbody.position + movement_vector * Time.deltaTime * walkspeed);
             }
 
-            if (!moveSound.isPlaying)
-                moveSound.Play();
+            if (!playerSounds[0].isPlaying)
+                playerSounds[0].Play();
         }
         else if(knockback == true)
         {
@@ -112,7 +116,7 @@ public class Character : MonoBehaviour {
         }
         else 
         {
-            moveSound.Stop();
+            playerSounds[0].Stop();
             anim.SetBool("IsWalking", false);
         }
     }
@@ -132,9 +136,9 @@ public class Character : MonoBehaviour {
     {
         isRunning = !isRunning;
         if (isRunning)
-            moveSound.clip = footsteps[1];
+            playerSounds[0].clip = footsteps[1];
         else
-            moveSound.clip = footsteps[0];
+            playerSounds[0].clip = footsteps[0];
     }
 	
 	public void ToggleInvuln()
@@ -155,6 +159,7 @@ public class Character : MonoBehaviour {
         }
         
         currentHealth -= damage;
+        playerSounds[2].Play();
         // Access heartManager and display the correct number of hearts
 		heartManager.DisplayCorrectNumberOfHearts(currentHealth);
         
@@ -176,7 +181,7 @@ public class Character : MonoBehaviour {
     {
         //Implement based on equiped item.
 		anim.SetTrigger ("Attack");
-
+        playerSounds[1].Play();
         return true;
     }
 
