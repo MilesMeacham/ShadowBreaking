@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -12,14 +13,20 @@ public class EnemyHealth : MonoBehaviour
     public float knockbackTime = 0.1f;
     private EnemyMovement movement;
 
+    public Image healthBar;
+    private float healthRemaining;
 
     bool isDead = false;
+
+    public AudioClip[] hurtSounds;
+    AudioSource[] enemySounds;
 	
 	void Start()
 	{
         movement = GetComponent<EnemyMovement>();
 		currentHealth = startingHealth;
         EnemyController = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+        enemySounds = GetComponents<AudioSource>();
 	}
 
     /// <summary>
@@ -28,12 +35,21 @@ public class EnemyHealth : MonoBehaviour
     void OnEnable()
     {
         currentHealth = startingHealth;
+
+        // This sets the fill amount to the amount of health remaining 
+        healthRemaining = (float)currentHealth / (float)startingHealth;
+        healthBar.fillAmount = healthRemaining;
     }
 	
 	public void TakeDamage (int amount)
 	{
 		currentHealth -= amount;
-		Debug.Log ("Enemy has been damaged.");
+        enemySounds[2].clip = hurtSounds[Mathf.RoundToInt(Random.value * (hurtSounds.Length - 1))];
+        enemySounds[2].Play();
+
+        // This sets the fill amount to the amount of health remaining 
+        healthRemaining = (float)currentHealth / (float)startingHealth;
+        healthBar.fillAmount = healthRemaining;
 
         StartCoroutine(KnockbackCO());
 
