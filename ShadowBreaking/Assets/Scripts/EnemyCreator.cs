@@ -9,9 +9,9 @@ public class EnemyCreator : MonoBehaviour
 	public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
 	private GameObject[] gameObjects;
 
-    public ObjectPoolerCreator objectPoolerCreator;  // Assign the ObjectPoolerCreator in the scene to this instead of having to do Gameobject.Find
+    //public ObjectPoolerCreator objectPoolerCreator;  // Assign the ObjectPoolerCreator in the scene to this instead of having to do Gameobject.Find
     public int skeleton = 1;                // This number is associated with the ObjectsToPool found in the ObjPoolCreator. 1 = Skeleton
-    public ObjectPooler skeletonObjPooler;
+    //public ObjectPooler skeletonObjPooler;
 
     void Start()
     {
