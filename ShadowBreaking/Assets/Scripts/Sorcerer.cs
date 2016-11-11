@@ -11,6 +11,7 @@ public class Sorcerer: MonoBehaviour {
 	public float knockbackSpeed = 0.8f;
 	public float chaseDistance = 3.0f;
 	public float attackDistance = 1.0f;
+	public float waitTime = 1.5f;
 	private float distanceToPlayer;
 	private float xDiff;
 	private float yDiff;
@@ -25,8 +26,10 @@ public class Sorcerer: MonoBehaviour {
 	private Vector2 spawnedLocation;
 	private Vector2 currentEnemyPos;
 	private Vector2 prevEnemyPos;
+	private Vector2 velocity;
 
 	private GameObject player;
+	public GameObject fireball;
 
 	// START:
 	void Start() {
@@ -63,18 +66,30 @@ public class Sorcerer: MonoBehaviour {
 		//  the mob moves towards the player.
 		if (distanceToPlayer <= chaseDistance && distanceToPlayer > attackDistance)
 		{
-			transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+			velocity = new Vector2((transform.position.x - player.transform.position.x) * moveSpeed, 
+				(transform.position.y - player.transform.position.y) * moveSpeed);
 
-			currentEnemyPos = transform.position;
-
+			rbody.velocity = -velocity;
+			currentEnemyPos = rbody.position;
 			walking = true;
 
 		} else if (distanceToPlayer <= attackDistance) {
 			Debug.Log(this.gameObject.name + " is now in range! Ready to shoot player!");
-
-			transform.position = transform.position;
+			// Have to stop enemy or he keeps moving forever.
+			rbody.velocity = new Vector2(0, 0);
 
 			shootFireball = true;
+
+			waitTime -= Time.deltaTime;
+			if (waitTime <= 0 && fireball) {
+				fireball.transform.position = transform.position;
+				fireball.SetActive(true);
+				//(projectile, transform.position, Quaternion.identity);
+				waitTime = 1.0f;
+			}
+		} else {
+			// Have to stop enemy or he keeps moving forever.
+			rbody.velocity = new Vector2(0, 0);
 		}
 
 
