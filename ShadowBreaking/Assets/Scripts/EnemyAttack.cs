@@ -12,7 +12,7 @@ public class EnemyAttack : MonoBehaviour {
 	public GameObject projectile;
 
     public AudioClip[] attackSounds;
-    AudioSource attackSound;
+    AudioSource[] enemySounds;
 
     private ObjectPooler projectilePooler;
 
@@ -20,7 +20,7 @@ public class EnemyAttack : MonoBehaviour {
 	void Start()
     {
 		player = GameObject.FindGameObjectWithTag("Player");
-        attackSound = GetComponent<AudioSource>();
+        enemySounds = GetComponents<AudioSource>();
 
         projectilePooler = GameObject.Find("ProjectilePooler").GetComponent<ObjectPooler>(); ;
 
@@ -43,8 +43,8 @@ public class EnemyAttack : MonoBehaviour {
                 projectile.transform.position = transform.position;
                 projectile.SetActive(true);
                     //(projectile, transform.position, Quaternion.identity);
-                attackSound.clip = attackSounds[Mathf.RoundToInt(Random.value * (attackSounds.Length - 1))];
-                attackSound.Play();
+                enemySounds[1].clip = attackSounds[Mathf.RoundToInt(Random.value * (attackSounds.Length - 1))];
+                enemySounds[1].Play();
 				waitTime = 1.0f;
 			}
 		}

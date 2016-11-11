@@ -17,12 +17,16 @@ public class EnemyHealth : MonoBehaviour
     private float healthRemaining;
 
     bool isDead = false;
+
+    public AudioClip[] hurtSounds;
+    AudioSource[] enemySounds;
 	
 	void Start()
 	{
         movement = GetComponent<EnemyMovement>();
 		currentHealth = startingHealth;
         EnemyController = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+        enemySounds = GetComponents<AudioSource>();
 	}
 
     /// <summary>
@@ -40,7 +44,8 @@ public class EnemyHealth : MonoBehaviour
 	public void TakeDamage (int amount)
 	{
 		currentHealth -= amount;
-
+        enemySounds[2].clip = hurtSounds[Mathf.RoundToInt(Random.value * (hurtSounds.Length - 1))];
+        enemySounds[2].Play();
 
         // This sets the fill amount to the amount of health remaining 
         healthRemaining = (float)currentHealth / (float)startingHealth;
