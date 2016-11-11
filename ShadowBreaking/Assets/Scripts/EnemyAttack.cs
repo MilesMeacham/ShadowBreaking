@@ -12,17 +12,17 @@ public class EnemyAttack : MonoBehaviour {
 	public GameObject projectile;
 
     public AudioClip[] attackSounds;
-    AudioSource attackSound;
+    AudioSource[] enemySounds;
 
-    private ObjectPooler projectilePooler;
+    //private ObjectPooler projectilePooler;
 
 	// START:
 	void Start()
     {
 		player = GameObject.FindGameObjectWithTag("Player");
-        attackSound = GetComponent<AudioSource>();
+        enemySounds = GetComponents<AudioSource>();
 
-        projectilePooler = GameObject.Find("ProjectilePooler").GetComponent<ObjectPooler>(); ;
+        //projectilePooler = GameObject.Find("ProjectilePooler").GetComponent<ObjectPooler>(); ;
 
 	} // END START()
 
@@ -39,12 +39,13 @@ public class EnemyAttack : MonoBehaviour {
 
 			waitTime -= Time.deltaTime;
 			if (waitTime <= 0 && projectile) {
-                projectile = projectilePooler.GetPooledObject();
-                projectile.transform.position = transform.position;
-                projectile.SetActive(true);
+                //projectile = projectilePooler.GetPooledObject();
+                //projectile.transform.position = transform.position;
+                //projectile.SetActive(true);
                     //(projectile, transform.position, Quaternion.identity);
-                attackSound.clip = attackSounds[Mathf.RoundToInt(Random.value * (attackSounds.Length - 1))];
-                attackSound.Play();
+				Instantiate(projectile, transform.position, Quaternion.identity);
+                enemySounds[1].clip = attackSounds[Mathf.RoundToInt(Random.value * (attackSounds.Length - 1))];
+                enemySounds[1].Play();
 				waitTime = 1.0f;
 			}
 		}

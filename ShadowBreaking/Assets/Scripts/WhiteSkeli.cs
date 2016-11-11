@@ -25,6 +25,7 @@ public class WhiteSkeli : MonoBehaviour {
 	private Vector2 spawnedLocation;
 	private Vector2 currentEnemyPos;
 	private Vector2 prevEnemyPos;
+	private Vector2 velocity;
 
 	private GameObject player;
 
@@ -65,17 +66,21 @@ public class WhiteSkeli : MonoBehaviour {
 		//  the mob moves towards the player.
 		if (distanceToPlayer <= chaseDistance && distanceToPlayer > attackDistance)
 		{
-			transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+			velocity = new Vector2((transform.position.x - player.transform.position.x) * moveSpeed, 
+				(transform.position.y - player.transform.position.y) * moveSpeed);
 
-			currentEnemyPos = transform.position;
-
+			rbody.velocity = -velocity;
+			currentEnemyPos = rbody.position;
 			walking = true;
 
 		} else if (distanceToPlayer <= attackDistance) {
 			Debug.Log(this.gameObject.name + " is now in range! Ready to shoot player!");
-			transform.position = transform.position;
-
+			// Have to stop enemy or he keeps moving forever.
+			rbody.velocity = new Vector2(0, 0);
 			shootBow = true;
+		} else {
+			// Have to stop enemy or he keeps moving forever.
+			rbody.velocity = new Vector2(0, 0);
 		}
 
 
@@ -110,12 +115,5 @@ public class WhiteSkeli : MonoBehaviour {
 
 		walking = false;
 		shootBow = false;
-	}
-
-	private IEnumerator WaitForAnimation (Animation animation)
-	{
-		do {
-			yield return null;
-		} while (animation.isPlaying);
 	}
 }

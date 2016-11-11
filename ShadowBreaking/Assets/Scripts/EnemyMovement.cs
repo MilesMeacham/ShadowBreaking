@@ -69,8 +69,8 @@ public class EnemyMovement : MonoBehaviour {
             velocity = new Vector2((transform.position.x - player.transform.position.x) * moveSpeed, 
                 (transform.position.y - player.transform.position.y) * moveSpeed);
 
-            rbody.velocity = -velocity;
-
+			rbody.velocity = -velocity;
+			currentEnemyPos = rbody.position;
             walking = true;
         }
         else
@@ -89,6 +89,8 @@ public class EnemyMovement : MonoBehaviour {
             anim.SetBool("IsWalking", true);
             anim.SetFloat("Input_X", xDiff);
             anim.SetFloat("Input_Y", yDiff);
+
+
         }
         else
         {
@@ -104,5 +106,4 @@ public class EnemyMovement : MonoBehaviour {
         walking = false;
 
     }
-
 } // END CLASS EnemyMovement

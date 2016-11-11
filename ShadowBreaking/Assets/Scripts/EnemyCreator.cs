@@ -7,6 +7,7 @@ public class EnemyCreator : MonoBehaviour
 {
     public GameObject enemy;                // The enemy prefab to be spawned.
 	public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
+	private GameObject[] gameObjects;
 
     public ObjectPoolerCreator objectPoolerCreator;  // Assign the ObjectPoolerCreator in the scene to this instead of having to do Gameobject.Find
     public int skeleton = 1;                // This number is associated with the ObjectsToPool found in the ObjPoolCreator. 1 = Skeleton
@@ -14,12 +15,21 @@ public class EnemyCreator : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(LateStart());
+        //StartCoroutine(LateStart());
+		Spawn();
     }
+	
+	public void Spawn()
+	{
+		for(int spawnPointIndex = 0; spawnPointIndex < spawnPoints.Length; spawnPointIndex++)
+		{
+			Instantiate (enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+		}
+	}
 
     // Had to implement this Custom LateStart function because I was getting an error because this stuff
     // was getting called before the objectPoolers were created.
-    IEnumerator LateStart()
+    /*IEnumerator LateStart()
     {
 
         yield return new WaitForSeconds(0.5f);
@@ -29,7 +39,9 @@ public class EnemyCreator : MonoBehaviour
 
         SpawnEnemies();
  
-	}
+	} 
+	
+	
 
     public void SpawnEnemies()
     {
@@ -49,17 +61,25 @@ public class EnemyCreator : MonoBehaviour
             // Need to set to true because it returns and inactive gameObject
             _skeleton.SetActive(true);
         }
-    }
+    } */
 
     /// <summary>
     /// Calls the deactivateAllEnemies from the object pooler and the spawns the enemies again.
     /// </summary>
     public void ResetAllEnemies()
     {
+		gameObjects = GameObject.FindGameObjectsWithTag ("Enemy");
+     
+		for(var i = 0 ; i < gameObjects.Length ; i ++)
+		{
+			Destroy(gameObjects[i]);
+		}
+	 
+		Spawn();
 
-        skeletonObjPooler.DeactivateAllEnemies();
+        //skeletonObjPooler.DeactivateAllEnemies();
 
-        SpawnEnemies();
+        //SpawnEnemies();
     }
 	
 	/*public void ResetEnemies()

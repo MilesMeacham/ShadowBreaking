@@ -399,11 +399,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 23000011605960506, guid: 9aa54638fb9436c44bb2f3da53735f9a,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9aa54638fb9436c44bb2f3da53735f9a, type: 2}
   m_IsPrefabParent: 0
@@ -1055,43 +1050,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 212000010812121730, guid: c5bbaabb72d68434e8985de8919dee90,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000011165482004, guid: c5bbaabb72d68434e8985de8919dee90,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000013093929268, guid: c5bbaabb72d68434e8985de8919dee90,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 114000010687567856, guid: c5bbaabb72d68434e8985de8919dee90,
         type: 2}
       propertyPath: restedText
       value: 
       objectReference: {fileID: 180957492}
-    - target: {fileID: 114000010687567856, guid: c5bbaabb72d68434e8985de8919dee90,
-        type: 2}
-      propertyPath: dodgeCooldownTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010687567856, guid: c5bbaabb72d68434e8985de8919dee90,
-        type: 2}
-      propertyPath: dodgeOnCooldown
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 58000012500043544, guid: c5bbaabb72d68434e8985de8919dee90,
-        type: 2}
-      propertyPath: m_Radius
-      value: 0.13679838
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114000014270787244, guid: c5bbaabb72d68434e8985de8919dee90, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5bbaabb72d68434e8985de8919dee90, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &741315810
