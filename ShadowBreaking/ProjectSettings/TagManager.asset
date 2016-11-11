@@ -12,6 +12,7 @@ TagManager:
   - QuestCollider
   - Pooler
   - Bonfire
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -48,4 +49,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Front
+    uniqueID: 453166945
     locked: 0
