@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -14,10 +15,6 @@ public class PlayerController : MonoBehaviour {
     //Generic implementation of Health
     private int currentHealth;
     private int maxHealth;
-    //private int currentStamina;
-    //private int maxStamina;
-
-	//public Text restedText; 
 
     //Use this for initialization
     void Start () {
@@ -32,8 +29,6 @@ public class PlayerController : MonoBehaviour {
         if (hudController.gamePaused)
             return;
 
-        
-        
 
         //Running
         if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -72,6 +67,16 @@ public class PlayerController : MonoBehaviour {
         {
             currentChar.TakeDamage(110);
         }
+		
+		if(Input.GetKeyDown(KeyCode.I))
+		{
+			currentChar.ToggleInvuln();
+		}
+		
+		if(Input.GetKeyDown(KeyCode.R))
+		{
+			SceneManager.LoadScene (Application.loadedLevelName);
+		}
 
 
     }
@@ -89,20 +94,6 @@ public class PlayerController : MonoBehaviour {
         currentChar.Move(movement_vector);
 
     }
-	
-    /*void OnCollisionEnter2D(Collision2D col) {
-        if (col.gameObject.tag == "Enemy")
-		{
-			Debug.Log("Enemy collide");
-			EventManager.TriggerEvent("damage");
-			
-		}
-		 else if (col.gameObject.CompareTag("Bonfire"))
-        {
-            //restedPos = new Vector2(transform.position.x, transform.position.y);
-			StartCoroutine(Timer());
-        }
-    } */
 	
 	
 	/*IEnumerator Timer()
