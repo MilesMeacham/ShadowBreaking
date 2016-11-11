@@ -15,7 +15,7 @@ MonoBehaviour:
   reloadWeapon: 114
   throwGrenade: 103
   SplitItem: 305
-  InventoryKeyCode: 105
+  InventoryKeyCode: 102
   StorageKeyCode: 101
   CharacterSystemKeyCode: 99
   CraftSystemKeyCode: 107
