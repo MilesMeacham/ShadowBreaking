@@ -71,6 +71,7 @@ public class Sorcerer: MonoBehaviour {
 
 		} else if (distanceToPlayer <= attackDistance) {
 			Debug.Log(this.gameObject.name + " is now in range! Ready to shoot player!");
+
 			transform.position = transform.position;
 
 			shootFireball = true;
@@ -108,12 +109,5 @@ public class Sorcerer: MonoBehaviour {
 
 		walking = false;
 		shootFireball = false;
-	}
-
-	private IEnumerator WaitForAnimation (Animation animation)
-	{
-		do {
-			yield return null;
-		} while (animation.isPlaying);
 	}
 }
