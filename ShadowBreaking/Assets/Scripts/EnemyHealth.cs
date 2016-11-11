@@ -44,8 +44,12 @@ public class EnemyHealth : MonoBehaviour
 	public void TakeDamage (int amount)
 	{
 		currentHealth -= amount;
-        enemySounds[2].clip = hurtSounds[Mathf.RoundToInt(Random.value * (hurtSounds.Length - 1))];
-        enemySounds[2].Play();
+
+        if (enemySounds[2].clip != null)
+        {
+            enemySounds[2].clip = hurtSounds[Mathf.RoundToInt(Random.value * (hurtSounds.Length - 1))];
+            enemySounds[2].Play();
+        }
 
         // This sets the fill amount to the amount of health remaining 
         healthRemaining = (float)currentHealth / (float)startingHealth;
