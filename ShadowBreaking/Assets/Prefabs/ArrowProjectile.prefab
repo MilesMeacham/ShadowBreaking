@@ -22,6 +22,7 @@ GameObject:
   - 212: {fileID: 212000013331313378}
   - 95: {fileID: 95000012736294316}
   - 61: {fileID: 61000013753246166}
+  - 114: {fileID: 114000010151791414}
   m_Layer: 0
   m_Name: ArrowProjectile
   m_TagString: Untagged
@@ -51,7 +52,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0.11381182, y: -0.06705189}
   serializedVersion: 2
@@ -73,6 +74,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000010151791414
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011590196642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97082e15818c5fc41a39105412cb2d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 1
+  Player: {fileID: 0}
 --- !u!212 &212000013331313378
 SpriteRenderer:
   m_ObjectHideFlags: 1
