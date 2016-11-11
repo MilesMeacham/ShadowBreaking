@@ -11,7 +11,9 @@ public class EnemyHealth : MonoBehaviour
 	private UnityAction damageListener;
 
     public float knockbackTime = 0.1f;
-    private EnemyMovement movement;
+    public EnemyMovement movement;
+    public WhiteSkeli whiteMovement;
+    public Sorcerer sorcerer;
 
     public Image healthBar;
     private float healthRemaining;
@@ -23,7 +25,10 @@ public class EnemyHealth : MonoBehaviour
 	
 	void Start()
 	{
-        movement = GetComponent<EnemyMovement>();
+        
+            
+
+
 		currentHealth = startingHealth;
         EnemyController = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
         enemySounds = GetComponents<AudioSource>();
@@ -65,16 +70,46 @@ public class EnemyHealth : MonoBehaviour
 
     IEnumerator KnockbackCO()
     {
-        movement.knockback = true;
+        if (movement != null)
+        {
+            movement.knockback = true;
 
-        yield return new WaitForSeconds(knockbackTime);
+            yield return new WaitForSeconds(knockbackTime);
 
-        movement.knockback = false;
-        movement.stunned = true;
+            movement.knockback = false;
+            movement.stunned = true;
 
-        yield return new WaitForSeconds(knockbackTime);
+            yield return new WaitForSeconds(knockbackTime);
 
-        movement.stunned = false;
+            movement.stunned = false;
+        }
+        else if (whiteMovement != null)
+        {
+            whiteMovement.knockback = true;
+
+            yield return new WaitForSeconds(knockbackTime);
+
+            whiteMovement.knockback = false;
+            whiteMovement.stunned = true;
+
+            yield return new WaitForSeconds(knockbackTime);
+
+            whiteMovement.stunned = false;
+        }
+        else if (sorcerer != null)
+        {
+            sorcerer.knockback = true;
+
+            yield return new WaitForSeconds(knockbackTime);
+
+            sorcerer.knockback = false;
+            sorcerer.stunned = true;
+
+            yield return new WaitForSeconds(knockbackTime);
+
+            sorcerer.stunned = false;
+        }
+            
     }
 
     void Death ()

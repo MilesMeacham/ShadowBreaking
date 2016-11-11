@@ -527,7 +527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
-  knockbackSpeed: 0.8
+  knockbackSpeed: 6
   chaseDistance: 3
   attackDistance: 1
   knockback: 0
@@ -547,6 +547,9 @@ MonoBehaviour:
   startingHealth: 30
   currentHealth: 0
   knockbackTime: 0.1
+  movement: {fileID: 0}
+  whiteMovement: {fileID: 114000011884866284}
+  sorcerer: {fileID: 0}
   healthBar: {fileID: 114000013702980470}
   hurtSounds: []
 --- !u!114 &114000013702980470
