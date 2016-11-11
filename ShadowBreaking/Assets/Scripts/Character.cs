@@ -69,7 +69,7 @@ public class Character : MonoBehaviour {
 		staminaTexture.Apply();
 		
 		heartManager = FindObjectOfType<HeartManager> ().GetComponent<HeartManager> ();
-		enemyCreator = GameObject.Find("EnemyManager").GetComponent<EnemyCreator>(); //new
+		enemyCreator = GameObject.Find("EnemyManager").GetComponent<EnemyCreator>(); 
     }
 
 
@@ -136,6 +136,7 @@ public class Character : MonoBehaviour {
         else
             moveSound.clip = footsteps[0];
     }
+	
 	public void ToggleInvuln()
 	{
 		isInvuln = !isInvuln;
@@ -188,7 +189,7 @@ public class Character : MonoBehaviour {
 
     public void Dodge()
     {
-        //Implement based on current movement direction, and somehow make it over time.
+        //Implement based on current movement direction
         if (!knockback && !isDodging) 
 		{
 			if(dodgeOnCooldown == false && currentStamina >= dodgeCost)
@@ -284,14 +285,6 @@ public class Character : MonoBehaviour {
 		}
     }
 	
-	/*public void OnTriggerStay(Collider2D other)
-	{
-		if(other.gameObject.CompareTag("Water")){
-			Debug.Log("In water.");
-			walkspeed = walkspeed*0.5f;
-			runspeed = runspeed * 0.5f;
-		}
-	} */
 	
 	public void OnTriggerExit2D(Collider2D other)
 	{
