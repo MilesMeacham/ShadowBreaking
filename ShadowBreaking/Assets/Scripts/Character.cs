@@ -19,6 +19,9 @@ public class Character : MonoBehaviour {
     private bool knockback = false;
 	private bool isInvuln = false;
     private int currentHealth;
+	private float currentStamina;
+    private float maxStamina = 100f;
+	private float dodgeCost = 25f;
 	
 	private HeartManager heartManager;
 	public float invincibilityTime = 0.5f;
@@ -40,14 +43,22 @@ public class Character : MonoBehaviour {
     public float knockbackTime = 0.2f;
 	
 	public Text restedText; 
+	
+	private Rect staminaBar;
+	private Texture2D staminaTexture;
     
     
     void Start () {
         rbody = GetComponentInChildren<Rigidbody2D>();
         currentHealth = maxHealth;
+		currentStamina = maxStamina;
         anim = GetComponent<Animator>();
         moveSound = GetComponent<AudioSource> ();
         moveSound.clip = footsteps[0];
+		staminaBar = new Rect(Screen.width/50, Screen.height/8, Screen.width*2, Screen.height/30);
+		staminaTexture = new Texture2D(1,1);
+		staminaTexture.SetPixel(0,0,Color.green);
+		staminaTexture.Apply();
 		
 		heartManager = FindObjectOfType<HeartManager> ().GetComponent<HeartManager> ();
 		enemyCreator = GameObject.Find("EnemyManager").GetComponent<EnemyCreator>(); //new
@@ -98,6 +109,12 @@ public class Character : MonoBehaviour {
         }
     }
 
+	void Update()
+	{
+		//recharge stamina
+		if(currentStamina <= maxStamina)
+			currentStamina += (Time.deltaTime * 5);
+	}
 
 
     /// <summary>
@@ -166,8 +183,9 @@ public class Character : MonoBehaviour {
         //Implement based on current movement direction, and somehow make it over time.
         if (!knockback && !isDodging) 
 		{
-			if(dodgeOnCooldown == false)
+			if(dodgeOnCooldown == false && currentStamina >= dodgeCost)
 			{
+				currentStamina -= dodgeCost;
 				StartCoroutine(DodgeCO());
 				StartCoroutine(DodgeCooldown());
 			}
@@ -255,8 +273,15 @@ public class Character : MonoBehaviour {
 	IEnumerator Timer()
 	{
 		restedText.enabled = true;
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(3);
 		restedText.enabled = false;
 	}
 
+	void OnGUI()
+	{
+		float ratio = currentStamina/maxStamina;
+		float rectWidth = ratio * Screen.width/4;
+		staminaBar.width = rectWidth;
+		GUI.DrawTexture(staminaBar, staminaTexture);
+	}
 }
