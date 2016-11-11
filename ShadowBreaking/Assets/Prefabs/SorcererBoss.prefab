@@ -499,7 +499,7 @@ MonoBehaviour:
   waitTime: 1.5
   knockback: 0
   stunned: 0
-  fireball: {fileID: 0}
+  fireball: {fileID: 1000013089785526, guid: 36344c32116bfc34286a502477b1eaca, type: 2}
 --- !u!212 &212000010735612302
 SpriteRenderer:
   m_ObjectHideFlags: 1
