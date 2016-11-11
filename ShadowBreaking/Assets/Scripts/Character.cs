@@ -19,6 +19,9 @@ public class Character : MonoBehaviour {
     private bool knockback = false;
 	private bool isInvuln = false;
     private int currentHealth;
+	private float currentStamina;
+    private float maxStamina = 100f;
+	private float dodgeCost = 25f;
 	
 	private HeartManager heartManager;
 	public float invincibilityTime = 0.5f;
@@ -28,7 +31,11 @@ public class Character : MonoBehaviour {
 
     public int maxHealth = 100;    
     public float walkspeed = 1.5f;
+	private float slowWalkSpeed;
+	private float maxWalkSpeed;
     public float runspeed = 2;
+	private float slowRunSpeed;
+	private float maxRunSpeed;
     public float dodgeSpeed = 2.5f;
     public float knockbackSpeed = 2;
 
@@ -40,17 +47,29 @@ public class Character : MonoBehaviour {
     public float knockbackTime = 0.2f;
 	
 	public Text restedText; 
+	
+	private Rect staminaBar;
+	private Texture2D staminaTexture;
     
     
     void Start () {
         rbody = GetComponentInChildren<Rigidbody2D>();
         currentHealth = maxHealth;
+		currentStamina = maxStamina;
+		maxWalkSpeed = walkspeed;
+		maxRunSpeed = runspeed;
+		slowWalkSpeed = walkspeed * 0.6f;
+		slowRunSpeed = runspeed * 0.6f;
         anim = GetComponent<Animator>();
         moveSound = GetComponent<AudioSource> ();
         moveSound.clip = footsteps[0];
+		staminaBar = new Rect(Screen.width/50, Screen.height/8, Screen.width*2, Screen.height/30);
+		staminaTexture = new Texture2D(1,1);
+		staminaTexture.SetPixel(0,0,Color.green);
+		staminaTexture.Apply();
 		
 		heartManager = FindObjectOfType<HeartManager> ().GetComponent<HeartManager> ();
-		enemyCreator = GameObject.Find("EnemyManager").GetComponent<EnemyCreator>(); //new
+		enemyCreator = GameObject.Find("EnemyManager").GetComponent<EnemyCreator>(); 
     }
 
 
@@ -98,6 +117,12 @@ public class Character : MonoBehaviour {
         }
     }
 
+	void Update()
+	{
+		//recharge stamina
+		if(currentStamina <= maxStamina)
+			currentStamina += (Time.deltaTime * 5);
+	}
 
 
     /// <summary>
@@ -111,6 +136,7 @@ public class Character : MonoBehaviour {
         else
             moveSound.clip = footsteps[0];
     }
+	
 	public void ToggleInvuln()
 	{
 		isInvuln = !isInvuln;
@@ -163,11 +189,12 @@ public class Character : MonoBehaviour {
 
     public void Dodge()
     {
-        //Implement based on current movement direction, and somehow make it over time.
+        //Implement based on current movement direction
         if (!knockback && !isDodging) 
 		{
-			if(dodgeOnCooldown == false)
+			if(dodgeOnCooldown == false && currentStamina >= dodgeCost)
 			{
+				currentStamina -= dodgeCost;
 				StartCoroutine(DodgeCO());
 				StartCoroutine(DodgeCooldown());
 			}
@@ -250,13 +277,37 @@ public class Character : MonoBehaviour {
 			enemyCreator.ResetAllEnemies(); //new
 			StartCoroutine(Timer());
         }
+		else if(other.gameObject.CompareTag("Water"))
+		{
+			Debug.Log("In water.");
+			walkspeed = slowWalkSpeed;
+			runspeed = slowRunSpeed;
+		}
     }
+	
+	
+	public void OnTriggerExit2D(Collider2D other)
+	{
+		if(other.gameObject.CompareTag("Water"))
+		{
+			Debug.Log("In water.");
+			walkspeed = maxWalkSpeed;
+			runspeed = maxRunSpeed;
+		}
+	}
 	
 	IEnumerator Timer()
 	{
 		restedText.enabled = true;
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(3);
 		restedText.enabled = false;
 	}
 
+	void OnGUI()
+	{
+		float ratio = currentStamina/maxStamina;
+		float rectWidth = ratio * Screen.width/4;
+		staminaBar.width = rectWidth;
+		GUI.DrawTexture(staminaBar, staminaTexture);
+	}
 }
