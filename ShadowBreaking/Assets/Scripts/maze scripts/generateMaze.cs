@@ -58,8 +58,8 @@ public class generateMaze : MonoBehaviour {
 		southWall.transform.parent = walls.transform;
 		eastWall.transform.parent = walls.transform;
 		westWall.transform.parent = walls.transform;
-
-		for (int y = 0; y < mazeWidth_Y; y++) {
+           
+        for (int y = 0; y < mazeWidth_Y; y++) {
 			for (int x = 0; x < mazeLength_X; x++) {
 				int rand = Random.Range (0, LastTileInList);
 				GameObject tile = tile_001;
