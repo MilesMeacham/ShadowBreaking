@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: FireballAC
+  m_Name: ArrowAC
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Input_X
@@ -55,7 +55,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 6e2add7c48d9c7446a4eb5d5b25f9228, type: 2}
+    m_Motion: {fileID: 7400000, guid: 9388dca420bfd5242b5f733128f72801, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
@@ -63,7 +63,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 43469a41c8e649b48a956b184d4d18aa, type: 2}
+    m_Motion: {fileID: 7400000, guid: 37e26ea153e5d884f88ea215642af502, type: 2}
     m_Threshold: 0.33333334
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
