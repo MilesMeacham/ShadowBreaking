@@ -68,6 +68,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 4
+  Player: {fileID: 0}
+  projectileLifeSpan: 2
 --- !u!212 &212000013393810534
 SpriteRenderer:
   m_ObjectHideFlags: 1

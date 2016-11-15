@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013848932512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.788, y: 0.488, z: 0}
+  m_LocalPosition: {x: 2.5577762, y: -15.717094, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -132,10 +132,11 @@ MonoBehaviour:
   window: {fileID: 2800000, guid: 2743ac9ef72176a40bbe8a63a411e827, type: 3}
   mouseIcon: {fileID: 2800000, guid: b5dbf22c3f4d5b941b874ba2cc7f593e, type: 3}
   questions:
-  - I have a quest for you. Will you do the quest?
-  - '[Quest: collect banana.]'
-  - 'Do the quest! [Quest: collect banana.]'
-  - You did the quest. Here is your reward.
+  - Please! You must listen! there is an evil sorcerer lurking in this forest! I need
+    you to find him and kill him!
+  - '[Quest: kill the High Sorcerer.]'
+  - Please! Kill the High Sorcerer!
+  - You killed the High Sorcerer! Thank you! You have my eternal gratitude!
   - I have nothing more to say.
   answers:
   - Accept.

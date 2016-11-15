@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010733657524}
-  - 114: {fileID: 114000010712719006}
+  - 114: {fileID: 114000013396315190}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &114000010712719006
+--- !u!114 &114000013396315190
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -48,18 +48,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010614890080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e4c72105b801fd40aa5c72bfdaed42e, type: 3}
+  m_Script: {fileID: 11500000, guid: 448daedd32b642e4cac8506f7ae22cc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1000013082265336, guid: 807e9d808d3d5f24d94215c8fb699f49, type: 2}
-  spawnTime: 5
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  maxSpawn: 7
-  remainingSpawn: 0
-  deaths: 0
-  victory: {fileID: 114000011579827844, guid: d15bd780b5a36944d98663805ea4ac95, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  objectPoolerCreator: {fileID: 0}
+  skeleton: 1
