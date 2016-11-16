@@ -48,7 +48,7 @@ public class EnemyCreator : MonoBehaviour
 				{
 					Instantiate (whiteSkeleton, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 				}
-				else if(spawnPointIndex == 27 || spawnPointIndex == 28)
+				else if(spawnPointIndex == 28 || spawnPointIndex == 29)
 				{
 					//Debug.Log("Sorcerer should spawn");
 					Instantiate (sorcerer, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
