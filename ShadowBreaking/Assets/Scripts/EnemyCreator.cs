@@ -18,6 +18,7 @@ public class EnemyCreator : MonoBehaviour
     void Start()
     {
         //StartCoroutine(LateStart());
+		
 		Spawn();
     }
 	
@@ -25,18 +26,37 @@ public class EnemyCreator : MonoBehaviour
 	{
 		for(int spawnPointIndex = 0; spawnPointIndex < spawnPoints.Length; spawnPointIndex++)
 		{
-			if(spawnPointIndex == 28 || spawnPointIndex == 29 || spawnPointIndex == 30 || spawnPointIndex == 31)
+			if(Application.loadedLevelName == "Brady_Forest_Sandbox")
 			{
-				Instantiate (whiteSkeleton, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+				if(spawnPointIndex == 28 || spawnPointIndex == 29 || spawnPointIndex == 30 || spawnPointIndex == 31)
+				{
+					Instantiate (whiteSkeleton, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+				}
+				else if(spawnPointIndex == 32)
+				{
+					//Debug.Log("Sorcerer should spawn");
+					Instantiate (sorcerer, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+				}
+				else
+				{
+					Instantiate (skeleton, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+				}			
 			}
-			else if(spawnPointIndex == 32)
+			else if(Application.loadedLevelName == "Brady_Cave_Scene")
 			{
-				Debug.Log("Sorcerer should spawn");
-				Instantiate (sorcerer, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-			}
-			else
-			{
-				Instantiate (skeleton, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+				if(spawnPointIndex == 4 || spawnPointIndex == 7 || spawnPointIndex == 11 || spawnPointIndex == 12 || spawnPointIndex == 15 || spawnPointIndex == 19 || spawnPointIndex == 24 || spawnPointIndex == 26)
+				{
+					Instantiate (whiteSkeleton, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+				}
+				else if(spawnPointIndex == 28 || spawnPointIndex == 29)
+				{
+					//Debug.Log("Sorcerer should spawn");
+					Instantiate (sorcerer, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+				}
+				else
+				{
+					Instantiate (skeleton, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+				}	
 			}
 		}
 

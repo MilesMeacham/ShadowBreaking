@@ -124,7 +124,7 @@ public class Character : MonoBehaviour {
 	void Update()
 	{
 		//recharge stamina
-		if(currentStamina <= maxStamina)
+		if(currentStamina <= maxStamina && isRunning == false)
 			currentStamina += (Time.deltaTime * 5);
 	}
 
@@ -278,6 +278,7 @@ public class Character : MonoBehaviour {
 			Debug.Log("Touched bonfire collider");
             restedPos = new Vector2(transform.position.x, transform.position.y);
 			currentHealth = maxHealth;
+			currentStamina = maxStamina;
 			heartManager.DisplayCorrectNumberOfHearts(currentHealth); //reset UI hearts to full
 			enemyCreator.ResetAllEnemies(); //new
 			StartCoroutine(Timer());
