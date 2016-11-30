@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System;
 
@@ -312,6 +313,11 @@ public class Character : MonoBehaviour {
 			Debug.Log("In water.");
 			walkspeed = slowWalkSpeed;
 			runspeed = slowRunSpeed;
+		}
+		else if(other.gameObject.CompareTag("Teleporter"))
+		{
+			Debug.Log("Teleporting to next level");
+			SceneManager.LoadScene(2);
 		}
     }
 	
