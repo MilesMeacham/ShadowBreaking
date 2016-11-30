@@ -8,6 +8,9 @@ public class EnemyHealth : MonoBehaviour
 	public int startingHealth = 50;
 	public int currentHealth;
     EnemyManager EnemyController;
+	GameObject Teleporter;
+	SpriteRenderer tpRend;
+	BoxCollider2D tpCollide;
 	private UnityAction damageListener;
 
     public float knockbackTime = 0.1f;
@@ -26,12 +29,15 @@ public class EnemyHealth : MonoBehaviour
 	void Start()
 	{
         
-            
-
-
 		currentHealth = startingHealth;
         EnemyController = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
         enemySounds = GetComponents<AudioSource>();
+		Teleporter = GameObject.Find("Exit Level Totem");
+		if(this.gameObject.name == "SorcererBoss" || this.gameObject.name == "SorcererBoss(Clone)")
+		{
+			tpRend = Teleporter.GetComponent<SpriteRenderer>();
+			tpCollide = Teleporter.GetComponent<BoxCollider2D>();
+		}
 	}
 
     /// <summary>
@@ -118,6 +124,15 @@ public class EnemyHealth : MonoBehaviour
 			
 			isDead = true;
             //Destroy(gameObject);
+			Debug.Log("This objects name is " + this.gameObject.name);
+			if(this.gameObject.name == "SorcererBoss(Clone)" || this.gameObject.name == "SorcererBoss")
+			{
+				Debug.Log("Entering IMPORTANT FuNCTION");
+				tpRend = Teleporter.GetComponent<SpriteRenderer>();
+				tpRend.enabled = true;
+				//Teleporter.SetActive(true);
+				tpCollide.enabled = true;
+			}
 
             this.gameObject.SetActive(false);
 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System;
 
@@ -22,6 +23,9 @@ public class Character : MonoBehaviour {
 	private float currentStamina;
     private float maxStamina = 100f;
 	private float dodgeCost = 25f;
+	private int maxPotions = 2;
+	private int potionAmt;
+	private int potionHealAmt = 50;
 	
 	private HeartManager heartManager;
 	public float invincibilityTime = 0.5f;
@@ -49,6 +53,7 @@ public class Character : MonoBehaviour {
     public float knockbackTime = 0.2f;
 	
 	public Text restedText; 
+	public Text potionText;
 	
 	private Rect staminaBar;
 	private Texture2D staminaTexture;
@@ -56,6 +61,8 @@ public class Character : MonoBehaviour {
     
     void Start () {
         rbody = GetComponentInChildren<Rigidbody2D>();
+		potionAmt = maxPotions;
+		potionText.text = "Health Potions: " + maxPotions.ToString();
         currentHealth = maxHealth;
 		currentStamina = maxStamina;
 		maxWalkSpeed = walkspeed;
@@ -206,6 +213,20 @@ public class Character : MonoBehaviour {
 		}
 
     }
+	
+	public void Heal()
+	{
+		if(potionAmt != 0)
+		{
+			potionAmt -= 1;
+			if(currentHealth + potionHealAmt <= maxHealth)
+				currentHealth += potionHealAmt;
+			else
+				currentHealth = maxHealth;
+			heartManager.DisplayCorrectNumberOfHearts(currentHealth);
+			potionText.text = "Health Potions: " + potionAmt.ToString();
+		}
+	}
 
     IEnumerator DodgeCO()
     {
@@ -266,6 +287,8 @@ public class Character : MonoBehaviour {
     public void Resurrection()
     {
         currentHealth = maxHealth;
+		potionAmt = maxPotions;
+		potionText.text = "Health Potions: " + maxPotions.ToString();
 		heartManager.DisplayCorrectNumberOfHearts(currentHealth); //reset UI hearts to full
         isActing = false;
     }
@@ -279,6 +302,8 @@ public class Character : MonoBehaviour {
             restedPos = new Vector2(transform.position.x, transform.position.y);
 			currentHealth = maxHealth;
 			currentStamina = maxStamina;
+			potionAmt = maxPotions;
+			potionText.text = "Health Potions: " + maxPotions.ToString();
 			heartManager.DisplayCorrectNumberOfHearts(currentHealth); //reset UI hearts to full
 			enemyCreator.ResetAllEnemies(); //new
 			StartCoroutine(Timer());
@@ -288,6 +313,11 @@ public class Character : MonoBehaviour {
 			Debug.Log("In water.");
 			walkspeed = slowWalkSpeed;
 			runspeed = slowRunSpeed;
+		}
+		else if(other.gameObject.CompareTag("Teleporter"))
+		{
+			Debug.Log("Teleporting to next level");
+			SceneManager.LoadScene(2);
 		}
     }
 	

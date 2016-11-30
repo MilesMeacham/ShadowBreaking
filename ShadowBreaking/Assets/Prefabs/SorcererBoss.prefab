@@ -448,6 +448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 120
   currentHealth: 0
+  Teleporter: {fileID: 1000012201122758, guid: 18d79a46934940f4aa16a35c48397fec, type: 2}
   knockbackTime: 0.1
   movement: {fileID: 0}
   whiteMovement: {fileID: 0}
@@ -497,6 +498,7 @@ MonoBehaviour:
   chaseDistance: 3
   attackDistance: 1
   waitTime: 1.5
+  fireTime: 1.5
   knockback: 0
   stunned: 0
   fireball: {fileID: 1000013089785526, guid: 36344c32116bfc34286a502477b1eaca, type: 2}

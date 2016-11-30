@@ -495,6 +495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 50
   currentHealth: 0
+  Teleporter: {fileID: 1000012201122758, guid: 18d79a46934940f4aa16a35c48397fec, type: 2}
   knockbackTime: 0.1
   movement: {fileID: 114000010285206092}
   whiteMovement: {fileID: 0}
@@ -548,7 +549,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300008, guid: 7373825b2694c4543b0dcb69bcf9110c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
