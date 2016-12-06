@@ -317,7 +317,10 @@ public class Character : MonoBehaviour {
 		else if(other.gameObject.CompareTag("Teleporter"))
 		{
 			Debug.Log("Teleporting to next level");
-			SceneManager.LoadScene(2);
+			if(Application.loadedLevelName == "Arena_Scene_Final")
+				SceneManager.LoadScene(2);
+			else if(Application.loadedLevelName == "Forest_Final")
+				SceneManager.LoadScene(3);
 		}
     }
 	
