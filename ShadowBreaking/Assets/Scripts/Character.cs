@@ -34,13 +34,13 @@ public class Character : MonoBehaviour {
 	private bool dodgeOnCooldown = false;
 
     public int maxHealth = 100;    
-    public float walkspeed = 1.5f;
+    public float walkspeed = 1.8f; //was 1.5f
 	private float slowWalkSpeed;
 	private float maxWalkSpeed;
-    public float runspeed = 2;
+    public float runspeed = 2.3f; //was 2
 	private float slowRunSpeed;
 	private float maxRunSpeed;
-    public float dodgeSpeed = 2.5f;
+    public float dodgeSpeed = 2.75f; //was 2.5f
     public float knockbackSpeed = 2;
 
     public AudioClip[] footsteps;
