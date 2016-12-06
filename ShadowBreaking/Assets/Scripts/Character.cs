@@ -34,13 +34,13 @@ public class Character : MonoBehaviour {
 	private bool dodgeOnCooldown = false;
 
     public int maxHealth = 100;    
-    public float walkspeed = 1.5f;
+    public float walkspeed = 1.8f; //was 1.5f
 	private float slowWalkSpeed;
 	private float maxWalkSpeed;
-    public float runspeed = 2;
+    public float runspeed = 2.3f; //was 2
 	private float slowRunSpeed;
 	private float maxRunSpeed;
-    public float dodgeSpeed = 2.5f;
+    public float dodgeSpeed = 2.75f; //was 2.5f
     public float knockbackSpeed = 2;
 
     public AudioClip[] footsteps;
@@ -317,7 +317,10 @@ public class Character : MonoBehaviour {
 		else if(other.gameObject.CompareTag("Teleporter"))
 		{
 			Debug.Log("Teleporting to next level");
-			SceneManager.LoadScene(2);
+			if(Application.loadedLevelName == "Arena_Scene_Final")
+				SceneManager.LoadScene(2);
+			else if(Application.loadedLevelName == "Forest_Final")
+				SceneManager.LoadScene(3);
 		}
     }
 	
