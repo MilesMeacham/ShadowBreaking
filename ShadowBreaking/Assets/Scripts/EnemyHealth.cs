@@ -34,7 +34,7 @@ public class EnemyHealth : MonoBehaviour
 		currentHealth = startingHealth;
         EnemyController = GameObject.Find("EnemyManager").GetComponent<EnemyCreator>();
         enemySounds = GetComponents<AudioSource>();
-		Teleporter = GameObject.Find("Exit Level Totem");
+		Teleporter = GameObject.Find("Exit Portal");
 		if(this.gameObject.name == "SorcererBoss" || this.gameObject.name == "SorcererBoss(Clone)" || Application.loadedLevelName == "Arena_Scene_Final")
 		{
 			tpRend = Teleporter.GetComponent<SpriteRenderer>();
