@@ -124,15 +124,9 @@ public class EnemyHealth : MonoBehaviour
 	{
 		if (isDead != true) 
 		{
-			
 			isDead = true;
-            //Destroy(gameObject);
-			//Debug.Log("This objects name is " + this.gameObject.name);
 			if(Application.loadedLevelName == "Arena_Scene_Final")
 			{
-				//deaths += 1;
-				//Debug.Log("Deaths" + deaths);
-				//EnemyController.
 				EnemyController.addDeath();
 				deaths = EnemyController.getDeaths();
 				if(deaths == maxSpawn)
@@ -146,18 +140,22 @@ public class EnemyHealth : MonoBehaviour
 			}
 			else
 			{
-				if(this.gameObject.name == "SorcererBoss(Clone)" || this.gameObject.name == "SorcererBoss")
+				if(Application.loadedLevelName == "Brady_Forest_Sandbox" && (this.gameObject.name == "SorcererBoss(Clone)" || this.gameObject.name == "SorcererBoss"))
 				{
 					//Debug.Log("Entering IMPORTANT FUNCTION");
+					EnemyController.setBossDeathState("boss", true);
 					tpRend = Teleporter.GetComponent<SpriteRenderer>();
 					tpRend.enabled = true;
-					//Teleporter.SetActive(true);
 					tpCollide.enabled = true;
-				}				
+				}
+				else if(Application.loadedLevelName == "Brady_Cave_Scene" && (this.gameObject.name == "SorcererBoss(Clone)" || this.gameObject.name == "SorcererBoss"))
+				{
+					EnemyController.setBossDeathState("miniboss", true);
+				}
 			}
+			
 			this.gameObject.SetActive(false);
 
-			//EnemyController.UpdateDeath();
 			Debug.Log ("Enemy has died");
 		}
 	}
