@@ -364,7 +364,7 @@ Animator:
   m_GameObject: {fileID: 1000013082265336}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d822143db05425743a4b47e06cad4030, type: 2}
+  m_Controller: {fileID: 9100000, guid: a81899f58c619064fa1eaa10e78fe13d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -495,6 +495,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 50
   currentHealth: 0
+  maxSpawn: 7
+  deaths: 0
   knockbackTime: 0.1
   movement: {fileID: 114000010285206092}
   whiteMovement: {fileID: 0}
