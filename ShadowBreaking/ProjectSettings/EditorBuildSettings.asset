@@ -17,3 +17,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Brady_Forest_Sandbox.unity
   - enabled: 1
     path: Assets/Scenes/Brady_Cave_Scene.unity
+  - enabled: 1
+    path: Assets/Scenes/Castle.unity

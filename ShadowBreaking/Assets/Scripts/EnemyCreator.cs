@@ -15,6 +15,8 @@ public class EnemyCreator : MonoBehaviour
 	public int maxSpawn = 7;
 	public int remainingSpawn;
 	public int deaths = 0;
+	public bool minibossDead = false;
+	public bool bossDead = false;
 
 	
     //public ObjectPoolerCreator objectPoolerCreator;  // Assign the ObjectPoolerCreator in the scene to this instead of having to do Gameobject.Find
@@ -45,10 +47,14 @@ public class EnemyCreator : MonoBehaviour
 					{
 						Instantiate (whiteSkeleton, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 					}
+					//else if for forest miniboss
 					else if(spawnPointIndex == 32)
 					{
 						//Debug.Log("Sorcerer should spawn");
-						Instantiate (sorcerer, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+						if(bossDead != true)
+						{
+							Instantiate (sorcerer, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+						}
 					}
 					else
 					{
@@ -64,8 +70,12 @@ public class EnemyCreator : MonoBehaviour
 					else if(spawnPointIndex == 28 || spawnPointIndex == 29)
 					{
 						//Debug.Log("Sorcerer should spawn");
-						Instantiate (sorcerer, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+						if(minibossDead != true)
+						{
+							Instantiate (sorcerer, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+						}
 					}
+					//else if for knight boss
 					else
 					{
 						Instantiate (skeleton, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
@@ -90,6 +100,12 @@ public class EnemyCreator : MonoBehaviour
 		
 		remainingSpawn = remainingSpawn - 1;
     }
+	
+	/*void SpawnBosses(GameObject enemy, int spawnPointIndex)
+	{
+		
+		Instantiate (sorcerer, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+	} */
 
     /// <summary>
     /// Calls the deactivateAllEnemies from the object pooler and the spawns the enemies again.
@@ -120,6 +136,13 @@ public class EnemyCreator : MonoBehaviour
 		deaths += 1;
 	}
 	
+	public void setBossDeathState(string type, bool state)
+	{
+		if(type == "miniboss")
+			minibossDead = state;
+		else if(type == "boss")
+			bossDead = state;
+	}
 	    // Had to implement this Custom LateStart function because I was getting an error because this stuff
     // was getting called before the objectPoolers were created.
     /*IEnumerator LateStart()

@@ -80,7 +80,9 @@ public class Character : MonoBehaviour {
 		staminaTexture.Apply();
 		
 		heartManager = FindObjectOfType<HeartManager> ().GetComponent<HeartManager> ();
-		enemyCreator = GameObject.Find("EnemyManager").GetComponent<EnemyCreator>(); 
+		if(Application.loadedLevelName != "Castle"){
+			enemyCreator = GameObject.Find("EnemyManager").GetComponent<EnemyCreator>(); 
+		}
     }
 
 
@@ -273,8 +275,6 @@ public class Character : MonoBehaviour {
         {
             isActing = true;
             EventManager.TriggerEvent("PlayerDead");
-
-            
             return true;
         }
         else
@@ -319,8 +319,10 @@ public class Character : MonoBehaviour {
 			Debug.Log("Teleporting to next level");
 			if(Application.loadedLevelName == "Arena_Scene_Final")
 				SceneManager.LoadScene(2);
-			else if(Application.loadedLevelName == "Forest_Final")
+			else if(Application.loadedLevelName == "Brady_Forest_Sandbox")
 				SceneManager.LoadScene(3);
+			else if(Application.loadedLevelName == "Brady_Cave_Scene")
+				SceneManager.LoadScene(4);
 		}
     }
 	

@@ -24,8 +24,9 @@ public class PlayerDeathManager : MonoBehaviour {
 	{
 		 //this will find the Player object
 		initialPos = player.rbody.transform.position; //sets the initial position of the player when the scene starts
-
-        enemyCreator = GameObject.Find("EnemyManager").GetComponent<EnemyCreator>();
+		if(Application.loadedLevelName != "Castle"){
+			enemyCreator = GameObject.Find("EnemyManager").GetComponent<EnemyCreator>();
+		}
 	}
 
 	void Awake ()
@@ -59,7 +60,9 @@ public class PlayerDeathManager : MonoBehaviour {
 	{
 		Debug.Log("PlayerDead has been triggered");
 
-        enemyCreator.ResetAllEnemies();
+		if(Application.loadedLevelName != "Castle"){
+			enemyCreator.ResetAllEnemies();
+		}
 
         if (player.restedPos.x != 0 && player.restedPos.y != 0)
 		{
