@@ -7,8 +7,13 @@ public class EnemyHealth : MonoBehaviour
 {
 	public int startingHealth = 50;
 	public int currentHealth;
-    EnemyManager EnemyController;
+    EnemyCreator EnemyController;
+	GameObject Teleporter;
+	SpriteRenderer tpRend;
+	BoxCollider2D tpCollide;
 	private UnityAction damageListener;
+	public int maxSpawn = 7;
+	public int deaths;
 
     public float knockbackTime = 0.1f;
     public EnemyMovement movement;
@@ -26,12 +31,15 @@ public class EnemyHealth : MonoBehaviour
 	void Start()
 	{
         
-            
-
-
 		currentHealth = startingHealth;
-        EnemyController = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+        EnemyController = GameObject.Find("EnemyManager").GetComponent<EnemyCreator>();
         enemySounds = GetComponents<AudioSource>();
+		Teleporter = GameObject.Find("Exit Level Totem");
+		if(this.gameObject.name == "SorcererBoss" || this.gameObject.name == "SorcererBoss(Clone)" || Application.loadedLevelName == "Arena_Scene_Final")
+		{
+			tpRend = Teleporter.GetComponent<SpriteRenderer>();
+			tpCollide = Teleporter.GetComponent<BoxCollider2D>();
+		}
 	}
 
     /// <summary>
@@ -112,17 +120,44 @@ public class EnemyHealth : MonoBehaviour
             
     }
 
-    void Death ()
+    void Death()
 	{
-		if (isDead != true) {
+		if (isDead != true) 
+		{
 			
 			isDead = true;
             //Destroy(gameObject);
-
-            this.gameObject.SetActive(false);
+			//Debug.Log("This objects name is " + this.gameObject.name);
+			if(Application.loadedLevelName == "Arena_Scene_Final")
+			{
+				//deaths += 1;
+				//Debug.Log("Deaths" + deaths);
+				//EnemyController.
+				EnemyController.addDeath();
+				deaths = EnemyController.getDeaths();
+				if(deaths == maxSpawn)
+				{
+					Debug.Log("You win. NPC and teleporter should spawn");
+					tpRend = Teleporter.GetComponent<SpriteRenderer>();
+					tpRend.enabled = true;
+					//Teleporter.SetActive(true);
+					tpCollide.enabled = true;
+				}
+			}
+			else
+			{
+				if(this.gameObject.name == "SorcererBoss(Clone)" || this.gameObject.name == "SorcererBoss")
+				{
+					//Debug.Log("Entering IMPORTANT FUNCTION");
+					tpRend = Teleporter.GetComponent<SpriteRenderer>();
+					tpRend.enabled = true;
+					//Teleporter.SetActive(true);
+					tpCollide.enabled = true;
+				}				
+			}
+			this.gameObject.SetActive(false);
 
 			//EnemyController.UpdateDeath();
-			
 			Debug.Log ("Enemy has died");
 		}
 	}

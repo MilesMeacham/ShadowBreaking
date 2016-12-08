@@ -13,6 +13,16 @@ TagManager:
   - Pooler
   - Bonfire
   - Water
+  - Canvas
+  - Hotbar
+  - Slots
+  - Slot
+  - Panel
+  - DraggingItem
+  - Item
+  - ItemIcon
+  - EventSystem
+  - Teleporter
   layers:
   - Default
   - TransparentFX

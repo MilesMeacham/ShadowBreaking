@@ -114,6 +114,8 @@ GameObject:
   - 82: {fileID: 82000013132841956}
   - 82: {fileID: 82000013089244106}
   - 82: {fileID: 82000010682908332}
+  - 114: {fileID: 114000011490362446}
+  - 114: {fileID: 114000012581349872}
   m_Layer: 0
   m_Name: WhiteSkeleton
   m_TagString: Enemy
@@ -488,6 +490,23 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114000011490362446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013425085008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16b8ae233f8825439c34d4ec32734f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0.5
+  knockbackSpeed: 0.8
+  chaseDistance: 3
+  attackDistance: 1
+  knockback: 0
+  stunned: 0
 --- !u!114 &114000011820513256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -546,12 +565,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 30
   currentHealth: 0
+  Teleporter: {fileID: 1000012201122758, guid: 18d79a46934940f4aa16a35c48397fec, type: 2}
   knockbackTime: 0.1
   movement: {fileID: 0}
   whiteMovement: {fileID: 114000011884866284}
   sorcerer: {fileID: 0}
   healthBar: {fileID: 114000013702980470}
   hurtSounds: []
+--- !u!114 &114000012581349872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013425085008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd241e9f10be8cf4597ed034672c9685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDistance: 1
+  waitTime: 1.5
+  projectile: {fileID: 1000011590196642, guid: 27e6a1973b847844fa6d785bb5ae79d5, type: 2}
+  attackSounds:
+  - {fileID: 8300000, guid: b13fac703b7417e41b353aad76e81c6e, type: 3}
+  - {fileID: 8300000, guid: 69870e752f705ff41be1014bddf2bc29, type: 3}
+  - {fileID: 8300000, guid: ab12c77e0121d5b47b2872dfb88408a5, type: 3}
 --- !u!114 &114000013702980470
 MonoBehaviour:
   m_ObjectHideFlags: 1
