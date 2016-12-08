@@ -62,7 +62,7 @@ public class Character : MonoBehaviour {
     void Start () {
         rbody = GetComponentInChildren<Rigidbody2D>();
 		potionAmt = maxPotions;
-		potionText.text = "Health Potions: " + maxPotions.ToString();
+		potionText.text = ": " + maxPotions.ToString();
         currentHealth = maxHealth;
 		currentStamina = maxStamina;
 		maxWalkSpeed = walkspeed;
@@ -226,7 +226,7 @@ public class Character : MonoBehaviour {
 			else
 				currentHealth = maxHealth;
 			heartManager.DisplayCorrectNumberOfHearts(currentHealth);
-			potionText.text = "Health Potions: " + potionAmt.ToString();
+			potionText.text = ": " + potionAmt.ToString();
 		}
 	}
 
@@ -288,7 +288,7 @@ public class Character : MonoBehaviour {
     {
         currentHealth = maxHealth;
 		potionAmt = maxPotions;
-		potionText.text = "Health Potions: " + maxPotions.ToString();
+		potionText.text = ": " + maxPotions.ToString();
 		heartManager.DisplayCorrectNumberOfHearts(currentHealth); //reset UI hearts to full
         isActing = false;
     }
@@ -303,7 +303,7 @@ public class Character : MonoBehaviour {
 			currentHealth = maxHealth;
 			currentStamina = maxStamina;
 			potionAmt = maxPotions;
-			potionText.text = "Health Potions: " + maxPotions.ToString();
+			potionText.text = ": " + maxPotions.ToString();
 			heartManager.DisplayCorrectNumberOfHearts(currentHealth); //reset UI hearts to full
 			enemyCreator.ResetAllEnemies(); //new
 			StartCoroutine(Timer());
