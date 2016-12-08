@@ -76,6 +76,18 @@ public class EnemyHealth : MonoBehaviour
 		}
 	}
 
+    public void AddHealth (int amount)
+    {
+        currentHealth += amount;
+
+        if (currentHealth > startingHealth)
+            currentHealth = startingHealth;
+
+        // This sets the fill amount to the amount of health remaining 
+        healthRemaining = (float)currentHealth / (float)startingHealth;
+        healthBar.fillAmount = healthRemaining;
+    }
+
     IEnumerator KnockbackCO()
     {
         if (movement != null)
