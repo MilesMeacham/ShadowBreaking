@@ -364,7 +364,7 @@ Animator:
   m_GameObject: {fileID: 1000013082265336}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a81899f58c619064fa1eaa10e78fe13d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8a1e37b1c47add24cb81c4aea975e6d4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -501,6 +501,7 @@ MonoBehaviour:
   movement: {fileID: 114000010285206092}
   whiteMovement: {fileID: 0}
   sorcerer: {fileID: 0}
+  healerMovement: {fileID: 0}
   healthBar: {fileID: 114000012463107734}
   hurtSounds:
   - {fileID: 8300000, guid: ed303d81bf4fd214b83a73f33e71561c, type: 3}

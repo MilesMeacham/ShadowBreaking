@@ -19,6 +19,7 @@ public class EnemyHealth : MonoBehaviour
     public EnemyMovement movement;
     public WhiteSkeli whiteMovement;
     public Sorcerer sorcerer;
+    public HealerAI healerMovement;
 
     public Image healthBar;
     private float healthRemaining;
@@ -129,7 +130,20 @@ public class EnemyHealth : MonoBehaviour
 
             sorcerer.stunned = false;
         }
-            
+        else if (healerMovement != null)
+        {
+            healerMovement.knockback = true;
+
+            yield return new WaitForSeconds(knockbackTime);
+
+            healerMovement.knockback = false;
+            healerMovement.stunned = true;
+
+            yield return new WaitForSeconds(knockbackTime);
+
+            healerMovement.stunned = false;
+        }
+
     }
 
     void Death()

@@ -63,44 +63,45 @@ public class HealerAI : MonoBehaviour {
     // UPDATE:
     void FixedUpdate()
     {
-        //if (!knockback && !stunned)
-        //    MoveTowardsPlayer();
-        //else if (!stunned)
-        //{
-        //    transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -knockbackSpeed * Time.deltaTime);
-        //}
-        if(closestAlly == this.gameObject)
+        if (knockback)
         {
-            FindClosestAlly();
-
-            Stop();
-        }
-        
-        if (moveTowardsAlly == false && alliesNearBy.Count <= 0)
-        {
-            GameObject myEnemy = FindClosestAlly();
-
-            print(myEnemy);
-        }
-        
-        if(moveTowardsAlly == true)
-        {
-            MoveTowardsPlayer();
-        }
-        else if(!stopped)
-        {
-            Stop();
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -knockbackSpeed * Time.deltaTime);
         }
         else
         {
-            if (healing != true)
-                StartCoroutine(CastHealing());
+            if (closestAlly == this.gameObject)
+            {
+                FindClosestAlly();
+            }
 
-            Stop();
+            if (moveTowardsAlly == false && alliesNearBy.Count <= 0)
+            {
+                GameObject myEnemy = FindClosestAlly();
+
+                print(myEnemy);
+            }
+
+            if (moveTowardsAlly == true)
+            {
+                MoveTowardsPlayer();
+            }
+            else if (!stopped)
+            {
+                Stop();
+            }
+            else
+            {
+                if (healing != true)
+                    StartCoroutine(CastHealing());
+
+
+                Stop();
+            }
+
+
         }
 
-
-    } // END UPDATE()
+        } // END UPDATE()
 
     public IEnumerator CastHealing()
     {

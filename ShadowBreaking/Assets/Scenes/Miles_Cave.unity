@@ -992,6 +992,8 @@ MonoBehaviour:
   maxSpawn: 7
   remainingSpawn: 0
   deaths: 0
+  minibossDead: 0
+  bossDead: 0
 --- !u!1001 &731389501
 Prefab:
   m_ObjectHideFlags: 0
@@ -1927,11 +1929,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000012949732612, guid: fec08bc76c7517640994dfe7884d0130, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6.27
+      value: 5.018
       objectReference: {fileID: 0}
     - target: {fileID: 4000012949732612, guid: fec08bc76c7517640994dfe7884d0130, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.54
+      value: 4.91
       objectReference: {fileID: 0}
     - target: {fileID: 4000012949732612, guid: fec08bc76c7517640994dfe7884d0130, type: 2}
       propertyPath: m_LocalPosition.z

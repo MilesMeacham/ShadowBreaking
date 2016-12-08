@@ -141,7 +141,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012774269674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.27, y: 4.54, z: -0.5}
+  m_LocalPosition: {x: 5.018, y: 4.91, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -219,9 +219,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.035036087}
   serializedVersion: 2
-  m_Size: {x: 0.28, y: 0.49}
+  m_Size: {x: 0.28, y: 0.41992807}
 --- !u!82 &82000010581338930
 AudioSource:
   m_ObjectHideFlags: 1
@@ -547,6 +547,7 @@ MonoBehaviour:
   movement: {fileID: 0}
   whiteMovement: {fileID: 0}
   sorcerer: {fileID: 0}
+  healerMovement: {fileID: 114000012413104974}
   healthBar: {fileID: 114000013488409644}
   hurtSounds:
   - {fileID: 8300000, guid: ed303d81bf4fd214b83a73f33e71561c, type: 3}
@@ -564,7 +565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
-  knockbackSpeed: 0.8
+  knockbackSpeed: 5
   chaseDistance: 3
   attackDistance: 1
   knockback: 0
