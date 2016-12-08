@@ -11,7 +11,7 @@ public class WeaponCollision : MonoBehaviour {
 	
     void OnCollisionEnter2D(Collision2D collider)
     {
-        if (collider.gameObject.tag == "Enemy")
+        if (collider.gameObject.tag == "Enemy" || collider.gameObject.tag == "Healer")
         {
             EnemyHealth enemy = collider.gameObject.GetComponent<EnemyHealth>();
             Debug.Log("Enemy Hit");
