@@ -388,6 +388,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010687567856, guid: c5bbaabb72d68434e8985de8919dee90,
+        type: 2}
+      propertyPath: restedText
+      value: 
+      objectReference: {fileID: 1460877673}
+    - target: {fileID: 114000010687567856, guid: c5bbaabb72d68434e8985de8919dee90,
+        type: 2}
+      propertyPath: potionText
+      value: 
+      objectReference: {fileID: 1728678947}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5bbaabb72d68434e8985de8919dee90, type: 2}
   m_IsPrefabParent: 0
@@ -542,6 +552,12 @@ Canvas:
   m_PrefabParentObject: {fileID: 223000010844185486, guid: d15bd780b5a36944d98663805ea4ac95,
     type: 2}
   m_PrefabInternal: {fileID: 1523263838}
+--- !u!114 &1460877673 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000011339900104, guid: b029329ff78b64c29bcec059fba1351f,
+    type: 2}
+  m_PrefabInternal: {fileID: 2113045314}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &1523263838
 Prefab:
   m_ObjectHideFlags: 0
@@ -795,6 +811,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &1728678947 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000013873122598, guid: b029329ff78b64c29bcec059fba1351f,
+    type: 2}
+  m_PrefabInternal: {fileID: 2113045314}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &2027794469
 Prefab:
   m_ObjectHideFlags: 0
@@ -864,6 +886,16 @@ Prefab:
       propertyPath: victory
       value: 
       objectReference: {fileID: 2128246193}
+    - target: {fileID: 114000013396315190, guid: 49883530786d53f4dacb203762326d93,
+        type: 2}
+      propertyPath: spawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 999621770}
+    - target: {fileID: 114000013396315190, guid: 49883530786d53f4dacb203762326d93,
+        type: 2}
+      propertyPath: spawnPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 704629593}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49883530786d53f4dacb203762326d93, type: 2}
   m_IsPrefabParent: 0
@@ -907,6 +939,16 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 23000011187608216, guid: ee0347b2358657649ae7eda3305df87d,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23000013031252606, guid: ee0347b2358657649ae7eda3305df87d,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23000013704223012, guid: ee0347b2358657649ae7eda3305df87d,
         type: 2}
       propertyPath: m_Enabled
       value: 0

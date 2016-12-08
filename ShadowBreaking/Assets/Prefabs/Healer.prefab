@@ -93,10 +93,10 @@ GameObject:
   - 114: {fileID: 114000011628722660}
   - 61: {fileID: 61000011885727914}
   - 50: {fileID: 50000011814937866}
-  - 114: {fileID: 114000012413104974}
   - 82: {fileID: 82000014091841822}
   - 82: {fileID: 82000014007367012}
   - 82: {fileID: 82000010581338930}
+  - 114: {fileID: 114000012771508590}
   m_Layer: 0
   m_Name: Healer
   m_TagString: Healer
@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4c7f789771183a49b7476acb3cd36fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healerAI: {fileID: 114000012413104974}
+  healerAI: {fileID: 0}
 --- !u!114 &114000010247527402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -484,7 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f0ffc6e9f314e4092d0af721e4e315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healerAI: {fileID: 114000012413104974}
+  healerAI: {fileID: 0}
 --- !u!114 &114000010592895404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -547,33 +547,12 @@ MonoBehaviour:
   movement: {fileID: 0}
   whiteMovement: {fileID: 0}
   sorcerer: {fileID: 0}
-  healerMovement: {fileID: 114000012413104974}
+  healerMovement: {fileID: 0}
   healthBar: {fileID: 114000013488409644}
   hurtSounds:
   - {fileID: 8300000, guid: ed303d81bf4fd214b83a73f33e71561c, type: 3}
   - {fileID: 8300000, guid: 50b2b1130e34275478eabd5be602cdbd, type: 3}
   - {fileID: 8300000, guid: 3db98165b1f322e4f8deb4e7819be0a3, type: 3}
---- !u!114 &114000012413104974
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012774269674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6170efa355589ba459d95dd034939978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0.5
-  knockbackSpeed: 5
-  chaseDistance: 3
-  attackDistance: 1
-  knockback: 0
-  stunned: 0
-  moveTowardsAlly: 0
-  alliesNearBy: []
-  healingDelay: 1
-  healingAmount: 10
 --- !u!114 &114000012737167888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -595,6 +574,27 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114000012771508590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012774269674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b385395288cc594a8d201930064cd92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0.5
+  knockbackSpeed: 0.8
+  chaseDistance: 3
+  attackDistance: 1
+  knockback: 0
+  stunned: 0
+  moveTowardsAlly: 0
+  alliesNearBy: []
+  healingDelay: 1
+  healingAmount: 10
 --- !u!114 &114000013488409644
 MonoBehaviour:
   m_ObjectHideFlags: 1

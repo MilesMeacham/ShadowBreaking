@@ -174,7 +174,7 @@ public class EnemyHealth : MonoBehaviour
 					tpRend.enabled = true;
 					tpCollide.enabled = true;
 				}
-				else if(Application.loadedLevelName == "Brady_Cave_Scene" && (this.gameObject.name == "SorcererBoss(Clone)" || this.gameObject.name == "SorcererBoss"))
+				else if((Application.loadedLevelName == "Brady_Cave_Scene" || Application.loadedLevelName == "Cave_Final") && (this.gameObject.name == "SorcererBoss(Clone)" || this.gameObject.name == "SorcererBoss"))
 				{
 					EnemyController.setBossDeathState("miniboss", true);
 				}
