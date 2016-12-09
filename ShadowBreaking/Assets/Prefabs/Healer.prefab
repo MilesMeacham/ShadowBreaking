@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010201451518}
   - 58: {fileID: 58000010292926218}
-  - 114: {fileID: 114000010247527402}
+  - 114: {fileID: 114000010553934982}
   m_Layer: 0
   m_Name: ApproachRange
   m_TagString: Untagged
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013063511140}
   - 58: {fileID: 58000012365857430}
-  - 114: {fileID: 114000010032280238}
+  - 114: {fileID: 114000012824952946}
   m_Layer: 0
   m_Name: HealingRange
   m_TagString: Untagged
@@ -461,19 +461,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000010032280238
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012573787586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4c7f789771183a49b7476acb3cd36fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healerAI: {fileID: 0}
---- !u!114 &114000010247527402
+--- !u!114 &114000010553934982
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -481,10 +469,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012024082936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29f0ffc6e9f314e4092d0af721e4e315, type: 3}
+  m_Script: {fileID: 11500000, guid: 65c2ec264a0eda744b5d518e2386d40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healerAI: {fileID: 0}
+  healerAI: {fileID: 114000012771508590}
 --- !u!114 &114000010592895404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -595,6 +583,18 @@ MonoBehaviour:
   alliesNearBy: []
   healingDelay: 1
   healingAmount: 10
+--- !u!114 &114000012824952946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012573787586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dcff7ad7f1ab1240b43c0516f88f8af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healerAI: {fileID: 114000012771508590}
 --- !u!114 &114000013488409644
 MonoBehaviour:
   m_ObjectHideFlags: 1
