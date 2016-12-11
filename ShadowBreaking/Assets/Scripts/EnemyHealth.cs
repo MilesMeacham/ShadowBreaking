@@ -166,7 +166,7 @@ public class EnemyHealth : MonoBehaviour
 			}
 			else
 			{
-				if(Application.loadedLevelName == "Brady_Forest_Sandbox" && (this.gameObject.name == "SorcererBoss(Clone)" || this.gameObject.name == "SorcererBoss"))
+				if(Application.loadedLevelName == "Ultimate_Forest" && (this.gameObject.name == "SorcererBoss(Clone)" || this.gameObject.name == "SorcererBoss"))
 				{
 					//Debug.Log("Entering IMPORTANT FUNCTION");
 					EnemyController.setBossDeathState("boss", true);

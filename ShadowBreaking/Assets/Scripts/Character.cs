@@ -319,9 +319,9 @@ public class Character : MonoBehaviour {
 			Debug.Log("Teleporting to next level");
 			if(Application.loadedLevelName == "Arena_Scene_Final")
 				SceneManager.LoadScene(2);
-			else if(Application.loadedLevelName == "Brady_Forest_Sandbox")
+			else if(Application.loadedLevelName == "Ultimate_Forest")
 				SceneManager.LoadScene(3);
-			else if(Application.loadedLevelName == "Brady_Cave_Scene")
+			else if(Application.loadedLevelName == "Cave_Final")
 				SceneManager.LoadScene(4);
 		}
     }

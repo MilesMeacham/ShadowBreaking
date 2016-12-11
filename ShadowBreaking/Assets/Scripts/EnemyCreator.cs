@@ -43,7 +43,7 @@ public class EnemyCreator : MonoBehaviour
 		{
 			for(int spawnPointIndex = 0; spawnPointIndex < spawnPoints.Length; spawnPointIndex++)
 			{
-				if(Application.loadedLevelName == "Brady_Forest_Sandbox")
+				if(Application.loadedLevelName == "Ultimate_Forest")
 				{
 					if(spawnPointIndex == 28 || spawnPointIndex == 29 || spawnPointIndex == 30 || spawnPointIndex == 31)
 					{
