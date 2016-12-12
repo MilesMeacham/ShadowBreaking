@@ -22,6 +22,8 @@ TagManager:
   - Item
   - ItemIcon
   - EventSystem
+  - Teleporter
+  - Healer
   layers:
   - Default
   - TransparentFX

@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System;
 
 public class Character : MonoBehaviour {
 
-    
+    //test
     public Rigidbody2D rbody;
 	private EnemyCreator enemyCreator; //new
     private bool isRunning = false;
@@ -22,6 +23,9 @@ public class Character : MonoBehaviour {
 	private float currentStamina;
     private float maxStamina = 100f;
 	private float dodgeCost = 25f;
+	private int maxPotions = 2;
+	private int potionAmt;
+	private int potionHealAmt = 50;
 	
 	private HeartManager heartManager;
 	public float invincibilityTime = 0.5f;
@@ -30,13 +34,13 @@ public class Character : MonoBehaviour {
 	private bool dodgeOnCooldown = false;
 
     public int maxHealth = 100;    
-    public float walkspeed = 1.5f;
+    public float walkspeed = 1.8f; //was 1.5f
 	private float slowWalkSpeed;
 	private float maxWalkSpeed;
-    public float runspeed = 2;
+    public float runspeed = 2.3f; //was 2
 	private float slowRunSpeed;
 	private float maxRunSpeed;
-    public float dodgeSpeed = 2.5f;
+    public float dodgeSpeed = 2.75f; //was 2.5f
     public float knockbackSpeed = 2;
 
     public AudioClip[] footsteps;
@@ -49,6 +53,7 @@ public class Character : MonoBehaviour {
     public float knockbackTime = 0.2f;
 	
 	public Text restedText; 
+	public Text potionText;
 	
 	private Rect staminaBar;
 	private Texture2D staminaTexture;
@@ -56,6 +61,8 @@ public class Character : MonoBehaviour {
     
     void Start () {
         rbody = GetComponentInChildren<Rigidbody2D>();
+		potionAmt = maxPotions;
+		potionText.text = ": " + maxPotions.ToString();
         currentHealth = maxHealth;
 		currentStamina = maxStamina;
 		maxWalkSpeed = walkspeed;
@@ -73,7 +80,9 @@ public class Character : MonoBehaviour {
 		staminaTexture.Apply();
 		
 		heartManager = FindObjectOfType<HeartManager> ().GetComponent<HeartManager> ();
-		enemyCreator = GameObject.Find("EnemyManager").GetComponent<EnemyCreator>(); 
+		if(Application.loadedLevelName != "Castle"){
+			enemyCreator = GameObject.Find("EnemyManager").GetComponent<EnemyCreator>(); 
+		}
     }
 
 
@@ -206,6 +215,20 @@ public class Character : MonoBehaviour {
 		}
 
     }
+	
+	public void Heal()
+	{
+		if(potionAmt != 0)
+		{
+			potionAmt -= 1;
+			if(currentHealth + potionHealAmt <= maxHealth)
+				currentHealth += potionHealAmt;
+			else
+				currentHealth = maxHealth;
+			heartManager.DisplayCorrectNumberOfHearts(currentHealth);
+			potionText.text = ": " + potionAmt.ToString();
+		}
+	}
 
     IEnumerator DodgeCO()
     {
@@ -252,8 +275,6 @@ public class Character : MonoBehaviour {
         {
             isActing = true;
             EventManager.TriggerEvent("PlayerDead");
-
-            
             return true;
         }
         else
@@ -266,6 +287,8 @@ public class Character : MonoBehaviour {
     public void Resurrection()
     {
         currentHealth = maxHealth;
+		potionAmt = maxPotions;
+		potionText.text = ": " + maxPotions.ToString();
 		heartManager.DisplayCorrectNumberOfHearts(currentHealth); //reset UI hearts to full
         isActing = false;
     }
@@ -279,6 +302,8 @@ public class Character : MonoBehaviour {
             restedPos = new Vector2(transform.position.x, transform.position.y);
 			currentHealth = maxHealth;
 			currentStamina = maxStamina;
+			potionAmt = maxPotions;
+			potionText.text = ": " + maxPotions.ToString();
 			heartManager.DisplayCorrectNumberOfHearts(currentHealth); //reset UI hearts to full
 			enemyCreator.ResetAllEnemies(); //new
 			StartCoroutine(Timer());
@@ -288,6 +313,16 @@ public class Character : MonoBehaviour {
 			Debug.Log("In water.");
 			walkspeed = slowWalkSpeed;
 			runspeed = slowRunSpeed;
+		}
+		else if(other.gameObject.CompareTag("Teleporter"))
+		{
+			Debug.Log("Teleporting to next level");
+			if(Application.loadedLevelName == "Arena_Scene_Final")
+				SceneManager.LoadScene(2);
+			else if(Application.loadedLevelName == "Ultimate_Forest")
+				SceneManager.LoadScene(3);
+			else if(Application.loadedLevelName == "Cave_Final")
+				SceneManager.LoadScene(4);
 		}
     }
 	
