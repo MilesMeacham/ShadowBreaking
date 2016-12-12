@@ -20,7 +20,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010187038488}
   - 212: {fileID: 212000011804299930}
-  - 61: {fileID: 61000012211007022}
+  - 114: {fileID: 114000012079378752}
+  - 58: {fileID: 58000011253033404}
   m_Layer: 0
   m_Name: Exit Portal
   m_TagString: Untagged
@@ -35,14 +36,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012024773298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.339, y: -2.59, z: 0}
-  m_LocalScale: {x: 0.39725676, y: 0.3695155, z: 1}
+  m_LocalPosition: {x: 3, y: -3, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &61000012211007022
-BoxCollider2D:
+--- !u!58 &58000011253033404
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -50,11 +51,24 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.04113033, y: 0.044218823}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1.9653022, y: 2.1246884}
+  m_Radius: 0.39
+--- !u!114 &114000012079378752
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012024773298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd4237f6a2f41d444a62649488118b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
+  counterclockwise: 0
 --- !u!212 &212000011804299930
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -83,7 +97,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 8
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 5c720a8a600752d47a01688b4e376618, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
