@@ -176,7 +176,17 @@ public class EnemyHealth : MonoBehaviour
 				}
 				else if((Application.loadedLevelName == "Brady_Cave_Scene" || Application.loadedLevelName == "Cave_Final") && (this.gameObject.name == "SorcererBoss(Clone)" || this.gameObject.name == "SorcererBoss"))
 				{
-					EnemyController.setBossDeathState("miniboss", true);
+					//if(EnemyController.getBossDeaths() == 2)
+					//{
+						EnemyController.setBossDeathState("boss", true);
+						tpRend = Teleporter.GetComponent<SpriteRenderer>();
+						tpRend.enabled = true;
+						tpCollide.enabled = true;
+					//}
+					//else
+					//{
+						//EnemyController.updateBossDeaths();
+					//}
 				}
 			}
 			

@@ -19,6 +19,7 @@ public class EnemyCreator : MonoBehaviour
 	public int deaths = 0;
 	public bool minibossDead = false;
 	public bool bossDead = false;
+	public int bossDeaths = 0;
 
 	
     //public ObjectPoolerCreator objectPoolerCreator;  // Assign the ObjectPoolerCreator in the scene to this instead of having to do Gameobject.Find
@@ -76,7 +77,7 @@ public class EnemyCreator : MonoBehaviour
 					else if(spawnPointIndex == 28 || spawnPointIndex == 29)
 					{
 						//Debug.Log("Sorcerer should spawn");
-						if(minibossDead != true)
+						if(bossDead != true)
 						{
 							Instantiate (sorcerer, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 						}
@@ -158,6 +159,21 @@ public class EnemyCreator : MonoBehaviour
 			minibossDead = state;
 		else if(type == "boss")
 			bossDead = state;
+	}
+	
+	public void updateBossDeaths()
+	{
+		bossDeaths += 1;
+	}
+
+	public int getBossDeaths()
+	{
+		return bossDeaths;
+	}
+	
+	public void resetBossDeaths()
+	{
+		bossDeaths = 0;
 	}
 	    // Had to implement this Custom LateStart function because I was getting an error because this stuff
     // was getting called before the objectPoolers were created.

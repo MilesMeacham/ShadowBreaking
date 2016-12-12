@@ -290,6 +290,7 @@ public class Character : MonoBehaviour {
 		potionAmt = maxPotions;
 		potionText.text = ": " + maxPotions.ToString();
 		heartManager.DisplayCorrectNumberOfHearts(currentHealth); //reset UI hearts to full
+		enemyCreator.resetBossDeaths();
         isActing = false;
     }
 
@@ -306,6 +307,7 @@ public class Character : MonoBehaviour {
 			potionText.text = ": " + maxPotions.ToString();
 			heartManager.DisplayCorrectNumberOfHearts(currentHealth); //reset UI hearts to full
 			enemyCreator.ResetAllEnemies(); //new
+			enemyCreator.resetBossDeaths();
 			StartCoroutine(Timer());
         }
 		else if(other.gameObject.CompareTag("Water"))
