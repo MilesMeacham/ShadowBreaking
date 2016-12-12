@@ -87,7 +87,7 @@ public class EnemyCreator : MonoBehaviour
 						Instantiate (healer, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 					}
 					//else if for knight boss
-					else if(spawnPointIndex == 36)
+					else if(spawnPointIndex == 38)
 					{
 						if(bossDead != true)
 						{
