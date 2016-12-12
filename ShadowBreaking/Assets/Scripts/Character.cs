@@ -7,7 +7,7 @@ using System;
 
 public class Character : MonoBehaviour {
 
-    
+    //test
     public Rigidbody2D rbody;
 	private EnemyCreator enemyCreator; //new
     private bool isRunning = false;
