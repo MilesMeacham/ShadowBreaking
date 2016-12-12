@@ -166,7 +166,7 @@ public class EnemyHealth : MonoBehaviour
 			}
 			else
 			{
-				if(Application.loadedLevelName == "Brady_Forest_Sandbox" && (this.gameObject.name == "SorcererBoss(Clone)" || this.gameObject.name == "SorcererBoss"))
+				if(Application.loadedLevelName == "Ultimate_Forest" && (this.gameObject.name == "SorcererBoss(Clone)" || this.gameObject.name == "SorcererBoss"))
 				{
 					//Debug.Log("Entering IMPORTANT FUNCTION");
 					EnemyController.setBossDeathState("boss", true);
@@ -174,7 +174,7 @@ public class EnemyHealth : MonoBehaviour
 					tpRend.enabled = true;
 					tpCollide.enabled = true;
 				}
-				else if(Application.loadedLevelName == "Brady_Cave_Scene" && (this.gameObject.name == "SorcererBoss(Clone)" || this.gameObject.name == "SorcererBoss"))
+				else if((Application.loadedLevelName == "Brady_Cave_Scene" || Application.loadedLevelName == "Cave_Final") && (this.gameObject.name == "SorcererBoss(Clone)" || this.gameObject.name == "SorcererBoss"))
 				{
 					EnemyController.setBossDeathState("miniboss", true);
 				}

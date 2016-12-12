@@ -8,9 +8,11 @@ public class EnemyCreator : MonoBehaviour
     public GameObject skeleton;                // The enemy prefab to be spawned.
 	public GameObject whiteSkeleton;
 	public GameObject sorcerer;
+	public GameObject healer;
 	private EnemyHealth enemyHealth;
 	public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
 	private GameObject[] gameObjects;
+	private GameObject[] healerObjects;
 	public float spawnTime = 5f; 
 	public int maxSpawn = 7;
 	public int remainingSpawn;
@@ -41,7 +43,7 @@ public class EnemyCreator : MonoBehaviour
 		{
 			for(int spawnPointIndex = 0; spawnPointIndex < spawnPoints.Length; spawnPointIndex++)
 			{
-				if(Application.loadedLevelName == "Brady_Forest_Sandbox")
+				if(Application.loadedLevelName == "Ultimate_Forest")
 				{
 					if(spawnPointIndex == 28 || spawnPointIndex == 29 || spawnPointIndex == 30 || spawnPointIndex == 31)
 					{
@@ -56,12 +58,16 @@ public class EnemyCreator : MonoBehaviour
 							Instantiate (sorcerer, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 						}
 					}
+					else if(spawnPointIndex == 33 || spawnPointIndex == 34)
+					{
+						Instantiate (healer, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+					}
 					else
 					{
 						Instantiate (skeleton, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 					}			
 				}
-				else if(Application.loadedLevelName == "Brady_Cave_Scene")
+				else if(Application.loadedLevelName == "Brady_Cave_Scene" || Application.loadedLevelName == "Cave_Final")
 				{
 					if(spawnPointIndex == 4 || spawnPointIndex == 7 || spawnPointIndex == 11 || spawnPointIndex == 12 || spawnPointIndex == 15 || spawnPointIndex == 19 || spawnPointIndex == 24 || spawnPointIndex == 26)
 					{
@@ -74,6 +80,10 @@ public class EnemyCreator : MonoBehaviour
 						{
 							Instantiate (sorcerer, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 						}
+					}
+					else if(spawnPointIndex == 33 || spawnPointIndex == 34 || spawnPointIndex == 35)
+					{
+						Instantiate (healer, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 					}
 					//else if for knight boss
 					else
@@ -117,6 +127,12 @@ public class EnemyCreator : MonoBehaviour
 		for(var i = 0 ; i < gameObjects.Length ; i ++)
 		{
 			Destroy(gameObjects[i]);
+		}
+		
+		healerObjects = GameObject.FindGameObjectsWithTag("Healer");
+		for(var j = 0; j < healerObjects.Length; j++)
+		{
+			Destroy(healerObjects[j]);
 		}
 	 
 		Spawn();
