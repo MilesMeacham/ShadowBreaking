@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010733657524}
-  - 114: {fileID: 114000013396315190}
+  - 114: {fileID: 114000010076083972}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &114000013396315190
+--- !u!114 &114000010076083972
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -51,7 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 448daedd32b642e4cac8506f7ae22cc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1000013082265336, guid: 807e9d808d3d5f24d94215c8fb699f49, type: 2}
+  skeleton: {fileID: 1000013082265336, guid: 807e9d808d3d5f24d94215c8fb699f49, type: 2}
+  whiteSkeleton: {fileID: 1000013425085008, guid: 8e29eb0558da3344caa65bbf00a70513,
+    type: 2}
+  sorcerer: {fileID: 1000011336562678, guid: c326f7a799838ca44b16524f7f579fcf, type: 2}
+  healer: {fileID: 1000012774269674, guid: fec08bc76c7517640994dfe7884d0130, type: 2}
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -82,5 +86,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  objectPoolerCreator: {fileID: 0}
-  skeleton: 1
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  spawnTime: 5
+  maxSpawn: 7
+  remainingSpawn: 0
+  deaths: 0
+  minibossDead: 0
+  bossDead: 0
