@@ -10,7 +10,7 @@ public class EnemyHealth : MonoBehaviour
     EnemyCreator EnemyController;
 	GameObject Teleporter;
 	SpriteRenderer tpRend;
-	BoxCollider2D tpCollide;
+	CircleCollider2D tpCollide;
 	private UnityAction damageListener;
 	public int maxSpawn = 7;
 	public int deaths;
@@ -39,7 +39,7 @@ public class EnemyHealth : MonoBehaviour
 		if(this.gameObject.name == "SorcererBoss" || this.gameObject.name == "SorcererBoss(Clone)" || Application.loadedLevelName == "Arena_Scene_Final")
 		{
 			tpRend = Teleporter.GetComponent<SpriteRenderer>();
-			tpCollide = Teleporter.GetComponent<BoxCollider2D>();
+			tpCollide = Teleporter.GetComponent<CircleCollider2D>();
 		}
 	}
 

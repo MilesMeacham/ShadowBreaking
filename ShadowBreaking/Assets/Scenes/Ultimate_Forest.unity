@@ -1525,6 +1525,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012024773298, guid: 911f4fd71cdc41141b8b2e0fdefd82f9, type: 2}
+      propertyPath: m_TagString
+      value: Teleporter
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 911f4fd71cdc41141b8b2e0fdefd82f9, type: 2}
   m_IsPrefabParent: 0
