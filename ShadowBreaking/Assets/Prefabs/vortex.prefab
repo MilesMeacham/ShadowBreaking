@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000011591912476}
   - 212: {fileID: 212000010384055290}
   - 114: {fileID: 114000010675150440}
-  - 54: {fileID: 54000010598377046}
+  - 54: {fileID: 54000011354608978}
   m_Layer: 0
   m_Name: vortex
   m_TagString: Untagged
@@ -42,7 +42,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!54 &54000010598377046
+--- !u!54 &54000011354608978
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

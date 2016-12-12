@@ -6,10 +6,16 @@ using System.Collections;
 /// Used to create a simple quest system.
 /// </summary>
 public class QuestDialogue : MonoBehaviour {
-    public Texture2D window;
     public Texture2D mouseIcon;
-    private Vector2 pos = new Vector2(400, 600);
-    private Vector2 size = new Vector2(800, 200);
+    private int iconWidth = 32;
+    private int iconHeight = 16;
+
+    public Texture2D window;
+    public int windowMargin = 10;
+    private Vector2 windowPosition = new Vector2(0, 0);
+    public Vector2 windowSize = new Vector2(800, 250);
+    public float verticalOffset = 200.0f;
+
     public string[] questions;
     public string[] answers;
     private bool PlayerInTalkingRange = false;
@@ -19,7 +25,6 @@ public class QuestDialogue : MonoBehaviour {
     private bool questRewardGiven = false;
     public int RewardAmount;
 
-    private int margin = 10;
     public GUIStyle textGUI = new GUIStyle();
     public GUIStyle buttonGUI = new GUIStyle();
 
@@ -29,6 +34,8 @@ public class QuestDialogue : MonoBehaviour {
     // START:
     void Start () {
         //Instantiate(item, new Vector3(itemPOS.x, itemPOS.y, 0), Quaternion.identity);
+        windowPosition.x = (Screen.width / 2) - (windowSize.x / 2);
+        windowPosition.y = (Screen.height / 2) - (windowSize.y / 2) + verticalOffset;
     }
 
 
@@ -43,15 +50,17 @@ public class QuestDialogue : MonoBehaviour {
 
     // OnGUI:
     void OnGUI() {
+        // DISPLAY MOUSE ICON:
         if (PlayerInTalkingRange && !displayDialogue) {
-            GUI.DrawTexture(new Rect((Screen.width / 2) + 32, (Screen.height / 2) - 64, 16, 32), mouseIcon, ScaleMode.StretchToFill, true, 1);
+            GUI.DrawTexture(new Rect((Screen.width / 2) - 8, (Screen.height / 2) - 70, iconHeight, iconWidth), mouseIcon, ScaleMode.StretchToFill, true, 1);
         }
 
-        GUILayout.BeginArea(new Rect(pos.x, pos.y, size.x, size.y));
+        // DISPLAY NPC DIALOGUE WINDOW:
+        GUILayout.BeginArea(new Rect(windowPosition.x, windowPosition.y, windowSize.x, windowSize.y));
         if (displayDialogue) {
-            GUI.DrawTexture(new Rect(0, 0, size.x, size.y), window, ScaleMode.StretchToFill, true, 1);
+            GUI.DrawTexture(new Rect(0, 0, windowSize.x, windowSize.y), window, ScaleMode.StretchToFill, true, 1);
         }        
-            GUILayout.BeginArea(new Rect(margin, margin, size.x - (margin * 2), size.y - (margin * 2)));
+            GUILayout.BeginArea(new Rect(windowMargin, windowMargin, windowSize.x - (windowMargin * 2), windowSize.y - (windowMargin * 2)));
                 if (displayDialogue && !questActive && !questComplete) {
                     GUILayout.Label(questions[0], textGUI); // I have a quest for you.
                     GUILayout.Label(questions[1], textGUI); // Will you do the quest?
