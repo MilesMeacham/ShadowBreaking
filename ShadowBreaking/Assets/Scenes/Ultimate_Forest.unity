@@ -1114,6 +1114,18 @@ Prefab:
       propertyPath: potionText
       value: 
       objectReference: {fileID: 2113045315}
+    - target: {fileID: 1000012070386116, guid: c5bbaabb72d68434e8985de8919dee90, type: 2}
+      propertyPath: m_TagString
+      value: Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012070386116, guid: c5bbaabb72d68434e8985de8919dee90, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012070386116, guid: c5bbaabb72d68434e8985de8919dee90, type: 2}
+      propertyPath: m_Name
+      value: Weapon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5bbaabb72d68434e8985de8919dee90, type: 2}
   m_IsPrefabParent: 0
@@ -1408,6 +1420,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 684358600}
   m_RootOrder: 4
+--- !u!1 &1105157245 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012070386116, guid: c5bbaabb72d68434e8985de8919dee90,
+    type: 2}
+  m_PrefabInternal: {fileID: 731389501}
+--- !u!61 &1105157248
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1105157245}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
 --- !u!1 &1192761246
 GameObject:
   m_ObjectHideFlags: 0
