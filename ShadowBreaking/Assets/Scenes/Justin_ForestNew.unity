@@ -417,31 +417,6 @@ Transform:
   m_Father: {fileID: 684358600}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &192207919 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1781444529866758, guid: dd287e62f9429ba4aa662138a9f18cb1,
-    type: 2}
-  m_PrefabInternal: {fileID: 1856786060}
---- !u!114 &192207926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 192207919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a69a572d8b838ba4b9ff56371568f5d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0.5
-  knockbackSpeed: 0.8
-  chaseDistance: 3
-  attackDistance: 0.5
-  waitTime: 4.5
-  fireTime: 1.5
-  knockback: 0
-  stunned: 0
-  fireball: {fileID: 0}
 --- !u!1001 &214339007
 Prefab:
   m_ObjectHideFlags: 0
@@ -1109,6 +1084,8 @@ MonoBehaviour:
   whiteSkeleton: {fileID: 1000013425085008, guid: 8e29eb0558da3344caa65bbf00a70513,
     type: 2}
   sorcerer: {fileID: 1000011336562678, guid: c326f7a799838ca44b16524f7f579fcf, type: 2}
+  healer: {fileID: 0}
+  knight: {fileID: 0}
   spawnPoints:
   - {fileID: 999621770}
   - {fileID: 704629593}
@@ -1143,6 +1120,12 @@ MonoBehaviour:
   - {fileID: 272725633}
   - {fileID: 1516291762}
   - {fileID: 25262152}
+  spawnTime: 5
+  maxSpawn: 7
+  remainingSpawn: 0
+  deaths: 0
+  minibossDead: 0
+  bossDead: 0
 --- !u!1001 &731389501
 Prefab:
   m_ObjectHideFlags: 0
