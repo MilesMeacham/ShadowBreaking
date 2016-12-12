@@ -178,6 +178,14 @@ public class EnemyHealth : MonoBehaviour
 				{
 					EnemyController.setBossDeathState("miniboss", true);
 				}
+				else if(Application.loadedLevelName == "Cave_Final" && (this.gameObject.name == "Knight"))
+				{
+					//Debug.Log("Entering IMPORTANT FUNCTION");
+					EnemyController.setBossDeathState("boss", true);
+					tpRend = Teleporter.GetComponent<SpriteRenderer>();
+					tpRend.enabled = true;
+					tpCollide.enabled = true;
+				}	
 			}
 			
 			this.gameObject.SetActive(false);

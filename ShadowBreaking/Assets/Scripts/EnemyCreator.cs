@@ -9,6 +9,7 @@ public class EnemyCreator : MonoBehaviour
 	public GameObject whiteSkeleton;
 	public GameObject sorcerer;
 	public GameObject healer;
+	public GameObject knight;
 	private EnemyHealth enemyHealth;
 	public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
 	private GameObject[] gameObjects;
@@ -86,6 +87,13 @@ public class EnemyCreator : MonoBehaviour
 						Instantiate (healer, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 					}
 					//else if for knight boss
+					else if(spawnPointIndex == 36)
+					{
+						if(bossDead != true)
+						{
+							Instantiate (knight, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+						}
+					}
 					else
 					{
 						Instantiate (skeleton, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
