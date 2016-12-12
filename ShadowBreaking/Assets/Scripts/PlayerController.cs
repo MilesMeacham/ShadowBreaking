@@ -97,7 +97,6 @@ public class PlayerController : MonoBehaviour {
 
         //Set Walking bool true
         currentChar.Move(movement_vector);
-
     }
 	
 	
