@@ -290,6 +290,7 @@ public class Character : MonoBehaviour {
 		potionAmt = maxPotions;
 		potionText.text = ": " + maxPotions.ToString();
 		heartManager.DisplayCorrectNumberOfHearts(currentHealth); //reset UI hearts to full
+		enemyCreator.resetBossDeaths();
         isActing = false;
     }
 
@@ -306,6 +307,7 @@ public class Character : MonoBehaviour {
 			potionText.text = ": " + maxPotions.ToString();
 			heartManager.DisplayCorrectNumberOfHearts(currentHealth); //reset UI hearts to full
 			enemyCreator.ResetAllEnemies(); //new
+			enemyCreator.resetBossDeaths();
 			StartCoroutine(Timer());
         }
 		else if(other.gameObject.CompareTag("Water"))
@@ -317,6 +319,18 @@ public class Character : MonoBehaviour {
 		else if(other.gameObject.CompareTag("Teleporter"))
 		{
 			Debug.Log("Teleporting to next level");
+			
+			//UNCOMMENT THIS WHEN ABYSS IS WORKING
+			/*if (Application.loadedLevelName == "Abyss")
+				SceneManager.LoadScene(2);
+			else if(Application.loadedLevelName == "Arena_Scene_Final")
+				SceneManager.LoadScene(3);
+			else if(Application.loadedLevelName == "Ultimate_Forest")
+				SceneManager.LoadScene(4);
+			else if(Application.loadedLevelName == "Cave_Final")
+				SceneManager.LoadScene(5); */
+			
+			//COMMENT OUT THE FOLLOWING WHEN ABYSS IS WORKING
 			if(Application.loadedLevelName == "Arena_Scene_Final")
 				SceneManager.LoadScene(2);
 			else if(Application.loadedLevelName == "Ultimate_Forest")
