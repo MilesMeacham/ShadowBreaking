@@ -121,7 +121,9 @@ public class Character : MonoBehaviour {
         else if(isDodging == true && knockback == false)
         {
             Debug.Log("isDodging");
+			anim.SetTrigger ("Roll");
             rbody.MovePosition(rbody.position + lastDirection * Time.deltaTime * dodgeSpeed);
+
         }
         else 
         {
