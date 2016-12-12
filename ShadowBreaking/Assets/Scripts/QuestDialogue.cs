@@ -52,7 +52,7 @@ public class QuestDialogue : MonoBehaviour {
     void OnGUI() {
         // DISPLAY MOUSE ICON:
         if (PlayerInTalkingRange && !displayDialogue) {
-            GUI.DrawTexture(new Rect((Screen.width / 2) - 8, (Screen.height / 2) - 70, iconHeight, iconWidth), mouseIcon, ScaleMode.StretchToFill, true, 1);
+            GUI.DrawTexture(new Rect((Screen.width / 2) - 8, (Screen.height / 2) - 85, iconHeight, iconWidth), mouseIcon, ScaleMode.StretchToFill, true, 1);
         }
 
         // DISPLAY NPC DIALOGUE WINDOW:
