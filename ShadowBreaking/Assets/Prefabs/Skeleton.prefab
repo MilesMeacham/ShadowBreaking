@@ -364,7 +364,11 @@ Animator:
   m_GameObject: {fileID: 1000013082265336}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
+<<<<<<< HEAD
   m_Controller: {fileID: 9100000, guid: 608530234b96d044897cf9017d5f3947, type: 2}
+=======
+  m_Controller: {fileID: 9100000, guid: d822143db05425743a4b47e06cad4030, type: 2}
+>>>>>>> develop
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -495,10 +499,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 50
   currentHealth: 0
+  maxSpawn: 7
+  deaths: 0
   knockbackTime: 0.1
   movement: {fileID: 114000010285206092}
   whiteMovement: {fileID: 0}
   sorcerer: {fileID: 0}
+  healerMovement: {fileID: 0}
   healthBar: {fileID: 114000012463107734}
   hurtSounds:
   - {fileID: 8300000, guid: ed303d81bf4fd214b83a73f33e71561c, type: 3}
@@ -548,7 +555,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300008, guid: 7373825b2694c4543b0dcb69bcf9110c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

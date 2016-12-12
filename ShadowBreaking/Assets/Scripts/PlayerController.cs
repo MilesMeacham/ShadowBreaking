@@ -73,6 +73,11 @@ public class PlayerController : MonoBehaviour {
 			currentChar.ToggleInvuln();
 		}
 		
+		if(Input.GetKeyDown(KeyCode.F))
+		{
+			currentChar.Heal();
+		}
+		
 		if(Input.GetKeyDown(KeyCode.R))
 		{
 			SceneManager.LoadScene (Application.loadedLevelName);
