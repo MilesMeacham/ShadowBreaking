@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013848932512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.531, y: -4.69, z: 0}
+  m_LocalPosition: {x: 5.159644, y: -3.5152533, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -115,9 +115,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.55}
+  m_Offset: {x: 0, y: -0.17}
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.55}
+  m_Size: {x: 0.6, y: 0.6}
 --- !u!114 &114000010603803482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,20 +129,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cffb273ebdc08d409de6c4ad0207973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  window: {fileID: 2800000, guid: 2743ac9ef72176a40bbe8a63a411e827, type: 3}
   mouseIcon: {fileID: 2800000, guid: b5dbf22c3f4d5b941b874ba2cc7f593e, type: 3}
+  window: {fileID: 2800000, guid: 2743ac9ef72176a40bbe8a63a411e827, type: 3}
+  windowMargin: 10
+  windowSize: {x: 800, y: 250}
+  verticalOffset: 200
   questions:
-  - 'I have a quest for you. [Quest: collect banana.]'
-  - Will you do the quest?
-  - 'Do the quest! [Quest: collect banana.]'
-  - You did the quest. Here is your reward.
+  - 'The Shadow Breaking is an ageless conflict through which countless worlds been
+    both created and destroyed. Over endless millennia, the land has been graced by
+    the presence of various warriors called Breakers of the Shadow, brave men and
+    women who are charged with a perilous but noble task: defeat the Dark Lords who
+    have come to power before them, and in doing so ascend to the position of Dark
+    Lord themselves, thereby seizing ultimate power and wielding it over a New Dominion
+    of their own creation. Many are they who have set forth on this task, though few
+    have ever succeeded. If you so desire, you may join their ranks and become a Breaker
+    as well. But be warned! Once you accept this position, your soul is bound to it
+    for all eternity. No punishment can match that of a defeated Breaker, for those
+    unfortunate souls who fail in their quest to slay the current reigning Dark Lord
+    are eternally condemned to a wretched existence of eternal life, stripped of their
+    flesh and cursed to roam to the land as ghastly phantoms forever.'
+  - Some see Shadow Breaking as the highest honor, while other see it as a curse with
+    endless misery and torment. What say you? Will you bind your soul in this ancient
+    oath, risking everything to become a Breaker so that you might have a chance at
+    ultimate power?
+  - Excellent... Before you lies a perilous journey fraught with untold dangers and
+    nightmarish fiends. But first, you must prove your worth in combat by entering
+    the Chamber of Restless Souls and slaying all those unholy entities who dwell
+    within it. Only once you have defeated them all will you have proven that you
+    are worthy to be called a Breaker of the Shadow. Now go! And don't come back til
+    you've killed them all...
+  - Excellent! You have proven your worthiness to be called a Breaker. Now the time
+    has come for you to embark on your bloody quest to slay the Dark Lord claim your
+    place of unholy glory in his stead. But take heed! The condemned souls of defeated
+    Breakers still roam the cursed land, and they will stop at nothing to ensure your
+    quest ends in failure, too...
   - I have nothing more to say.
   answers:
-  - Accept.
-  - Decline.
-  - Okay.
-  - Thanks.
-  - Goodbye.
+  - Yes. My soul lusts for power and dominion. Make me a Breaker now!
+  - You know what? This whole thing actually sounds rather risky to me. I'm just gonna
+    back out now while I still can. Is that a taco stand over there...?
+  - Of course. By my hand, this bloody task will soon be completed...
+  - I care not. Such worthless creatures are as nothing before me. All who stand in
+    my way shall perish!
+  - Farewell.
   questComplete: 0
   RewardAmount: 500
   textGUI:
@@ -199,7 +228,7 @@ MonoBehaviour:
       m_Right: 0
       m_Top: 0
       m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: 17d47c4c4543f7043bbbf72b06748e96, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 0
     m_FontStyle: 0
     m_Alignment: 0
@@ -266,7 +295,7 @@ MonoBehaviour:
       m_Right: 0
       m_Top: 0
       m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: 17d47c4c4543f7043bbbf72b06748e96, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 0
     m_FontStyle: 0
     m_Alignment: 0
@@ -307,7 +336,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300036, guid: 9b9847a139286b9408481ef988a98904, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
