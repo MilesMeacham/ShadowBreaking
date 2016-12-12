@@ -1083,6 +1083,7 @@ MonoBehaviour:
   whiteSkeleton: {fileID: 1000013425085008, guid: 8e29eb0558da3344caa65bbf00a70513,
     type: 2}
   sorcerer: {fileID: 1000011336562678, guid: c326f7a799838ca44b16524f7f579fcf, type: 2}
+  healer: {fileID: 0}
   spawnPoints:
   - {fileID: 999621770}
   - {fileID: 704629593}
@@ -1117,6 +1118,12 @@ MonoBehaviour:
   - {fileID: 272725633}
   - {fileID: 1516291762}
   - {fileID: 25262152}
+  spawnTime: 5
+  maxSpawn: 7
+  remainingSpawn: 0
+  deaths: 0
+  minibossDead: 0
+  bossDead: 0
 --- !u!1001 &731389501
 Prefab:
   m_ObjectHideFlags: 0
@@ -1161,6 +1168,11 @@ Prefab:
       propertyPath: restedText
       value: 
       objectReference: {fileID: 180957492}
+    - target: {fileID: 114000010687567856, guid: c5bbaabb72d68434e8985de8919dee90,
+        type: 2}
+      propertyPath: potionText
+      value: 
+      objectReference: {fileID: 2113045315}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5bbaabb72d68434e8985de8919dee90, type: 2}
   m_IsPrefabParent: 0
@@ -2231,6 +2243,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b029329ff78b64c29bcec059fba1351f, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2113045315 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000013873122598, guid: b029329ff78b64c29bcec059fba1351f,
+    type: 2}
+  m_PrefabInternal: {fileID: 2113045314}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!114 &2128246193 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000011579827844, guid: d15bd780b5a36944d98663805ea4ac95,
