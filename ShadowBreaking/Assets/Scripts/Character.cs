@@ -323,22 +323,22 @@ public class Character : MonoBehaviour {
 			Debug.Log("Teleporting to next level");
 			
 			//UNCOMMENT THIS WHEN ABYSS IS WORKING
-			/*if (Application.loadedLevelName == "Abyss")
+			if (Application.loadedLevelName == "Abyss")
 				SceneManager.LoadScene(2);
 			else if(Application.loadedLevelName == "Arena_Scene_Final")
 				SceneManager.LoadScene(3);
 			else if(Application.loadedLevelName == "Ultimate_Forest")
 				SceneManager.LoadScene(4);
 			else if(Application.loadedLevelName == "Cave_Final")
-				SceneManager.LoadScene(5); */
+ 				SceneManager.LoadScene(5);
 			
 			//COMMENT OUT THE FOLLOWING WHEN ABYSS IS WORKING
-			if(Application.loadedLevelName == "Arena_Scene_Final")
+			/*if(Application.loadedLevelName == "Arena_Scene_Final")
 				SceneManager.LoadScene(2);
 			else if(Application.loadedLevelName == "Ultimate_Forest")
 				SceneManager.LoadScene(3);
 			else if(Application.loadedLevelName == "Cave_Final")
-				SceneManager.LoadScene(4);
+				SceneManager.LoadScene(4);*/
 		}
     }
 	

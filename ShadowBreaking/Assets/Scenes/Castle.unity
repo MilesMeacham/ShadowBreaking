@@ -654,6 +654,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000010603803482, guid: 69334bd3c10deef4fa209b265db49200,
+        type: 2}
+      propertyPath: questions.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4000013903997418, guid: 69334bd3c10deef4fa209b265db49200, type: 2}
       propertyPath: m_LocalPosition.x
       value: 3.913794
@@ -685,6 +690,57 @@ Prefab:
     - target: {fileID: 4000013903997418, guid: 69334bd3c10deef4fa209b265db49200, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010603803482, guid: 69334bd3c10deef4fa209b265db49200,
+        type: 2}
+      propertyPath: questions.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010603803482, guid: 69334bd3c10deef4fa209b265db49200,
+        type: 2}
+      propertyPath: questions.Array.data[0]
+      value: Congratulations! You have vanquished the lords of the land. You may now
+        take up your place as lord and ruler, breaker of shadow
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010603803482, guid: 69334bd3c10deef4fa209b265db49200,
+        type: 2}
+      propertyPath: questions.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010603803482, guid: 69334bd3c10deef4fa209b265db49200,
+        type: 2}
+      propertyPath: questions.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010603803482, guid: 69334bd3c10deef4fa209b265db49200,
+        type: 2}
+      propertyPath: questions.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010603803482, guid: 69334bd3c10deef4fa209b265db49200,
+        type: 2}
+      propertyPath: answers.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010603803482, guid: 69334bd3c10deef4fa209b265db49200,
+        type: 2}
+      propertyPath: answers.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010603803482, guid: 69334bd3c10deef4fa209b265db49200,
+        type: 2}
+      propertyPath: answers.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010603803482, guid: 69334bd3c10deef4fa209b265db49200,
+        type: 2}
+      propertyPath: answers.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010603803482, guid: 69334bd3c10deef4fa209b265db49200,
+        type: 2}
+      propertyPath: answers.Array.data[4]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69334bd3c10deef4fa209b265db49200, type: 2}

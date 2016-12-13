@@ -24,7 +24,7 @@ GameObject:
   - 58: {fileID: 58000011253033404}
   m_Layer: 0
   m_Name: Exit Portal
-  m_TagString: Untagged
+  m_TagString: Teleporter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
